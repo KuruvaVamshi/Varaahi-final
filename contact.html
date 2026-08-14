@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIP Contact — Vaaraahi Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">V</div>
+        <div class="logo-text">
+          <span class="logo-title">Vaaraahi</span>
+          <span class="logo-sub">Group of Estates</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="about.html" class="nav-link">
+          The Legacy
+          <span class="nav-link-subtext">Our Story</span>
+        </a>
+        <a href="portfolio.html" class="nav-link">
+          Masterpieces
+          <span class="nav-link-subtext">Portfolio</span>
+        </a>
+        <a href="engineering.html" class="nav-link">
+          The Standard
+          <span class="nav-link-subtext">Quality</span>
+        </a>
+        <a href="sustainability.html" class="nav-link">
+          Sustainability
+          <span class="nav-link-subtext">Green Building</span>
+        </a>
+        <a href="transparency.html" class="nav-link">
+          Transparency
+          <span class="nav-link-subtext">Legal & RERA</span>
+        </a>
+      </nav>
+
+      <div class="nav-right-actions">
+        <a href="contact.html" class="btn-cta">👑 Request VIP Invite</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <span class="eyebrow">Join The Elite</span>
+    <h1 class="page-header-title">Request a VIP Consultation</h1>
+    <p class="section-desc" style="max-width: 700px; margin: 0 auto;">Speak directly with our senior directors for exclusive site visits, remote NRI tours, and pre-launch offers.</p>
+  </div>
+
+  <!-- SECTION: CONTACT GRID -->
+  <section class="section-padding">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+      
+      <!-- Contact Info -->
+      <div>
+        <h2 style="font-family: var(--font-heading); font-size: 2rem; color: var(--gold-primary); margin-bottom: 30px;">Corporate Offices</h2>
+        
+        <div style="margin-bottom: 30px;">
+          <h4 style="color: var(--text-light); font-size: 1.1rem; margin-bottom: 5px;">Headquarters - Hyderabad</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Vaaraahi Towers, Road No. 36, Jubilee Hills,<br>Hyderabad, Telangana 500033</p>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+          <h4 style="color: var(--text-light); font-size: 1.1rem; margin-bottom: 5px;">Regional Office - Proddatur</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Vaaraahi Estate Hub, Main Road,<br>Proddatur, Andhra Pradesh 516360</p>
+        </div>
+
+        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--gold-primary); margin-bottom: 15px;">Direct Lines</h3>
+        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 5px;">📞 VIP Sales: <strong style="color: #FFF;">+91 90000 00000</strong></p>
+        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 5px;">✉️ Email: <strong style="color: #FFF;">invest@vaaraahiestates.com</strong></p>
+        <p style="color: var(--text-muted); font-size: 1rem;">📱 NRI WhatsApp: <strong style="color: #FFF;">+91 98888 00000</strong></p>
+      </div>
+
+      <!-- Contact Form -->
+      <div style="background: var(--bg-card); padding: 40px; border-radius: var(--radius); border: 1px solid var(--gold-primary);">
+        <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold-primary); margin-bottom: 20px;">Schedule Your VIP Experience</h3>
+        <form onsubmit="event.preventDefault(); alert('Request sent to VIP Sales team!');">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" required placeholder="Enter your name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number / WhatsApp</label>
+            <input type="tel" class="form-control" required placeholder="+91 98765 43210" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Consultation Type</label>
+            <select class="form-control">
+              <option>Chauffeur-Driven Site Visit (Local)</option>
+              <option>Virtual Video Tour (NRI/Outstation)</option>
+              <option>In-Office Director Consultation</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Project of Interest</label>
+            <select class="form-control">
+              <option>Vaaraahi Grandeur</option>
+              <option>Vaaraahi Lotus Grand</option>
+              <option>Vaaraahi Elite Residency</option>
+              <option>Vaaraahi Meadows</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-cta" style="width: 100%; justify-content: center; margin-top: 10px;">Request VIP Service ➔</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: DEDICATED NRI DESK -->
+  <section class="section-padding" style="background: linear-gradient(135deg, var(--bg-navy-dark), #03070E); border-top: 1px solid var(--border-dark);">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <span class="eyebrow" style="color: var(--gold-primary);">Global Trust</span>
+      <h2 style="font-family: var(--font-heading); font-size: 2.5rem; color: #FFF; margin-bottom: 20px;">The Dedicated NRI Desk</h2>
+      <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px;">Over 40% of our luxury properties are owned by Non-Resident Indians across the US, UK, and Middle East. We offer a frictionless, remote-first investment experience.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: rgba(255, 223, 153, 0.05); border: 1px solid rgba(255, 223, 153, 0.2); padding: 30px; border-radius: var(--radius); text-align: left;">
+          <h4 style="color: var(--gold-primary); margin-bottom: 10px; font-family: var(--font-heading);">🕒 24/7 Timezone Support</h4>
+          <p style="font-size: 0.95rem; color: var(--text-light);">Dedicated relationship managers available at your local time.</p>
+        </div>
+        <div style="background: rgba(255, 223, 153, 0.05); border: 1px solid rgba(255, 223, 153, 0.2); padding: 30px; border-radius: var(--radius); text-align: left;">
+          <h4 style="color: var(--gold-primary); margin-bottom: 10px; font-family: var(--font-heading);">📹 Live Drone Tours</h4>
+          <p style="font-size: 0.95rem; color: var(--text-light);">Schedule a live, private video walk-through of the construction site.</p>
+        </div>
+        <div style="background: rgba(255, 223, 153, 0.05); border: 1px solid rgba(255, 223, 153, 0.2); padding: 30px; border-radius: var(--radius); text-align: left;">
+          <h4 style="color: var(--gold-primary); margin-bottom: 10px; font-family: var(--font-heading);">⚖️ Remote Vetting</h4>
+          <p style="font-size: 0.95rem; color: var(--text-light);">Full legal digital dossiers provided for your lawyers abroad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+      <div class="logo-mark" style="width: 40px; height: 40px; font-size: 1.2rem;">V</div>
+      <span class="logo-title" style="font-size: 1.2rem;">Vaaraahi</span>
+    </div>
+    <p>Operating in: Hyderabad | Proddatur | Jammalamadugu | Rayachoty</p>
+    <p style="margin-top: 15px; font-size: 0.75rem;">© 2026 Vaaraahi Group of Estates. All rights reserved. 100% RERA Compliant.</p>
+  </footer>
+
+  <!-- VIP WHATSAPP CONCIERGE -->
+  <a href="https://wa.me/919000000000" class="whatsapp-float" target="_blank">
+    <span class="whatsapp-icon">💬</span>
+    <span>VIP Concierge</span>
+  </a>
+
+</body>
+</html>
