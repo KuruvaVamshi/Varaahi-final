@@ -1,328 +1,730 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vaaraahi Group — Premium Real Estate Developers</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .hero-container {
-      position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center;
-      padding: 90px 5% 70px;
-      background: radial-gradient(ellipse at center, rgba(17, 31, 51, 0.7) 0%, rgba(7, 15, 27, 0.98) 100%),
-                  url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      border-bottom: 1px solid var(--border-dark);
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 1100px; width: 100%; }
-    .hero-title { font-family: var(--font-heading); font-size: 3.8rem; font-weight: 700; color: #FFFFFF; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 4px 20px rgba(0,0,0,0.7); }
-    .hero-subtitle { font-size: 1.25rem; color: rgba(255, 255, 255, 0.88); font-weight: 300; margin-bottom: 40px; max-width: 780px; margin-left: auto; margin-right: auto; }
-    .hero-stats-row { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
-    .hero-stat-item { background: rgba(3, 7, 14, 0.6); backdrop-filter: blur(10px); border: 1px solid var(--border-dark); padding: 15px 30px; border-radius: 8px; }
-    .h-stat-num { font-family: var(--font-heading); font-size: 1.8rem; color: var(--gold-primary); font-weight: 700; }
-    .h-stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaaraahi Group — Building Dreams, Creating Landmarks</title>
+    <meta name="description" content="Premium residential developments across Telangana & Andhra Pradesh — luxury villas, gated communities, and apartments by Vaaraahi Group.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-barba="wrapper">
 
-  <!-- NAVIGATION HEADER -->
-  <header>
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <div class="logo-mark">V</div>
-        <div class="logo-text">
-          <span class="logo-title">Vaaraahi</span>
-          <span class="logo-sub">Builders & Developers</span>
+    <!-- TRANSITION OVERLAY -->
+    <div class="transition-wipe"></div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="main-nav" id="navbar">
+        <a href="index.html" class="logo-container">
+            <span class="logo-title">VAARAAHI</span>
+            <span class="logo-tagline">Group of Estates</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="portfolio.html">Projects</a></li>
+            <li><a href="engineering.html">Quality</a></li>
+            <li><a href="transparency.html">Approvals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <a href="contact.html" class="nav-cta">Enquire Now</a>
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-      </a>
+    </nav>
 
-      <nav>
-        <a href="about.html" class="nav-link">
-          About Us
-          <span class="nav-link-subtext">Who We Are</span>
-        </a>
-        <a href="portfolio.html" class="nav-link">
-          Projects
-          <span class="nav-link-subtext">Plots & Villas</span>
-        </a>
-        <a href="engineering.html" class="nav-link">
-          Quality
-          <span class="nav-link-subtext">Construction</span>
-        </a>
-        <a href="sustainability.html" class="nav-link">
-          Sustainability
-          <span class="nav-link-subtext">Eco-Friendly</span>
-        </a>
-        <a href="transparency.html" class="nav-link">
-          Approvals
-          <span class="nav-link-subtext">Legal & RERA</span>
-        </a>
-      </nav>
+    <!-- BARBA CONTAINER -->
+    <main data-barba="container" data-barba-namespace="home">
 
-      <div class="nav-right-actions">
-        <a href="contact.html" class="btn-cta">📞 Book Site Visit</a>
-      </div>
-    </div>
-  </header>
+        <!-- ================= 1. HERO SECTION ================= -->
+        <section class="hero-greensiri">
+            <div class="hero-bg-wrapper">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Vaaraahi Luxury Estates" class="hero-bg-img">
+                <div class="hero-overlay"></div>
+            </div>
 
-  <!-- HERO SECTION -->
-  <section class="hero-container">
-    <div class="hero-content">
-      <div class="eyebrow" style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--gold-primary); font-style: italic; margin-bottom: 14px;">Trusted Real Estate Developers</div>
-      <h1 class="hero-title">Premium Open Plots & Luxury Villas.</h1>
-      <p class="hero-subtitle">Discover your dream property with Vaaraahi Group. We offer RERA-approved plots and independent houses across Telangana & Andhra Pradesh with 100% clear titles.</p>
-      
-      <div class="hero-stats-row">
-        <div class="hero-stat-item">
-          <div class="h-stat-num">100%</div>
-          <div class="h-stat-label">RERA Approved</div>
+            <div class="hero-content">
+                <span class="hero-eyebrow">Vaaraahi Group</span>
+                <h1 class="hero-heading">Building Dreams.<br>Creating Landmarks.<br>Enriching Lives.</h1>
+                <p class="hero-subheading">Premium residential developments across Telangana & Andhra Pradesh — architecturally distinct villas, luxury apartments, and sustainable gated communities.</p>
+                <div class="hero-actions">
+                    <a href="portfolio.html" class="btn-luxury">Explore Our Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="about.html" class="btn-luxury-outline">About Vaaraahi</a>
+                </div>
+            </div>
+
+            <div class="hero-scroll-indicator">
+                <span>Scroll</span>
+                <div class="hero-scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ================= MARQUEE RIBBON ================= -->
+        <div class="marquee-ribbon">
+            <div class="marquee-inner">
+                <span>✦</span> PREMIUM RESIDENTIAL DEVELOPMENTS ACROSS TELANGANA & ANDHRA PRADESH 
+                <span>✦</span> 100% RERA & APF APPROVED 
+                <span>✦</span> ULTRA-LUXURY VILLAS & GATED COMMUNITIES 
+                <span>✦</span> 300-POINT ZERO-SNAG GUARANTEE 
+                <span>✦</span> BUILDING DREAMS. CREATING LANDMARKS.
+            </div>
         </div>
-        <div class="hero-stat-item">
-          <div class="h-stat-num">500+</div>
-          <div class="h-stat-label">Happy Customers</div>
+
+        <!-- ================= 2. SPLIT-SCREEN STORYTELLING ================= -->
+        <section class="split-story-section">
+            <div class="split-story-grid">
+                
+                <!-- Left Visual Composition -->
+                <div class="story-visual-composition gs-reveal">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80" alt="Vaaraahi Architectural Elegance" class="main-story-img">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="Vaaraahi Interior Detail" class="secondary-story-img">
+                    <div class="story-experience-badge">
+                        <h4>15+</h4>
+                        <p>Years of Trust</p>
+                    </div>
+                </div>
+
+                <!-- Right Narrative Content -->
+                <div class="story-content gs-reveal">
+                    <span class="section-tag">Our Living Philosophy</span>
+                    <h2 class="quote-serif" style="font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 16px;">Spaces Conceived for Generations to Come</h2>
+                    
+                    <div class="story-quote-box">
+                        <p>"When we build a home, we are building someone's future."</p>
+                    </div>
+
+                    <p style="color: var(--color-text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 24px;">
+                        At Vaaraahi Group, we understand that acquiring a home is one of the most sacred commitments in a family's journey. Every square foot we engineer is infused with natural ventilation, strict Vastu geometry, and enduring materials gathered from global sources.
+                    </p>
+
+                    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+                        <a href="about.html" class="btn-luxury">Our Story & Heritage <i class="fas fa-arrow-right"></i></a>
+                        <span style="font-size: 13px; font-weight: 700; color: var(--color-forest); text-transform: uppercase; letter-spacing: 1.5px;">100% Clear Titles</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= STATS RIBBON ================= -->
+        <section class="stats-ribbon">
+            <div class="stats-grid gs-reveal">
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="15">0</span><span class="gold">+</span></h3>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="1000">0</span><span class="gold">+</span></h3>
+                    <p>Happy Families</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="5">0</span><span class="gold">+</span></h3>
+                    <p>Landmark Projects</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="100">0</span><span class="gold">%</span></h3>
+                    <p>On-Time Delivery Record</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MID-ANIMATION 1: CURTAIN ZOOM-THROUGH ================= -->
+        <section class="curtain-zoom-section">
+            <div class="zoom-window-frame">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1920&q=80" alt="Architectural Perspective" class="zoom-inner-img">
+                <div class="zoom-overlay-content gs-reveal">
+                    <span class="hero-eyebrow" style="color: var(--color-gold-light);">Cinematic Perspective</span>
+                    <h2>Step Into Architectural Purity</h2>
+                    <p>Seamlessly blending grand proportions with intimate personal sanctuaries.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 3. STACKING PROJECT CARDS ================= -->
+        <section class="stack-section">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Featured Developments</span>
+                <h2>Addresses Designed for Tomorrow</h2>
+                <p>Explore our signature communities designed for families who appreciate architectural distinction and modern comfort.</p>
+            </div>
+
+            <div class="cards-stack-container">
+                
+                <!-- STACK CARD 1: Vaaraahi Grandeur -->
+                <article class="stack-card">
+                    <div class="card-image-wrap">
+                        <span class="card-status-badge">On Going</span>
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80" alt="Vaaraahi Grandeur">
+                    </div>
+                    <div class="card-content-wrap">
+                        <span class="card-location-tag">Rayachoty • Andhra Pradesh</span>
+                        <h3 class="card-title">Vaaraahi Grandeur</h3>
+                        <p class="card-description">A premium duplex villa community crafted for discerning families who desire absolute privacy, contemporary aesthetics, and resort-grade clubhouse amenities.</p>
+                        <ul class="card-specs-list">
+                            <li class="spec-item">
+                                <span class="spec-title">Type</span>
+                                <span class="spec-value">Duplex Luxury Villas</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Configuration</span>
+                                <span class="spec-value">3 & 4 BHK</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Status</span>
+                                <span class="spec-value">Under Construction</span>
+                            </li>
+                        </ul>
+                        <a href="portfolio.html" class="card-link-btn">Explore Community <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- STACK CARD 2: Vaaraahi Lotus Grand -->
+                <article class="stack-card">
+                    <div class="card-image-wrap">
+                        <span class="card-status-badge">On Going</span>
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80" alt="Vaaraahi Lotus Grand">
+                    </div>
+                    <div class="card-content-wrap">
+                        <span class="card-location-tag">Jammalamadugu • Andhra Pradesh</span>
+                        <h3 class="card-title">Vaaraahi Lotus Grand</h3>
+                        <p class="card-description">A landmark gated community bringing sophisticated lifestyle infrastructure, manicured green landscapes, and modern clubhouse facilities to Jammalamadugu.</p>
+                        <ul class="card-specs-list">
+                            <li class="spec-item">
+                                <span class="spec-title">Type</span>
+                                <span class="spec-value">Gated Villa Enclave</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Approval</span>
+                                <span class="spec-value">100% RERA & APF</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Status</span>
+                                <span class="spec-value">Phase 1 Booking Open</span>
+                            </li>
+                        </ul>
+                        <a href="portfolio.html" class="card-link-btn">Explore Community <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- STACK CARD 3: Vaaraahi City Pride -->
+                <article class="stack-card">
+                    <div class="card-image-wrap">
+                        <span class="card-status-badge gold">Completed</span>
+                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1200&q=80" alt="Vaaraahi City Pride">
+                    </div>
+                    <div class="card-content-wrap">
+                        <span class="card-location-tag">Proddatur • Andhra Pradesh</span>
+                        <h3 class="card-title">Vaaraahi City Pride</h3>
+                        <p class="card-description">A flagship residential apartment project created for families looking for high connectivity, premium construction quality, and a vibrant community atmosphere.</p>
+                        <ul class="card-specs-list">
+                            <li class="spec-item">
+                                <span class="spec-title">Type</span>
+                                <span class="spec-value">Luxury Apartments</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Units</span>
+                                <span class="spec-value">100% Handed Over</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Status</span>
+                                <span class="spec-value">Ready to Move</span>
+                            </li>
+                        </ul>
+                        <a href="portfolio.html" class="card-link-btn">View Landmark <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ================= MID-ANIMATION 2: INTERACTIVE MASTERPLAN HOTSPOTS ================= -->
+        <section class="interactive-masterplan-section">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Interactive Masterplan</span>
+                <h2>Explore the Enclave Ecosystem</h2>
+                <p>Hover over the glowing pins to discover curated community amenities and master-planned conveniences.</p>
+            </div>
+
+            <div class="masterplan-container gs-reveal">
+                <div class="masterplan-image-stage">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80" alt="Gated Community Masterplan">
+                    
+                    <!-- Hotspot 1: Clubhouse -->
+                    <div class="hotspot-pin" style="top: 35%; left: 32%;" data-title="Grand Clubhouse">
+                        <div class="hotspot-pulse-ring"></div>
+                        <i class="fas fa-swimming-pool"></i>
+                        <div class="hotspot-card-popup">
+                            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400&q=80" alt="Clubhouse">
+                            <h4>The Royale Clubhouse</h4>
+                            <p>Infinity edge swimming pool, rooftop lounge, squash courts, and banquet halls.</p>
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 2: Central Park -->
+                    <div class="hotspot-pin" style="top: 55%; left: 62%;" data-title="Botanical Courtyards">
+                        <div class="hotspot-pulse-ring"></div>
+                        <i class="fas fa-tree"></i>
+                        <div class="hotspot-card-popup">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" alt="Botanical Parks">
+                            <h4>Central Botanical Park</h4>
+                            <p>Over 2 acres of manicured oxygen gardens, reflexology walkways, and meditation gazebos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 3: Villa Enclaves -->
+                    <div class="hotspot-pin" style="top: 25%; left: 75%;" data-title="Private Villa Plots">
+                        <div class="hotspot-pulse-ring"></div>
+                        <i class="fas fa-home"></i>
+                        <div class="hotspot-card-popup">
+                            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=400&q=80" alt="Villa Plot">
+                            <h4>Duplex Villa Avenue</h4>
+                            <p>Private gated driveways, 40-ft wide concrete boulevards, and underground electricity.</p>
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 4: EV Charging & Security -->
+                    <div class="hotspot-pin" style="top: 75%; left: 20%;" data-title="Smart Entrance Gate">
+                        <div class="hotspot-pulse-ring"></div>
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="hotspot-card-popup">
+                            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=400&q=80" alt="Security Portal">
+                            <h4>Smart Entry Portal & EV Grid</h4>
+                            <p>Biometric security, RFID vehicle sensors, and solar-powered community charging hubs.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 4. CURATED LIFESTYLE & AMENITIES GALLERY ================= -->
+        <section class="lifestyle-gallery-section">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">A Life of Distinction</span>
+                <h2>Crafted for Inspired Living</h2>
+                <p>Immerse yourself in environments curated for relaxation, wellness, and celebratory moments with loved ones.</p>
+            </div>
+
+            <div class="gallery-grid-collage gs-reveal">
+                
+                <div class="gallery-item gallery-item-1">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Double Height Grand Living Room">
+                    <div class="gallery-tag-overlay">
+                        <h4>Double-Height Living Salons</h4>
+                        <p>Expansive glazing and imported Italian marble finishes that amplify natural daylight.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item-2">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Private Pool & Verandah">
+                    <div class="gallery-tag-overlay">
+                        <h4>Private Landscaped Gardens</h4>
+                        <p>Secluded open-air courtyards designed for personal tranquility.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item-3">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Master Bedroom Sanctuary">
+                    <div class="gallery-tag-overlay">
+                        <h4>Master Bedroom Sanctuaries</h4>
+                        <p>Wooden flooring accents and walk-in dressing suites.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item-4">
+                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=800&q=80" alt="Gourmet Kitchen">
+                    <div class="gallery-tag-overlay">
+                        <h4>Gourmet Chef Kitchens</h4>
+                        <p>Ergonomic quartz countertops and integrated utility zones.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item-5">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Clubhouse & Wellness">
+                    <div class="gallery-tag-overlay">
+                        <h4>Clubhouse & Recreation</h4>
+                        <p>State-of-the-art gymnasiums, yoga decks, and banquet facilities.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= MID-ANIMATION 3: DUAL COUNTER-SCROLLING KINETIC RIBBONS ================= -->
+        <div class="dual-marquee-container">
+            <div class="dual-track dual-track-left">
+                <span>✦ ARCHITECTURAL DISTINCTION <span class="gold-txt">•</span> 100% RERA ASSURED <span class="gold-txt">•</span> PRODDATUR <span class="gold-txt">•</span> RAYACHOTY <span class="gold-txt">•</span> JAMMALAMADUGU <span class="gold-txt">•</span> HYDERABAD ✦</span>
+                <span>✦ ARCHITECTURAL DISTINCTION <span class="gold-txt">•</span> 100% RERA ASSURED <span class="gold-txt">•</span> PRODDATUR <span class="gold-txt">•</span> RAYACHOTY <span class="gold-txt">•</span> JAMMALAMADUGU <span class="gold-txt">•</span> HYDERABAD ✦</span>
+            </div>
+            <div class="dual-track dual-track-right">
+                <span>✦ 300-POINT ZERO-SNAG GUARANTEE <span class="gold-txt">•</span> ITALIAN MARBLE FINISHES <span class="gold-txt">•</span> 100% VASTU COMPLIANCE <span class="gold-txt">•</span> GENERATIONAL LUXURY ✦</span>
+                <span>✦ 300-POINT ZERO-SNAG GUARANTEE <span class="gold-txt">•</span> ITALIAN MARBLE FINISHES <span class="gold-txt">•</span> 100% VASTU COMPLIANCE <span class="gold-txt">•</span> GENERATIONAL LUXURY ✦</span>
+            </div>
         </div>
-        <div class="hero-stat-item">
-          <div class="h-stat-num">100%</div>
-          <div class="h-stat-label">Clear Titles</div>
-        </div>
-      </div>
 
-      <a href="portfolio.html" class="btn-cta" style="display: inline-flex; font-size: 1rem; padding: 16px 35px;">View Our Projects ➔</a>
-    </div>
-  </section>
+        <!-- ================= 5. INNOVATIVE 5-PILLAR ARCHITECTURAL CONSOLE ================= -->
+        <section class="pillars-interactive-section">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Interactive Integrity Console</span>
+                <h2>Our Five Pillars of Integrity</h2>
+                <p>Click and explore each pillar to inspect our verified legal certifications, engineering tests, and delivery guarantees.</p>
+            </div>
 
-  <!-- SIGNATURE QUOTE -->
-  <section class="bg-navy py-20 px-6" style="background: var(--bg-navy-dark); border-bottom: 1px solid var(--border-dark);">
-    <div class="max-w-3xl mx-auto text-center" style="max-width: 800px; margin: 0 auto; padding: 40px 0;">
-      <div class="gold-divider" style="margin-bottom: 30px;"></div>
-      <blockquote style="font-family: var(--font-heading); font-size: 2rem; color: var(--text-light); font-weight: 500; font-style: italic; line-height: 1.6;">
-        "We don't just sell properties; we build trust and create long-term value for your real estate investments."
-      </blockquote>
-      <p style="margin-top: 24px; font-size: 0.85rem; letter-spacing: 2px; color: var(--gold-primary); text-transform: uppercase;">— Vaaraahi Group</p>
-      <div class="gold-divider" style="margin-top: 30px;"></div>
-    </div>
-  </section>
+            <div class="pillar-console-wrapper gs-reveal">
+                
+                <!-- Left Navigation Rail -->
+                <div class="pillar-nav-rail">
+                    <button class="pillar-tab-btn active" data-tab="pillar-1">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">01</span>
+                            <span class="tab-btn-title">Absolute Trust</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                    
+                    <button class="pillar-tab-btn" data-tab="pillar-2">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">02</span>
+                            <span class="tab-btn-title">Uncompromising Quality</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                    
+                    <button class="pillar-tab-btn" data-tab="pillar-3">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">03</span>
+                            <span class="tab-btn-title">100% Transparency</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                    
+                    <button class="pillar-tab-btn" data-tab="pillar-4">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">04</span>
+                            <span class="tab-btn-title">Full Responsibility</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                    
+                    <button class="pillar-tab-btn" data-tab="pillar-5">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">05</span>
+                            <span class="tab-btn-title">Architectural Excellence</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                </div>
 
-  <!-- VAARAAHI BY THE NUMBERS -->
-  <section class="section-padding">
-    <div class="section-title-wrapper">
-      <span class="eyebrow">Our Track Record</span>
-      <h2 class="section-title">Real Estate Highlights</h2>
-      <div class="gold-divider"></div>
-    </div>
+                <!-- Right Proof Display Stage -->
+                <div class="pillar-display-stage">
+                    
+                    <!-- Panel 1: Trust -->
+                    <div class="pillar-stage-panel active" id="pillar-1">
+                        <div class="stage-badge-header">
+                            <span class="stage-badge">Verified Title Clearance</span>
+                            <span style="font-size: 12px; font-weight: 700; color: var(--color-gold);"><i class="fas fa-check-circle"></i> 100% Freehold Title</span>
+                        </div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Title Search & Governance">
+                        </div>
+                        <h3 class="stage-title">Absolute Legal Trust</h3>
+                        <p class="stage-description">We conduct a minimum 30-year retrospective legal search through certified High Court legal counsels on every land parcel before breaking ground.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box">
+                                <span>Title History</span>
+                                <strong>30+ Years Clean Search</strong>
+                            </div>
+                            <div class="stage-metric-box">
+                                <span>Buyer Assurance</span>
+                                <strong>Zero Litigation Freehold</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: Quality -->
+                    <div class="pillar-stage-panel" id="pillar-2">
+                        <div class="stage-badge-header">
+                            <span class="stage-badge">Material Lab Reports</span>
+                            <span style="font-size: 12px; font-weight: 700; color: var(--color-gold);"><i class="fas fa-certificate"></i> ISO & BIS Certified</span>
+                        </div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=800&q=80" alt="Material Testing & Quality">
+                        </div>
+                        <h3 class="stage-title">Uncompromising Quality Benchmarks</h3>
+                        <p class="stage-description">Every structural column is reinforced with Fe-550D corrosion-resistant TMT steel, paired with diamond-polished Italian marble and Burma teak wood.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box">
+                                <span>Steel Standard</span>
+                                <strong>Fe-550D Earthquake Safe</strong>
+                            </div>
+                            <div class="stage-metric-box">
+                                <span>Plumbing Fixtures</span>
+                                <strong>100% German Grohe / Kohler</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 3: Transparency -->
+                    <div class="pillar-stage-panel" id="pillar-3">
+                        <div class="stage-badge-header">
+                            <span class="stage-badge">Statutory Compliance</span>
+                            <span style="font-size: 12px; font-weight: 700; color: var(--color-gold);"><i class="fas fa-university"></i> SBI & HDFC APF</span>
+                        </div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80" alt="RERA Compliance">
+                        </div>
+                        <h3 class="stage-title">100% RERA & Financial Transparency</h3>
+                        <p class="stage-description">Zero hidden developmental charges or carpet area discrepancies. 70% of buyer payments are directly sequestered in dedicated project escrow accounts.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box">
+                                <span>Escrow Compliance</span>
+                                <strong>100% Dedicated Project Funds</strong>
+                            </div>
+                            <div class="stage-metric-box">
+                                <span>RERA Status</span>
+                                <strong>Registered & Fully Approved</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 4: Responsibility -->
+                    <div class="pillar-stage-panel" id="pillar-4">
+                        <div class="stage-badge-header">
+                            <span class="stage-badge">Handover Governance</span>
+                            <span style="font-size: 12px; font-weight: 700; color: var(--color-gold);"><i class="fas fa-clock"></i> Zero Delay Track Record</span>
+                        </div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Project Delivery Clock">
+                        </div>
+                        <h3 class="stage-title">Unconditional Handover Responsibility</h3>
+                        <p class="stage-description">We manage construction schedules with PERT/CPM milestone systems. If any project is delayed, we enforce developer compensation without dispute.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box">
+                                <span>Delivery Guarantee</span>
+                                <strong>Pre-agreed Handover Windows</strong>
+                            </div>
+                            <div class="stage-metric-box">
+                                <span>Post-Handover</span>
+                                <strong>5-Year Structural Warranty</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 5: Architectural Excellence -->
+                    <div class="pillar-stage-panel" id="pillar-5">
+                        <div class="stage-badge-header">
+                            <span class="stage-badge">Vastu & Climate Modeling</span>
+                            <span style="font-size: 12px; font-weight: 700; color: var(--color-gold);"><i class="fas fa-compass"></i> Solar-Optimized</span>
+                        </div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" alt="Architectural Sun Path">
+                        </div>
+                        <h3 class="stage-title">Master-Level Architectural Excellence</h3>
+                        <p class="stage-description">Every home is computationally modeled for 365-day sun path orientation and natural cross-ventilation, balancing ancient Vastu Shastra with modern aesthetics.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box">
+                                <span>Daylight Capture</span>
+                                <strong>40% Increased Natural Light</strong>
+                            </div>
+                            <div class="stage-metric-box">
+                                <span>Vastu Score</span>
+                                <strong>100% Geometry Compliant</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= 6. PANORAMIC ARCHITECTURAL BREAK ================= -->
+        <section class="panoramic-break">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" alt="Luxury Villa Architecture" class="panoramic-bg-img">
+            <div class="panoramic-overlay"></div>
+            <div class="panoramic-content gs-reveal">
+                <span class="hero-eyebrow" style="color: var(--color-gold-light);">The Vaaraahi Promise</span>
+                <h2>"A home is not just an address.<br>It is the backdrop to your life's greatest moments."</h2>
+                <p>Experience the harmony of contemporary luxury and nature across our signature Telangana and Andhra Pradesh developments.</p>
+            </div>
+        </section>
+
+        <!-- ================= 7. THE VAARAAHI STANDARD (3D MATERIAL INSPECTOR) ================= -->
+        <section class="standard-section">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Interactive Specifications</span>
+                <h2>The Vaaraahi Standard</h2>
+                <p>Hover and inspect standard materials embedded into every villa and apartment we craft.</p>
+            </div>
+
+            <div class="standard-grid gs-reveal">
+                
+                <!-- 3D Card 1: Marble -->
+                <div class="standard-card-3d">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80" alt="Italian Marble Flooring">
+                    <div class="standard-overlay-spec">
+                        <span class="spec-pill-tag">Bespoke Stone</span>
+                        <h3>Italian Marble Flooring</h3>
+                        <p>Imported Italian marble slabs diamond-polished to a mirror finish, laid with laser-calibrated leveling across all living zones.</p>
+                    </div>
+                </div>
+
+                <!-- 3D Card 2: Vastu -->
+                <div class="standard-card-3d">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80" alt="Vastu Shastra Architecture">
+                    <div class="standard-overlay-spec">
+                        <span class="spec-pill-tag">Sacred Geometry</span>
+                        <h3>100% Vastu Shastra</h3>
+                        <p>Scientifically balanced East/North entrances, Brahmasthan central courtyards, and optimal kitchen Agni placement.</p>
+                    </div>
+                </div>
+
+                <!-- 3D Card 3: Smart Infrastructure -->
+                <div class="standard-card-3d">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80" alt="Smart Home Infrastructure">
+                    <div class="standard-overlay-spec">
+                        <span class="spec-pill-tag">Future-Ready</span>
+                        <h3>Smart Home & EV Ready</h3>
+                        <p>Dedicated high-voltage EV fast-charging ports in private parking bays, rooftop solar grid conduits, and smart lighting hubs.</p>
+                    </div>
+                </div>
+
+                <!-- 3D Card 4: Security -->
+                <div class="standard-card-3d">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="24/7 Gated Security">
+                    <div class="standard-overlay-spec">
+                        <span class="spec-pill-tag">Fortress Protocol</span>
+                        <h3>Multi-Tier 24/7 Security</h3>
+                        <p>RFID vehicle tracking, infrared perimeter sensors, biometric clubhouse access, and round-the-clock trained security officers.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= 8. FAQ & TRUST ACCORDION ================= -->
+        <section class="faq-section">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Client Assistance</span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about investing in a Vaaraahi property.</p>
+            </div>
+
+            <div class="accordion-box gs-reveal">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are all Vaaraahi projects RERA registered and approved by banks?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, 100%. We never launch or accept bookings without full statutory clearances from RERA and local urban development authorities. Additionally, all our developments have Approved Project Finance (APF) with premier national banks including SBI, HDFC, and ICICI.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide dedicated concierge services for NRI buyers?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Over 40% of our luxury clientele are Non-Resident Indians across the US, UK, and GCC. We offer an end-to-end digital investment process including 4K live video walk-throughs, Power of Attorney assistance, digital KYC, and remote bank loan facilitation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the 300-Point Zero-Snag Guarantee?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Before any keys are handed over, our senior quality engineering team conducts a 300-point physical inspection covering thermal imaging for waterproofing, laser level checks on marble, electrical safety load tests, and acoustic door sealing to ensure you move into perfection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 9. CTA BANNER ================= -->
+        <section class="cta-banner">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80" alt="Dream Home" class="cta-bg">
+            <div class="cta-content gs-reveal">
+                <span class="hero-eyebrow">Begin Your Legacy</span>
+                <h2>Your Dream Address Awaits</h2>
+                <p>Schedule a private site visit or connect with our senior directors for exclusive early-stage opportunities.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn-luxury">Schedule Private Tour <i class="fas fa-arrow-right"></i></a>
+                    <a href="portfolio.html" class="btn-luxury-outline">View All Properties</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 10. FOOTER ================= -->
+        <footer class="main-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="logo-title" style="color: var(--color-gold); font-size: 22px; display: block; margin-bottom: 8px;">VAARAAHI GROUP</span>
+                    <p style="color: rgba(255,255,255,0.7); max-width: 320px;">Building Dreams. Creating Landmarks. Enriching Lives through architectural brilliance and transparent relationships.</p>
+                    <p style="color: var(--color-gold); font-weight: 600; font-size: 13px;">Operating in: Hyderabad | Proddatur | Jammalamadugu | Rayachoty</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="portfolio.html">Projects</a></li>
+                        <li><a href="engineering.html">Quality & Engineering</a></li>
+                        <li><a href="transparency.html">Approvals & RERA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Projects</h4>
+                    <ul class="footer-links">
+                        <li><a href="portfolio.html">Vaaraahi Grandeur (Rayachoty)</a></li>
+                        <li><a href="portfolio.html">Vaaraahi Lotus Grand (Jammalamadugu)</a></li>
+                        <li><a href="portfolio.html">Vaaraahi City Pride (Proddatur)</a></li>
+                        <li><a href="portfolio.html">Upcoming Hyderabad Enclaves</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <p><i class="fas fa-phone-alt" style="color: var(--color-gold); margin-right: 8px;"></i> +91 90000 00000</p>
+                    <p><i class="fas fa-envelope" style="color: var(--color-gold); margin-right: 8px;"></i> invest@vaaraahigroup.com</p>
+                    <a href="contact.html" class="btn-luxury" style="padding: 10px 20px; font-size: 11px; margin-top: 10px; display: inline-block;">Enquire Now</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Vaaraahi Group of Estates. All Rights Reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="transparency.html" style="color: rgba(255,255,255,0.6);">Privacy Policy</a>
+                    <a href="transparency.html" style="color: rgba(255,255,255,0.6);">Terms & Conditions</a>
+                    <a href="transparency.html" style="color: var(--color-gold);">100% RERA Compliant</a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- CDNs -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center; margin-top: 50px;">
-      <div style="padding: 40px 20px; border-right: 1px solid var(--border-dark);">
-        <div style="font-family: var(--font-heading); font-size: 4rem; color: var(--gold-primary); font-weight: 800; line-height: 1; margin-bottom: 10px;">1M+</div>
-        <div style="font-size: 1rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Sq.Ft Developed</div>
-      </div>
-      <div style="padding: 40px 20px; border-right: 1px solid var(--border-dark);">
-        <div style="font-family: var(--font-heading); font-size: 4rem; color: var(--gold-primary); font-weight: 800; line-height: 1; margin-bottom: 10px;">100%</div>
-        <div style="font-size: 1rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">On-Time Delivery</div>
-      </div>
-      <div style="padding: 40px 20px; border-right: 1px solid var(--border-dark);">
-        <div style="font-family: var(--font-heading); font-size: 4rem; color: var(--gold-primary); font-weight: 800; line-height: 1; margin-bottom: 10px;">500+</div>
-        <div style="font-size: 1rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Happy Customers</div>
-      </div>
-      <div style="padding: 40px 20px;">
-        <div style="font-family: var(--font-heading); font-size: 4rem; color: var(--gold-primary); font-weight: 800; line-height: 1; margin-bottom: 10px;">Zero</div>
-        <div style="font-size: 1rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">RERA Violations</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED MASTERPIECE (DAY/NIGHT SLIDER) -->
-  <section style="position: relative; height: 600px; overflow: hidden; border-top: 1px solid var(--gold-primary); border-bottom: 1px solid var(--gold-primary);">
-    <div class="img-comp-container">
-      <!-- Background Image (Night) -->
-      <div class="img-comp-img">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" alt="Villa Night View" />
-      </div>
-      <!-- Foreground Image (Day) -->
-      <div class="img-comp-img img-comp-overlay">
-        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80" alt="Villa Day View" />
-      </div>
-    </div>
-    <div style="position: absolute; inset: 0; background: rgba(7, 15, 27, 0.5); z-index: 10; pointer-events: none;"></div>
-    
-    <div style="position: absolute; z-index: 11; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; max-width: 800px; pointer-events: none; width: 100%;">
-      <span class="eyebrow" style="color: var(--gold-primary); text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Prime Locations & Best Amenities</span>
-      <h2 style="font-family: var(--font-heading); font-size: 4rem; color: #FFF; line-height: 1.1; margin: 20px 0; text-shadow: 0 2px 15px rgba(0,0,0,0.9);">Vaaraahi Premium Projects</h2>
-      <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 40px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Invest in the best real estate properties today.</p>
-      <div style="display: flex; gap: 20px; justify-content: center; pointer-events: auto;">
-        <a href="portfolio.html" class="btn-cta">View Project Details</a>
-        <a href="contact.html" class="btn-outline" style="background: rgba(0,0,0,0.5);">Enquire Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5 PILLARS OF VAARAAHI -->
-  <section class="section-padding" style="background: #03070E; border-top: 1px solid var(--border-dark);">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-      <div>
-        <span class="eyebrow">Why Choose Us</span>
-        <h2 class="section-title">Why Invest With Vaaraahi Group</h2>
-        <p class="section-desc" style="margin-bottom: 40px;">Investing in real estate is a major decision. We ensure your investment is safe, secure, and highly rewarding.</p>
-        
-        <div style="display: flex; flex-direction: column; gap: 30px;">
-          <div style="display: flex; gap: 20px; align-items: flex-start;">
-            <span style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--gold-primary); line-height: 1;">01</span>
-            <div>
-              <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-light); margin-bottom: 5px;">Trust</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">We believe long-term relationships are built on honesty and transparency.</p>
-            </div>
-          </div>
-          <div style="display: flex; gap: 20px; align-items: flex-start;">
-            <span style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--gold-primary); line-height: 1;">02</span>
-            <div>
-              <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-light); margin-bottom: 5px;">Quality</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">We never compromise on the fundamentals that define a good home.</p>
-            </div>
-          </div>
-          <div style="display: flex; gap: 20px; align-items: flex-start;">
-            <span style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--gold-primary); line-height: 1;">03</span>
-            <div>
-              <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-light); margin-bottom: 5px;">Transparency</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">We believe customers deserve clarity at every stage of their journey.</p>
-            </div>
-          </div>
-          <div style="display: flex; gap: 20px; align-items: flex-start;">
-            <span style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--gold-primary); line-height: 1;">04</span>
-            <div>
-              <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-light); margin-bottom: 5px;">Responsibility</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">We take full ownership of our commitments to every family we serve.</p>
-            </div>
-          </div>
-          <div style="display: flex; gap: 20px; align-items: flex-start;">
-            <span style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--gold-primary); line-height: 1;">05</span>
-            <div>
-              <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-light); margin-bottom: 5px;">Excellence</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">We continuously strive to raise the standard of what we build.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="position: relative; height: 100%; min-height: 500px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-dark);">
-        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Vaaraahi Quality" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(3,7,14,0.9), transparent);"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ELITE COMMUNITY TESTIMONIALS -->
-  <section class="section-padding">
-    <div class="section-title-wrapper">
-      <span class="eyebrow">Client Testimonials</span>
-      <h2 class="section-title">What Our Customers Say</h2>
-      <div class="gold-divider"></div>
-    </div>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
-      
-      <div style="background: var(--bg-card); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border-dark); position: relative;">
-        <span style="position: absolute; top: 20px; right: 30px; font-size: 4rem; color: rgba(212, 175, 55, 0.1); font-family: var(--font-serif); line-height: 1;">"</span>
-        <div style="display: flex; gap: 4px; color: var(--gold-primary); margin-bottom: 20px; font-size: 1.2rem;">★★★★★</div>
-        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px; font-style: italic;">"We booked a villa in Vaaraahi Grandeur while living in the US. The absolute transparency, digital legal vetting, and timely video updates made the process completely stress-free. True professionals."</p>
-        <div style="display: flex; align-items: center; gap: 15px;">
-          <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--bg-navy-dark); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); color: var(--gold-primary); font-weight: 700; border: 1px solid var(--gold-primary);">R</div>
-          <div>
-            <div style="color: var(--text-light); font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem;">Dr. Ramesh Kumar</div>
-            <div style="color: var(--gold-primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">NRI Investor, Texas</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="background: var(--bg-card); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border-dark); position: relative;">
-        <span style="position: absolute; top: 20px; right: 30px; font-size: 4rem; color: rgba(212, 175, 55, 0.1); font-family: var(--font-serif); line-height: 1;">"</span>
-        <div style="display: flex; gap: 4px; color: var(--gold-primary); margin-bottom: 20px; font-size: 1.2rem;">★★★★★</div>
-        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px; font-style: italic;">"The construction quality is simply unmatched. We visited multiple projects in Proddatur, but the finish, the imported marble, and the Vastu compliance at Vaaraahi City Pride made it the obvious choice."</p>
-        <div style="display: flex; align-items: center; gap: 15px;">
-          <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--bg-navy-dark); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); color: var(--gold-primary); font-weight: 700; border: 1px solid var(--gold-primary);">S</div>
-          <div>
-            <div style="color: var(--text-light); font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem;">Srinivas Reddy</div>
-            <div style="color: var(--gold-primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Resident, Proddatur</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="logo" style="justify-content: center; margin-bottom: 20px;">
-      <div class="logo-mark" style="width: 40px; height: 40px; font-size: 1.2rem;">V</div>
-      <span class="logo-title" style="font-size: 1.2rem;">Vaaraahi</span>
-    </div>
-    <p>Operating in: Hyderabad | Proddatur | Jammalamadugu | Rayachoty</p>
-    <p style="margin-top: 15px; font-size: 0.75rem;">© 2026 Vaaraahi Group of Estates. All rights reserved. 100% RERA Compliant.</p>
-  </footer>
-
-  <!-- VIP WHATSAPP CONCIERGE -->
-  <a href="https://wa.me/919000000000" class="whatsapp-float" target="_blank">
-    <span class="whatsapp-icon">💬</span>
-    <span>VIP Concierge</span>
-  </a>
-
-  <script>
-    function initComparisons() {
-      var x, i;
-      x = document.getElementsByClassName("img-comp-overlay");
-      for (i = 0; i < x.length; i++) {
-        compareImages(x[i]);
-      }
-      function compareImages(img) {
-        var slider, img, clicked = 0, w, h;
-        w = img.offsetWidth;
-        h = img.offsetHeight;
-        img.style.width = (w / 2) + "px";
-        slider = document.createElement("DIV");
-        slider.setAttribute("class", "img-comp-slider");
-        img.parentElement.insertBefore(slider, img);
-        slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
-        slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
-        slider.addEventListener("mousedown", slideReady);
-        window.addEventListener("mouseup", slideFinish);
-        slider.addEventListener("touchstart", slideReady);
-        window.addEventListener("touchend", slideFinish);
-        function slideReady(e) {
-          e.preventDefault();
-          clicked = 1;
-          window.addEventListener("mousemove", slideMove);
-          window.addEventListener("touchmove", slideMove);
-        }
-        function slideFinish() {
-          clicked = 0;
-        }
-        function slideMove(e) {
-          var pos;
-          if (clicked == 0) return false;
-          pos = getCursorPos(e);
-          if (pos < 0) pos = 0;
-          if (pos > w) pos = w;
-          slide(pos);
-        }
-        function getCursorPos(e) {
-          var a, x = 0;
-          e = (e.changedTouches) ? e.changedTouches[0] : e;
-          a = img.getBoundingClientRect();
-          x = e.pageX - a.left;
-          x = x - window.pageXOffset;
-          return x;
-        }
-        function slide(x) {
-          img.style.width = x + "px";
-          slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
-        }
-      }
-    }
-    
-    // Make sure images are fully loaded before calculating widths
-    window.onload = function() {
-      setTimeout(initComparisons, 500);
-    };
-  </script>
+    <!-- Custom Application Logic -->
+    <script src="main.js"></script>
 </body>
 </html>

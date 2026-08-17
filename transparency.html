@@ -1,160 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Transparency & Legal — Vaaraahi Group</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approvals & Transparency — Vaaraahi Group</title>
+    <meta name="description" content="100% RERA compliant, bank-approved, and legally vetted — explore Vaaraahi Group's statutory clearance framework.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-barba="wrapper">
 
-  <!-- NAVIGATION HEADER -->
-  <header>
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <div class="logo-mark">V</div>
-        <div class="logo-text">
-          <span class="logo-title">Vaaraahi</span>
-          <span class="logo-sub">Builders & Developers</span>
+    <div class="transition-wipe"></div>
+
+    <nav class="main-nav" id="navbar">
+        <a href="index.html" class="logo-container">
+            <span class="logo-title">VAARAAHI</span>
+            <span class="logo-tagline">Group of Estates</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="portfolio.html">Projects</a></li>
+            <li><a href="engineering.html">Quality</a></li>
+            <li><a href="transparency.html" class="active">Approvals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <a href="contact.html" class="nav-cta">Enquire Now</a>
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-      </a>
+    </nav>
 
-      <nav>
-        <a href="about.html" class="nav-link">
-          The Legacy
-          <span class="nav-link-subtext">Our Story</span>
-        </a>
-        <a href="portfolio.html" class="nav-link">
-          Masterpieces
-          <span class="nav-link-subtext">Portfolio</span>
-        </a>
-        <a href="engineering.html" class="nav-link">
-          The Standard
-          <span class="nav-link-subtext">Quality</span>
-        </a>
-        <a href="sustainability.html" class="nav-link">
-          Sustainability
-          <span class="nav-link-subtext">Green Building</span>
-        </a>
-        <a href="transparency.html" class="nav-link active">
-          Transparency
-          <span class="nav-link-subtext">Legal & RERA</span>
-        </a>
-      </nav>
+    <main data-barba="container" data-barba-namespace="approvals">
+        
+        <!-- HERO -->
+        <section class="hero-greensiri">
+            <div class="hero-bg-wrapper">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80" alt="Legal Approvals" class="hero-bg-img">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <span class="hero-eyebrow">Legal Clarity & Governance</span>
+                <h1 class="hero-heading">100% Legal<br>Certainty</h1>
+                <p class="hero-subheading">Your home is your most valuable asset. We ensure absolute statutory transparency and pre-approved legal clearances from day one.</p>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>Scroll</span>
+                <div class="hero-scroll-line"></div>
+            </div>
+        </section>
 
-      <div class="nav-right-actions">
-        <a href="contact.html" class="btn-cta">📞 Book Site Visit</a>
-      </div>
-    </div>
-  </header>
+        <!-- SPLIT STORY: TRANSPARENCY PHILOSOPHY -->
+        <section class="split-story-section">
+            <div class="split-story-grid">
+                <div class="story-visual-composition gs-reveal">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=80" alt="Legal Documents" class="main-story-img">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" alt="Certificates" class="secondary-story-img">
+                    <div class="story-experience-badge">
+                        <h4>100%</h4>
+                        <p>RERA Compliant</p>
+                    </div>
+                </div>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <span class="eyebrow">The Legal Vault</span>
-    <h1 class="page-header-title">100% Transparency. Zero Anxiety.</h1>
-    <p class="section-desc" style="max-width: 700px; margin: 0 auto;">We understand that buying a home is your biggest investment. That's why we operate with absolute legal clarity and zero hidden clauses.</p>
-  </div>
+                <div class="story-content gs-reveal">
+                    <span class="section-tag">Our Transparency Promise</span>
+                    <h2 class="quote-serif" style="font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 16px;">Zero Grey Areas. Zero Legal Risk.</h2>
+                    
+                    <p style="color: var(--color-text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 24px;">
+                        In an industry plagued by title disputes, encumbrance issues, and regulatory non-compliance, Vaaraahi Group stands apart with a <strong>zero-tolerance policy</strong> for legal ambiguity. Every single property we sell comes with a complete legal dossier — verified by senior High Court advocates, approved by nationalized banks, and registered under RERA.
+                    </p>
 
-  <!-- SECTION: RERA & APF -->
-  <section class="section-padding">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
-      
-      <div style="background: var(--bg-card); padding: 50px; border-radius: var(--radius); border: 1px solid var(--border-dark); text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 20px;">📜</div>
-        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--gold-primary); margin-bottom: 15px;">100% RERA Registered</h3>
-        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">We never launch a project, take bookings, or accept EOI money without full approval from the Real Estate Regulatory Authority. Your funds are protected in designated escrow accounts.</p>
-        <div style="font-size: 0.8rem; color: #10B981; font-weight: 700; text-transform: uppercase;">Status: Compliant</div>
-      </div>
+                    <div class="story-quote-box">
+                        <p>"We don't ask you to trust us — we provide the documents so you can verify everything yourself."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div style="background: var(--bg-card); padding: 50px; border-radius: var(--radius); border: 1px solid var(--border-dark); text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 20px;">🏦</div>
-        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--gold-primary); margin-bottom: 15px;">Bank APF Approved</h3>
-        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">Our clear titles and faultless legal history mean that all top national banks pre-approve our projects for home loans.</p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 30px;">
-          <div style="background: #fff; color: #000; padding: 15px; border-radius: 4px; font-weight: 800; font-family: var(--font-heading);">SBI</div>
-          <div style="background: #fff; color: #000; padding: 15px; border-radius: 4px; font-weight: 800; font-family: var(--font-heading);">HDFC</div>
-          <div style="background: #fff; color: #000; padding: 15px; border-radius: 4px; font-weight: 800; font-family: var(--font-heading);">ICICI</div>
-        </div>
-      </div>
+        <!-- INTERACTIVE CLEARANCE CONSOLE -->
+        <section class="pillars-interactive-section" style="background-color: var(--color-bg-secondary);">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Statutory Clearances</span>
+                <h2>Government Approvals & Certifications</h2>
+                <p>Click each clearance category to explore the specific documents and protections we provide.</p>
+            </div>
 
-    </div>
-  </section>
+            <div class="pillar-console-wrapper gs-reveal">
+                <div class="pillar-nav-rail">
+                    <button class="pillar-tab-btn active" data-tab="clear-1">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">01</span>
+                            <span class="tab-btn-title">RERA Registration</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                    <button class="pillar-tab-btn" data-tab="clear-2">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">02</span>
+                            <span class="tab-btn-title">Bank APF Clearance</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                    <button class="pillar-tab-btn" data-tab="clear-3">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">03</span>
+                            <span class="tab-btn-title">30-Year Title Search</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                    <button class="pillar-tab-btn" data-tab="clear-4">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">04</span>
+                            <span class="tab-btn-title">Layout Sanctions</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                    <button class="pillar-tab-btn" data-tab="clear-5">
+                        <div class="tab-btn-left">
+                            <span class="tab-btn-num">05</span>
+                            <span class="tab-btn-title">Environmental NOC</span>
+                        </div>
+                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
+                    </button>
+                </div>
 
-  <!-- SECTION: 5-STEP TRANSPARENT BUYING PROCESS -->
-  <section class="section-padding" style="border-top: 1px solid var(--border-subtle);">
-    <div class="section-title-wrapper text-center" style="align-items: center;">
-      <span class="eyebrow">Zero Hidden Surprises</span>
-      <h2 class="section-title">The 5-Step Transparent Buying Process</h2>
-      <div class="gold-divider"></div>
-    </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 50px;">
-      <div style="flex: 1; min-width: 200px; text-align: center; position: relative;">
-        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--gold-primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 20px;">1</div>
-        <h4 style="color: var(--text-light); margin-bottom: 10px;">Legal Vetting</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">All master titles shared upfront for your lawyers.</p>
-      </div>
-      <div style="flex: 1; min-width: 200px; text-align: center; position: relative;">
-        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--gold-primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 20px;">2</div>
-        <h4 style="color: var(--text-light); margin-bottom: 10px;">Fixed Pricing</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">No arbitrary price hikes. What you see is what you pay.</p>
-      </div>
-      <div style="flex: 1; min-width: 200px; text-align: center; position: relative;">
-        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--gold-primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 20px;">3</div>
-        <h4 style="color: var(--text-light); margin-bottom: 10px;">Clear Documentation</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Digital signing with exact handover timelines drafted.</p>
-      </div>
-      <div style="flex: 1; min-width: 200px; text-align: center; position: relative;">
-        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--gold-primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 20px;">4</div>
-        <h4 style="color: var(--text-light); margin-bottom: 10px;">Escrow Tracking</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Your money is securely locked in RERA escrow accounts.</p>
-      </div>
-      <div style="flex: 1; min-width: 200px; text-align: center; position: relative;">
-        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--gold-primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 20px;">5</div>
-        <h4 style="color: var(--text-light); margin-bottom: 10px;">Handover</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Keys delivered exactly on or before the committed date.</p>
-      </div>
-    </div>
-  </section>
+                <div class="pillar-display-stage">
+                    <div class="pillar-stage-panel active" id="clear-1">
+                        <div class="stage-badge-header"><span class="stage-badge">Mandatory Compliance</span></div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="RERA">
+                        </div>
+                        <h3 class="stage-title">100% RERA Registered Projects</h3>
+                        <p class="stage-description">All Vaaraahi projects comply strictly with the Real Estate (Regulation and Development) Act, 2016. Every project has a dedicated RERA-registered escrow account where buyer funds are deposited — ensuring your money is used exclusively for the project you invested in.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box"><span>Compliance</span><strong>100% RERA Act 2016</strong></div>
+                            <div class="stage-metric-box"><span>Fund Protection</span><strong>Dedicated Escrow Account</strong></div>
+                        </div>
+                    </div>
 
-  <!-- SECTION: NRI CONCIERGE -->
-  <section class="section-padding" style="background: #03070E; border-top: 1px solid var(--border-dark);">
-    <div class="section-title-wrapper">
-      <span class="eyebrow">Global Trust</span>
-      <h2 class="section-title">NRI Investment Concierge</h2>
-      <div class="gold-divider"></div>
-    </div>
-    
-    <div style="max-width: 800px; margin: 0 auto; background: rgba(7, 15, 27, 0.8); padding: 40px; border-radius: var(--radius); border: 1px solid var(--gold-primary);">
-      <p style="color: var(--text-light); font-size: 1.1rem; text-align: center; margin-bottom: 30px;">Over 40% of our luxury villas are owned by Non-Resident Indians who trust us to manage their investments from thousands of miles away.</p>
-      <ul style="list-style: none; color: var(--text-muted); line-height: 2; margin-left: 20px;">
-        <li><strong style="color: var(--gold-primary);">✓ Remote Legal Vetting:</strong> We provide full digital documentation for your legal team to verify remotely.</li>
-        <li><strong style="color: var(--gold-primary);">✓ Video Handover:</strong> Virtual site tours and construction updates sent directly to your WhatsApp.</li>
-        <li><strong style="color: var(--gold-primary);">✓ Property Management:</strong> Post-handover rental and maintenance management while you are abroad.</li>
-      </ul>
-      <div style="text-align: center; margin-top: 30px;">
-        <a href="contact.html" class="btn-cta">Contact NRI Desk</a>
-      </div>
-    </div>
-  </section>
+                    <div class="pillar-stage-panel" id="clear-2">
+                        <div class="stage-badge-header"><span class="stage-badge">Pre-Approved Financing</span></div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Bank APF">
+                        </div>
+                        <h3 class="stage-title">Nationalized Bank APF Clearances</h3>
+                        <p class="stage-description">Major nationalized banks including SBI, HDFC, ICICI, and Axis have pre-approved our project titles — meaning your home loan application gets fast-tracked with the lowest possible interest rates and zero title-related delays.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box"><span>Banks</span><strong>SBI, HDFC, ICICI, Axis</strong></div>
+                            <div class="stage-metric-box"><span>Loan Processing</span><strong>Fast-Track APF Approval</strong></div>
+                        </div>
+                    </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="logo" style="justify-content: center; margin-bottom: 20px;">
-      <div class="logo-mark" style="width: 40px; height: 40px; font-size: 1.2rem;">V</div>
-      <span class="logo-title" style="font-size: 1.2rem;">Vaaraahi</span>
-    </div>
-    <p>Operating in: Hyderabad | Proddatur | Jammalamadugu | Rayachoty</p>
-    <p style="margin-top: 15px; font-size: 0.75rem;">© 2026 Vaaraahi Group of Estates. All rights reserved. 100% RERA Compliant.</p>
-  </footer>
+                    <div class="pillar-stage-panel" id="clear-3">
+                        <div class="stage-badge-header"><span class="stage-badge">High Court Certified</span></div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=800&q=80" alt="Title Search">
+                        </div>
+                        <h3 class="stage-title">30-Year Clean Freehold Title</h3>
+                        <p class="stage-description">Every land parcel undergoes a rigorous 30-year retrospective title verification by senior High Court advocates. We guarantee clean, unencumbered freehold land with complete chain-of-ownership documentation available for your attorney's inspection.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box"><span>Verification</span><strong>30-Year Title History</strong></div>
+                            <div class="stage-metric-box"><span>Legal Team</span><strong>Senior HC Advocates</strong></div>
+                        </div>
+                    </div>
 
-  <!-- VIP WHATSAPP CONCIERGE -->
-  <a href="https://wa.me/919000000000" class="whatsapp-float" target="_blank">
-    <span class="whatsapp-icon">💬</span>
-    <span>VIP Concierge</span>
-  </a>
+                    <div class="pillar-stage-panel" id="clear-4">
+                        <div class="stage-badge-header"><span class="stage-badge">Government Sanctioned</span></div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Layout Sanction">
+                        </div>
+                        <h3 class="stage-title">DTCP / HMDA Layout Sanctions</h3>
+                        <p class="stage-description">All residential layouts carry full DTCP (Directorate of Town and Country Planning) or HMDA (Hyderabad Metropolitan Development Authority) sanction orders — ensuring legal road widths, setbacks, and zoning compliance.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box"><span>Authority</span><strong>DTCP / HMDA Sanctioned</strong></div>
+                            <div class="stage-metric-box"><span>Zoning</span><strong>Full Residential Compliance</strong></div>
+                        </div>
+                    </div>
 
+                    <div class="pillar-stage-panel" id="clear-5">
+                        <div class="stage-badge-header"><span class="stage-badge">Eco Certified</span></div>
+                        <div class="stage-image-preview">
+                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80" alt="Environmental NOC">
+                        </div>
+                        <h3 class="stage-title">Environmental Clearances & NOC</h3>
+                        <p class="stage-description">We proactively obtain all environmental No Objection Certificates before breaking ground. Our developments preserve natural water tables, maintain green cover ratios, and comply with pollution control board standards.</p>
+                        <div class="stage-metrics-grid">
+                            <div class="stage-metric-box"><span>Green Cover</span><strong>30%+ Maintained</strong></div>
+                            <div class="stage-metric-box"><span>Water Table</span><strong>Protected & Recharged</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANORAMIC BREAK -->
+        <section class="panoramic-break">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80" alt="NRI Investments" class="panoramic-bg-img">
+            <div class="panoramic-overlay"></div>
+            <div class="panoramic-content gs-reveal">
+                <span class="hero-eyebrow" style="color: var(--color-gold-light);">Global Investors</span>
+                <h2>"Over 40% of our luxury properties<br>are proudly owned by NRI families worldwide."</h2>
+                <p>End-to-end digital assistance: HD video walkthroughs, Power of Attorney registration, NRE/NRO banking, and property management.</p>
+            </div>
+        </section>
+
+        <!-- NRI CONCIERGE SPLIT -->
+        <section class="split-story-section" style="background-color: var(--color-bg-secondary);">
+            <div class="split-story-grid" style="direction: rtl;">
+                <div class="story-visual-composition gs-reveal" style="direction: ltr;">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="NRI Service" class="main-story-img">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="Global" class="secondary-story-img">
+                    <div class="story-experience-badge">
+                        <h4>40%+</h4>
+                        <p>NRI Buyer Base</p>
+                    </div>
+                </div>
+                <div class="story-content gs-reveal" style="direction: ltr;">
+                    <span class="section-tag">NRI Investment Desk</span>
+                    <h2 class="quote-serif" style="font-size: clamp(24px, 3vw, 36px); margin-bottom: 16px;">Dedicated NRI Investment Concierge</h2>
+                    <p style="color: var(--color-text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 16px;">
+                        Over 40% of our luxury properties are proudly owned by Non-Resident Indians across the US, UK, Canada, UAE, and Singapore. Our dedicated NRI desk provides:
+                    </p>
+                    <ul style="color: var(--color-text-muted); font-size: 15px; line-height: 2; padding-left: 20px; margin-bottom: 24px;">
+                        <li>High-resolution 360° video walk-throughs of every unit</li>
+                        <li>Power of Attorney registration assistance</li>
+                        <li>NRE/NRO banking facilitation for seamless transactions</li>
+                        <li>Post-purchase property management & maintenance</li>
+                        <li>Dedicated WhatsApp concierge for real-time construction updates</li>
+                    </ul>
+                    <a href="contact.html" class="btn-luxury">Connect with NRI Desk <i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats-ribbon">
+            <div class="stats-grid gs-reveal">
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="100">0</span><span class="gold">%</span></h3>
+                    <p>RERA Compliant</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="30">0</span><span class="gold">yr</span></h3>
+                    <p>Title Verification Depth</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="4">0</span><span class="gold">+</span></h3>
+                    <p>Partner Banks (APF)</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="40">0</span><span class="gold">%+</span></h3>
+                    <p>NRI Buyer Base</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="cta-banner">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" alt="Verification" class="cta-bg">
+            <div class="cta-content gs-reveal">
+                <span class="hero-eyebrow">Verification Desk</span>
+                <h2>Request Legal Clearances Portfolio</h2>
+                <p>We are happy to provide copies of RERA certificates, layout sanction orders, and bank APF letters for your review.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn-luxury">Contact Legal Desk <i class="fas fa-file-contract"></i></a>
+                    <a href="engineering.html" class="btn-luxury-outline">View Quality Standards</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL FOOTER -->
+        <footer class="main-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="logo-title" style="color: var(--color-gold); font-size: 22px; display: block; margin-bottom: 8px;">VAARAAHI GROUP</span>
+                    <p style="color: rgba(255,255,255,0.7); max-width: 320px;">Building Dreams. Creating Landmarks. Enriching Lives.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="portfolio.html">Projects</a></li>
+                        <li><a href="engineering.html">Quality</a></li>
+                        <li><a href="transparency.html">Approvals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Projects</h4>
+                    <ul class="footer-links">
+                        <li><a href="portfolio.html">Vaaraahi Grandeur</a></li>
+                        <li><a href="portfolio.html">Vaaraahi Lotus Grand</a></li>
+                        <li><a href="portfolio.html">Vaaraahi City Pride</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <p><i class="fas fa-phone-alt" style="color: var(--color-gold); margin-right: 8px;"></i> +91 90000 00000</p>
+                    <p><i class="fas fa-envelope" style="color: var(--color-gold); margin-right: 8px;"></i> invest@vaaraahigroup.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Vaaraahi Group of Estates. All Rights Reserved.</p>
+                <a href="transparency.html" style="color: var(--color-gold);">100% RERA Compliant</a>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="main.js"></script>
 </body>
 </html>

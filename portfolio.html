@@ -1,289 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects — Vaaraahi Premium Real Estate</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects — Vaaraahi Group</title>
+    <meta name="description" content="Explore signature residential projects by Vaaraahi Group across Andhra Pradesh and Telangana.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-barba="wrapper">
 
-  <!-- NAVIGATION HEADER -->
-  <header>
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <div class="logo-mark">V</div>
-        <div class="logo-text">
-          <span class="logo-title">Vaaraahi</span>
-          <span class="logo-sub">Builders & Developers</span>
-        </div>
-      </a>
+    <div class="transition-wipe"></div>
 
-      <nav>
-        <a href="about.html" class="nav-link">
-          The Legacy
-          <span class="nav-link-subtext">Our Story</span>
+    <nav class="main-nav" id="navbar">
+        <a href="index.html" class="logo-container">
+            <span class="logo-title">VAARAAHI</span>
+            <span class="logo-tagline">Group of Estates</span>
         </a>
-        <a href="portfolio.html" class="nav-link active">
-          Masterpieces
-          <span class="nav-link-subtext">Portfolio</span>
-        </a>
-        <a href="engineering.html" class="nav-link">
-          The Standard
-          <span class="nav-link-subtext">Quality</span>
-        </a>
-        <a href="sustainability.html" class="nav-link">
-          Sustainability
-          <span class="nav-link-subtext">Green Building</span>
-        </a>
-        <a href="transparency.html" class="nav-link">
-          Transparency
-          <span class="nav-link-subtext">Legal & RERA</span>
-        </a>
-      </nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="portfolio.html" class="active">Projects</a></li>
+            <li><a href="engineering.html">Quality</a></li>
+            <li><a href="transparency.html">Approvals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <a href="contact.html" class="nav-cta">Enquire Now</a>
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
 
-      <div class="nav-right-actions">
-        <a href="contact.html" class="btn-cta">📞 Book Site Visit</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <span class="eyebrow">Our Portfolio</span>
-    <h1 class="page-header-title">Addresses Designed for Tomorrow</h1>
-    <p class="section-desc" style="max-width: 700px; margin: 0 auto;">Explore our curated selection of upcoming, ongoing, and completed luxury developments.</p>
-  </div>
-
-  <!-- SECTION: SIGNATURE AMENITIES -->
-  <section class="section-padding" style="padding-top: 0;">
-    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 40px; text-align: center;">
-      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold-primary); margin-bottom: 30px;">The Vaaraahi Standard In Every Project</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-        <div>
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏰</div>
-          <h4 style="font-family: var(--font-heading); color: var(--text-light); font-size: 1rem;">Grand Clubhouses</h4>
-        </div>
-        <div>
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏊</div>
-          <h4 style="font-family: var(--font-heading); color: var(--text-light); font-size: 1rem;">Infinity Pools</h4>
-        </div>
-        <div>
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">🌳</div>
-          <h4 style="font-family: var(--font-heading); color: var(--text-light); font-size: 1rem;">60% Open Greenery</h4>
-        </div>
-        <div>
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">🛡️</div>
-          <h4 style="font-family: var(--font-heading); color: var(--text-light); font-size: 1rem;">3-Tier VIP Security</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: PROJECTS PORTFOLIO -->
-  <section class="section-padding">
-    <!-- TIER 1: UPCOMING -->
-    <div style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--gold-primary); margin: 0 0 30px; padding-bottom: 10px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 12px;">🚀 Upcoming Projects</div>
-    <div class="projects-grid" style="margin-bottom: 60px;">
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Vaaraahi Grandeur" />
-          <span class="card-badge-status status-upcoming">Pre-Launch EOI</span>
-          <span class="card-badge-city">Rayachoty, AP</span>
-        </div>
-        <div class="card-content">
-          <span class="card-category">3 & 4 BHK Luxury Duplex Villas</span>
-          <h3 class="card-name">Vaaraahi Grandeur</h3>
-          <div class="card-tagline">"Where Grandeur Meets Home"</div>
-          <div class="specs-pill-row">
-            <span class="spec-pill">📐 2,400 - 3,200 sq.ft</span>
-            <span class="spec-pill">☀️ 100% East Vastu</span>
-            <span class="spec-pill">🚗 2 Car Portico</span>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Priority plot allotment & locked-in pre-launch rates. RERA Applied.</p>
-          <a href="contact.html" class="btn-card-primary">Register EOI ➔</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- TIER 2: ONGOING -->
-    <div style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--gold-primary); margin: 60px 0 30px; padding-bottom: 10px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 12px;">🏗️ Ongoing Developments</div>
-    <div class="projects-grid" style="margin-bottom: 60px;">
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Vaaraahi Lotus Grand" />
-          <span class="card-badge-status status-ongoing">65% Constructed</span>
-          <span class="card-badge-city">Jammalamadugu, AP</span>
-        </div>
-        <div class="card-content">
-          <span class="card-category">3 & 4 BHK Duplex Villas</span>
-          <h3 class="card-name">Vaaraahi Lotus Grand</h3>
-          <div class="card-tagline">"A New Standard of Living"</div>
-          <div class="specs-pill-row">
-            <span class="spec-pill">📐 2,100 - 2,800 sq.ft</span>
-            <span class="spec-pill">🏊 Gated Clubhouse</span>
-            <span class="spec-pill">📜 RERA Approved</span>
-          </div>
-          <div class="progress-container" style="margin-bottom: 20px;">
-            <div style="font-family: var(--font-heading); font-size: 1rem; color: var(--gold-primary); margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between;">
-              <span>Live Construction Status</span>
-              <span style="font-size: 0.75rem; color: #10B981; text-transform: uppercase;">● On Schedule</span>
+    <main data-barba="container" data-barba-namespace="projects">
+        
+        <!-- HERO -->
+        <section class="hero-greensiri">
+            <div class="hero-bg-wrapper">
+                <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80" alt="Projects Hero" class="hero-bg-img">
+                <div class="hero-overlay"></div>
             </div>
-            <div class="progress-item">
-              <div class="progress-label"><span>Foundation</span> <span>100%</span></div>
-              <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+            <div class="hero-content">
+                <span class="hero-eyebrow">Our Portfolio</span>
+                <h1 class="hero-heading">Addresses Designed<br>for Tomorrow</h1>
+                <p class="hero-subheading">From contemporary duplex villas to connected luxury apartments, explore residential developments built with uncompromising craft.</p>
             </div>
-            <div class="progress-item">
-              <div class="progress-label"><span>Super Structure</span> <span>85%</span></div>
-              <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+            <div class="hero-scroll-indicator">
+                <span>Scroll</span>
+                <div class="hero-scroll-line"></div>
             </div>
-            <div class="progress-item">
-              <div class="progress-label"><span>MEP & Plastering</span> <span>40%</span></div>
-              <div class="progress-track"><div class="progress-fill" style="width: 40%;"></div></div>
+        </section>
+
+        <!-- INTRO NARRATIVE -->
+        <section class="split-story-section">
+            <div class="split-story-grid">
+                <div class="story-visual-composition gs-reveal">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80" alt="Vaaraahi Projects" class="main-story-img">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=600&q=80" alt="Villa Interior" class="secondary-story-img">
+                    <div class="story-experience-badge">
+                        <h4>5+</h4>
+                        <p>Landmark Projects</p>
+                    </div>
+                </div>
+                <div class="story-content gs-reveal">
+                    <span class="section-tag">Project Philosophy</span>
+                    <h2 class="quote-serif" style="font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 16px;">Every Project is a Benchmark</h2>
+                    <p style="color: var(--color-text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 24px;">
+                        We don't build projects — we create communities. Each Vaaraahi development is conceptualized as a self-sustaining micro-ecosystem: wide tree-lined avenues, resort-grade clubhouses, underground utility networks, and architectural language that respects both heritage and modernity.
+                    </p>
+                    <div class="story-quote-box">
+                        <p>"We don't launch projects until the title is clean, the design is perfected, and every approval is in hand."</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <a href="contact.html" class="btn-card-primary">Book Site Visit ➔</a>
-        </div>
-      </div>
-      
-      <!-- Project 2.5 (New Ongoing) -->
-      <div class="project-card">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Vaaraahi Elite Residency" />
-          <span class="card-badge-status status-ongoing">Plinth Level Done</span>
-          <span class="card-badge-city">Proddatur, AP</span>
-        </div>
-        <div class="card-content">
-          <span class="card-category">Premium 3BHK Apartments</span>
-          <h3 class="card-name">Vaaraahi Elite Residency</h3>
-          <div class="card-tagline">"Exclusivity Redefined"</div>
-          <div class="specs-pill-row">
-            <span class="spec-pill">📐 1,500 - 1,800 sq.ft</span>
-            <span class="spec-pill">🧘 Yoga Deck</span>
-            <span class="spec-pill">📜 RERA Approved</span>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Milestone: Stilt parking complete. First-floor slab casting in progress.</p>
-          <a href="contact.html" class="btn-card-primary">Book Site Visit ➔</a>
-        </div>
-      </div>
-    </div>
+        </section>
 
-    <!-- TIER 3: COMPLETED -->
-    <div style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--gold-primary); margin: 60px 0 30px; padding-bottom: 10px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 12px;">🔑 Completed Projects</div>
-    <div class="projects-grid">
-      <!-- Project 3 -->
-      <div class="project-card">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Vaaraahi City Pride" />
-          <span class="card-badge-status status-completed">OC Issued</span>
-          <span class="card-badge-city">Proddatur, AP</span>
-        </div>
-        <div class="card-content">
-          <span class="card-category">2 & 3 BHK Luxury City Apartments</span>
-          <h3 class="card-name">Vaaraahi City Pride</h3>
-          <div class="card-tagline">"Modern Living at the Heart of the City"</div>
-          <div class="specs-pill-row">
-            <span class="spec-pill">📐 1,250 - 1,650 sq.ft</span>
-            <span class="spec-pill">⚡ 100% Power Backup</span>
-            <span class="spec-pill">🏢 OC Certified</span>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Ready to move. Immediate possession with limited 3BHK flats remaining.</p>
-          <a href="contact.html" class="btn-card-primary">Book Flat Tour ➔</a>
-        </div>
-      </div>
+        <!-- STACKING PROJECTS SHOWCASE -->
+        <section class="stack-section" style="padding-top: 80px;">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Featured Projects</span>
+                <h2>Our Signature Developments</h2>
+                <p>Scroll through our portfolio of landmark projects across Andhra Pradesh.</p>
+            </div>
 
-      <!-- Project 4 -->
-      <div class="project-card">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Vaaraahi Lake Ridge" />
-          <span class="card-badge-status status-completed">100% Handed Over</span>
-          <span class="card-badge-city">Lakeside Corridor, AP</span>
-        </div>
-        <div class="card-content">
-          <span class="card-category">2 & 3 BHK Lakeside Apartments</span>
-          <h3 class="card-name">Vaaraahi Lake Ridge</h3>
-          <div class="card-tagline">"Elevated Living by the Lake"</div>
-          <div class="specs-pill-row">
-            <span class="spec-pill">📐 1,150 - 1,500 sq.ft</span>
-            <span class="spec-pill">🌅 Water facing</span>
-            <span class="spec-pill">🏡 Resident RWA</span>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Delivered and occupied with an active resident welfare association.</p>
-          <a href="contact.html" class="btn-card-primary">View Delivered ➔</a>
-        </div>
-      </div>
+            <div class="cards-stack-container">
+                
+                <!-- Project 1 -->
+                <article class="stack-card">
+                    <div class="card-image-wrap">
+                        <span class="card-status-badge">On Going</span>
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80" alt="Vaaraahi Grandeur">
+                    </div>
+                    <div class="card-content-wrap">
+                        <span class="card-location-tag">Rayachoty • Andhra Pradesh</span>
+                        <h2 class="card-title">Vaaraahi Grandeur</h2>
+                        <p class="card-description">A gated enclave of ultra-luxury duplex villas offering private gardens, dedicated EV charging ports, clubhouse privileges, and tree-lined wide avenues.</p>
+                        <ul class="card-specs-list">
+                            <li class="spec-item">
+                                <span class="spec-title">Property Type</span>
+                                <span class="spec-value">Duplex Villas</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Configurations</span>
+                                <span class="spec-value">3 & 4 BHK</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Clearance</span>
+                                <span class="spec-value">100% RERA Approved</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn-luxury" style="align-self: flex-start;">Enquire for Brochure <i class="fas fa-file-download"></i></a>
+                    </div>
+                </article>
 
-      <!-- New Completed Project 1 -->
-      <div class="project-card">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1605276374104-aa23776ba947?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Vaaraahi Meadows" />
-          <span class="card-badge-status status-completed">Sold Out</span>
-          <span class="card-badge-city">Hyderabad</span>
-        </div>
-        <div class="card-content">
-          <span class="card-category">Ultra-Luxury Villas</span>
-          <h3 class="card-name">Vaaraahi Meadows</h3>
-          <div class="card-tagline">"The Benchmark of Hyderabad Luxury"</div>
-          <div class="specs-pill-row">
-            <span class="spec-pill">📐 4,000 sq.ft</span>
-            <span class="spec-pill">🎾 Tennis Court</span>
-            <span class="spec-pill">🏢 OC Certified</span>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">100% Occupied. A flagship development showcasing our highest material standards.</p>
-          <a href="contact.html" class="btn-card-primary">View Delivered ➔</a>
-        </div>
-      </div>
+                <!-- Project 2 -->
+                <article class="stack-card">
+                    <div class="card-image-wrap">
+                        <span class="card-status-badge">On Going</span>
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80" alt="Vaaraahi Lotus Grand">
+                    </div>
+                    <div class="card-content-wrap">
+                        <span class="card-location-tag">Jammalamadugu • Andhra Pradesh</span>
+                        <h2 class="card-title">Vaaraahi Lotus Grand</h2>
+                        <p class="card-description">Bringing contemporary gated-community living to Jammalamadugu with grand arch entrance, underground cabling, 24/7 security surveillance, and children's recreation parks.</p>
+                        <ul class="card-specs-list">
+                            <li class="spec-item">
+                                <span class="spec-title">Community</span>
+                                <span class="spec-value">Gated Villa Enclave</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Bank Approvals</span>
+                                <span class="spec-value">SBI, HDFC, ICICI APF</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Possession</span>
+                                <span class="spec-value">Phase 1 On-Time</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn-luxury" style="align-self: flex-start;">Enquire for Brochure <i class="fas fa-file-download"></i></a>
+                    </div>
+                </article>
 
-      <!-- New Completed Project 2 -->
-      <div class="project-card">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Vaaraahi Enclave" />
-          <span class="card-badge-status status-completed">100% Handed Over</span>
-          <span class="card-badge-city">Rayachoty, AP</span>
-        </div>
-        <div class="card-content">
-          <span class="card-category">Premium Gated Community</span>
-          <h3 class="card-name">Vaaraahi Enclave</h3>
-          <div class="card-tagline">"Community Living Perfected"</div>
-          <div class="specs-pill-row">
-            <span class="spec-pill">📐 1,200 - 2,000 sq.ft</span>
-            <span class="spec-pill">🛒 Retail Strip</span>
-            <span class="spec-pill">🏡 Resident RWA</span>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">A massive mixed-use development delivered perfectly on schedule.</p>
-          <a href="contact.html" class="btn-card-primary">View Delivered ➔</a>
-        </div>
-      </div>
-    </div>
-  </section>
+                <!-- Project 3 -->
+                <article class="stack-card">
+                    <div class="card-image-wrap">
+                        <span class="card-status-badge gold">Completed</span>
+                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1200&q=80" alt="Vaaraahi City Pride">
+                    </div>
+                    <div class="card-content-wrap">
+                        <span class="card-location-tag">Proddatur • Andhra Pradesh</span>
+                        <h2 class="card-title">Vaaraahi City Pride</h2>
+                        <p class="card-description">A signature apartment development created for modern families, offering prime city center connectivity, round-the-clock water and power backup, and top-tier construction.</p>
+                        <ul class="card-specs-list">
+                            <li class="spec-item">
+                                <span class="spec-title">Type</span>
+                                <span class="spec-value">Luxury Apartments</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Status</span>
+                                <span class="spec-value">Delivered & Handed Over</span>
+                            </li>
+                            <li class="spec-item">
+                                <span class="spec-title">Customer Satisfaction</span>
+                                <span class="spec-value">100% Zero-Snag</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn-luxury" style="align-self: flex-start;">Schedule Site Visit <i class="fas fa-calendar-alt"></i></a>
+                    </div>
+                </article>
 
-  <!-- BROCHURE BANNER -->
-  <section class="section-padding" style="background: linear-gradient(135deg, var(--bg-navy-dark), #000); border-top: 1px solid var(--gold-primary); text-align: center;">
-    <h2 style="font-family: var(--font-heading); font-size: 2.5rem; color: #fff; margin-bottom: 15px;">Download Our Brochure</h2>
-    <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px;">Download the official Vaaraahi 2026 Master Portfolio PDF to view detailed floor plans, master layouts, and material specifications.</p>
-    <a href="#" class="btn-cta" style="display: inline-flex; font-size: 1.1rem; padding: 15px 40px;">📄 Download Master Portfolio (PDF)</a>
-  </section>
+            </div>
+        </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="logo" style="justify-content: center; margin-bottom: 20px;">
-      <div class="logo-mark" style="width: 40px; height: 40px; font-size: 1.2rem;">V</div>
-      <span class="logo-title" style="font-size: 1.2rem;">Vaaraahi</span>
-    </div>
-    <p>Operating in: Hyderabad | Proddatur | Jammalamadugu | Rayachoty</p>
-    <p style="margin-top: 15px; font-size: 0.75rem;">© 2026 Vaaraahi Group of Estates. All rights reserved. 100% RERA Compliant.</p>
-  </footer>
+        <!-- STATS -->
+        <section class="stats-ribbon">
+            <div class="stats-grid gs-reveal">
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="1000">0</span><span class="gold">+</span></h3>
+                    <p>Happy Families</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="100">0</span><span class="gold">%</span></h3>
+                    <p>On-Time Delivery</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="4">0</span><span class="gold">+</span></h3>
+                    <p>Cities Across AP & TS</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="stat-num-val" data-target="40">0</span><span class="gold">%+</span></h3>
+                    <p>NRI Buyer Base</p>
+                </div>
+            </div>
+        </section>
 
-  <!-- VIP WHATSAPP CONCIERGE -->
-  <a href="https://wa.me/919000000000" class="whatsapp-float" target="_blank">
-    <span class="whatsapp-icon">💬</span>
-    <span>VIP Concierge</span>
-  </a>
+        <!-- CTA BANNER -->
+        <section class="cta-banner">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" alt="Dream Home" class="cta-bg">
+            <div class="cta-content gs-reveal">
+                <span class="hero-eyebrow">Personalized Assistance</span>
+                <h2>Looking for Your Ideal Floorplan?</h2>
+                <p>Connect directly with our senior investment advisors for 3D walkthroughs, price sheets, and customized payment schedules.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn-luxury">Contact Investment Desk <i class="fas fa-arrow-right"></i></a>
+                    <a href="engineering.html" class="btn-luxury-outline">View Quality Standards</a>
+                </div>
+            </div>
+        </section>
 
+        <!-- FULL FOOTER -->
+        <footer class="main-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="logo-title" style="color: var(--color-gold); font-size: 22px; display: block; margin-bottom: 8px;">VAARAAHI GROUP</span>
+                    <p style="color: rgba(255,255,255,0.7); max-width: 320px;">Building Dreams. Creating Landmarks. Enriching Lives.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="portfolio.html">Projects</a></li>
+                        <li><a href="engineering.html">Quality</a></li>
+                        <li><a href="transparency.html">Approvals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Projects</h4>
+                    <ul class="footer-links">
+                        <li><a href="portfolio.html">Vaaraahi Grandeur</a></li>
+                        <li><a href="portfolio.html">Vaaraahi Lotus Grand</a></li>
+                        <li><a href="portfolio.html">Vaaraahi City Pride</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <p><i class="fas fa-phone-alt" style="color: var(--color-gold); margin-right: 8px;"></i> +91 90000 00000</p>
+                    <p><i class="fas fa-envelope" style="color: var(--color-gold); margin-right: 8px;"></i> invest@vaaraahigroup.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Vaaraahi Group of Estates. All Rights Reserved.</p>
+                <a href="transparency.html" style="color: var(--color-gold);">100% RERA Compliant</a>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="main.js"></script>
 </body>
 </html>
