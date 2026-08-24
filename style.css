@@ -11755,5 +11755,32 @@ footer.site-footer {
     transform: translateY(-2px);
 }
 
+/* ================= HOME: OUR STORY SECTION TITLE ================= */
+.about-main-title {
+    margin: 12px 0 20px;
+}
+
+.story-highlight-title {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(38px, 4.8vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-gold);
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 28px rgba(197, 160, 89, 0.45);
+    margin-bottom: 8px;
+}
+
+.story-subtitle {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 2.3vw, 26px);
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.35;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
 
 
