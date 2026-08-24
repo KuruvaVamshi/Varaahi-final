@@ -64,8 +64,8 @@
     </nav>
 
     <!-- FULL-SCREEN SPATIAL ESTATE CONCIERGE DRAWER -->
-    <div class="spatial-drawer-overlay" id="spatialDrawer">
-        <div class="spatial-drawer-container">
+    <div class="spatial-drawer-overlay" id="spatialDrawer" data-lenis-prevent>
+        <div class="spatial-drawer-container" data-lenis-prevent>
             <div class="spatial-drawer-header">
                 <div class="drawer-brand">
                     <div class="drawer-crest"><i class="fas fa-monument"></i></div>
@@ -188,7 +188,12 @@
                 <span class="section-tag">Living Heritage</span>
                 <h2>15-Year Architectural Milestone Journey</h2>
                 <p>Scroll to travel through our evolution from a boutique luxury builder into a regional real estate institution.</p>
-                <div class="gold-divider"></div>
+                <div class="filmstrip-era-nav" id="filmstripEraNav">
+                    <button class="era-nav-pill active" data-era-index="0" type="button"><i class="fas fa-seedling"></i> 2010 • Founding</button>
+                    <button class="era-nav-pill" data-era-index="1" type="button"><i class="fas fa-monument"></i> 2014 • Delivery</button>
+                    <button class="era-nav-pill" data-era-index="2" type="button"><i class="fas fa-city"></i> 2019 • Multi-City</button>
+                    <button class="era-nav-pill" data-era-index="3" type="button"><i class="fas fa-solar-panel"></i> 2026 • Smart Sanctuaries</button>
+                </div>
             </div>
 
             <div class="filmstrip-pin-wrapper">
@@ -462,7 +467,7 @@
                 <!-- Category 1: Civil & Structural -->
                 <div class="audit-chapter-card gs-reveal" data-audit-cat="structural">
                     <div class="audit-card-visual">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=900&q=85" alt="Civil & Structural Integrity">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80" alt="Civil & Structural Integrity">
                         <div class="audit-seal-badge"><i class="fas fa-certificate"></i> UPV > 4.2 km/s Verified</div>
                     </div>
                     <div class="audit-card-info">
@@ -516,7 +521,7 @@
                         </div>
                     </div>
                     <div class="audit-card-visual">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=85" alt="Hydrology & Waterproofing">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Hydrology & Waterproofing">
                         <div class="audit-seal-badge"><i class="fas fa-tint"></i> 72-Hr Flood Passed</div>
                     </div>
                 </div>
@@ -524,7 +529,7 @@
                 <!-- Category 3: Electrical & Thermal -->
                 <div class="audit-chapter-card gs-reveal" data-audit-cat="electrical">
                     <div class="audit-card-visual">
-                        <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=900&q=85" alt="Electrical & Thermal Imaging">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80" alt="Electrical & Thermal Imaging">
                         <div class="audit-seal-badge"><i class="fas fa-bolt"></i> Zero Thermal Hotspots</div>
                     </div>
                     <div class="audit-card-info">
@@ -578,7 +583,7 @@
                         </div>
                     </div>
                     <div class="audit-card-visual">
-                        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=900&q=85" alt="Legal & RERA Clearances">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Legal & RERA Clearances">
                         <div class="audit-seal-badge"><i class="fas fa-file-shield"></i> 100% Clear Title</div>
                     </div>
                 </div>
@@ -735,23 +740,6 @@
                     <p class="leader-bio">
                         With over two decades of hands-on civil engineering leadership and real estate innovation across South India, Sri K. Vamshi Vardhan Reddy founded Vaaraahi Group to bridge the gap between traditional craftsmanship and modern sustainable living. Under his stewardship, Vaaraahi has delivered over 1.5 million square feet of residential developments with a pristine 100% on-time delivery record and zero legal disputes.
                     </p>
-
-                    <!-- Interactive Leadership Philosophy Audio-Note -->
-                    <div class="voice-note-player" data-audio-id="founder-voice" style="background: rgba(255,255,255,0.06); border-color: rgba(197,160,89,0.3); margin-top: 20px;">
-                        <button class="btn-voice-play" data-cursor-action="PLAY"><i class="fas fa-play"></i></button>
-                        <div class="voice-waveform-bar">
-                            <div class="wave-track"></div>
-                            <div class="wave-track"></div>
-                            <div class="wave-track"></div>
-                            <div class="wave-track"></div>
-                            <div class="wave-track"></div>
-                            <div class="wave-track"></div>
-                            <div class="wave-track"></div>
-                            <div class="wave-track"></div>
-                            <div class="wave-track"></div>
-                        </div>
-                        <span class="voice-duration" style="color: var(--color-gold);">1:15 • Listen to Founder's Engineering Philosophy</span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -810,7 +798,7 @@
                         <li><a href="sustainability.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Why Vaaraahi & Sustainability</a></li>
                         <li><a href="careers.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Careers & Openings</a></li>
                         <li><a href="blogs.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Blogs & News</a></li>
-                        <li><a href="blogs-admin.html"><i class="fas fa-lock" style="color: var(--color-gold); font-size: 10px;"></i> Blogs Admin Portal</a></li>
+                        <li><a href="blogs-admin.html" class="no-barba"><i class="fas fa-lock" style="color: var(--color-gold); font-size: 10px;"></i> Blogs Admin Portal</a></li>
                         <li><a href="contact.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Contact Us</a></li>
                     </ul>
                 </div>

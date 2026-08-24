@@ -22,7 +22,7 @@
     <!-- MAIN NAVIGATION -->
     <nav class="main-nav admin-nav" id="navbar">
         <a href="index.html" class="logo-container">
-            <img src="assets/vaaraahi-logo-horizontal.png" alt="Vaaraahi Logo" class="brand-logo-img">
+            <div class="logo-crest"><i class="fas fa-monument"></i></div>
             <div class="logo-text-group">
                 <span class="logo-title">VAARAAHI</span>
                 <span class="logo-tagline">Editorial CMS</span>
@@ -38,32 +38,43 @@
         </ul>
 
         <div style="display: flex; align-items: center; gap: 12px;">
-            <a href="blogs.html" class="btn-luxury btn-sm"><i class="fas fa-external-link-alt"></i> View Live Journal</a>
+            <a href="blogs.html" class="btn-luxury btn-sm"><i class="fas fa-external-link-alt"></i> View Journal</a>
+            <button type="button" class="btn-luxury-ghost btn-sm" id="adminLogoutNavBtn" onclick="adminLogout()" style="color: #EF4444; border-color: rgba(239, 68, 68, 0.4);">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
         </div>
     </nav>
 
     <!-- ================= 1. ADMIN ACCESS AUTH GATE MODAL ================= -->
-    <div class="modal-overlay" id="adminGateOverlay" style="display: flex;">
-        <div class="modal-dialog admin-gate-card">
+    <div class="modal-overlay" id="adminGateOverlay" data-lenis-prevent style="display: flex;">
+        <div class="modal-dialog admin-gate-card" data-lenis-prevent>
+            <button type="button" class="modal-close-btn" onclick="exitAdminGate()" aria-label="Close and return to website" title="Exit to Website">&times;</button>
             <div class="admin-lock-icon">
                 <i class="fas fa-shield-alt"></i>
             </div>
             <span class="section-tag" style="color: var(--color-gold);">Editorial Staff Portal</span>
             <h2 class="quote-serif" style="font-size: 26px; margin: 10px 0 8px; color: #FFFFFF;">Blogs CMS Authentication</h2>
-            <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-bottom: 24px;">Please enter your authorized administrator passcode to publish and edit articles.</p>
+            <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-bottom: 24px;">Please enter your administrator password to unlock the publishing studio.</p>
 
-            <div class="form-group" style="text-align: left; margin-bottom: 20px;">
-                <label style="color: #FFFFFF;"><i class="fas fa-key text-gold"></i> Admin Passcode</label>
-                <input type="password" id="adminPasswordInput" placeholder="Enter passcode..." value="vaaraahi2026" class="admin-input-dark">
-                <span style="font-size: 11px; color: var(--color-gold); margin-top: 6px; display: inline-block;">Demo Access: <code>vaaraahi2026</code></span>
+            <div class="form-group" style="text-align: left; margin-bottom: 16px;">
+                <label style="color: #FFFFFF; display: flex; justify-content: space-between; align-items: center;">
+                    <span><i class="fas fa-key text-gold"></i> Admin Password</span>
+                    <button type="button" id="togglePasswordVisibilityBtn" style="background:none; border:none; color: var(--color-gold); font-size: 11px; cursor: pointer;">
+                        <i class="fas fa-eye" id="passwordEyeIcon"></i> Show
+                    </button>
+                </label>
+                <input type="password" id="adminPasswordInput" placeholder="Enter admin password..." value="" class="admin-input-dark" autocomplete="current-password">
+                <div id="loginErrorMessage" style="display: none; color: #EF4444; font-size: 12px; margin-top: 6px; align-items: center; gap: 6px;">
+                    <i class="fas fa-exclamation-circle"></i> <span>Incorrect password. Please try again.</span>
+                </div>
             </div>
 
-            <button type="button" class="btn-gold" id="adminLoginBtn" style="width: 100%; margin-bottom: 12px;">
+            <button type="button" class="btn-gold" id="adminLoginBtn" style="width: 100%; margin-bottom: 10px;">
                 <span>Unlock Editorial Desk</span> <i class="fas fa-unlock"></i>
             </button>
-            <button type="button" class="btn-luxury-ghost" id="quickLoginDemoBtn" style="width: 100%; font-size: 11.5px;">
-                1-Click Quick Demo Login
-            </button>
+            <a href="blogs.html" class="btn-luxury-ghost" style="width: 100%; font-size: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-arrow-left"></i> Return to Public Journal
+            </a>
         </div>
     </div>
 
@@ -77,9 +88,14 @@
                 <h1 class="admin-page-title">Manage Publications & Articles</h1>
                 <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; margin-top: 4px;">Create, upload photography, write whitepapers, and publish live to the Vaaraahi portal.</p>
             </div>
-            <button class="btn-gold btn-create-post" onclick="openNewPostModal()">
-                <i class="fas fa-plus-circle"></i> <span>Write New Blog Post</span>
-            </button>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                <button class="btn-gold btn-create-post" onclick="openNewPostModal()">
+                    <i class="fas fa-plus-circle"></i> <span>Write New Blog Post</span>
+                </button>
+                <button class="btn-luxury-ghost" onclick="adminLogout()" style="color: #EF4444; border-color: rgba(239, 68, 68, 0.4);" title="Sign out of Admin Session">
+                    <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+                </button>
+            </div>
         </div>
 
         <!-- Metric Stat Cards -->
@@ -190,8 +206,8 @@
     </main>
 
     <!-- ================= 3. ADD / EDIT POST MODAL WITH PHOTO UPLOADER ================= -->
-    <div class="modal-overlay" id="adminPostModal">
-        <div class="modal-dialog admin-editor-modal">
+    <div class="modal-overlay" id="adminPostModal" data-lenis-prevent>
+        <div class="modal-dialog admin-editor-modal" data-lenis-prevent>
             <button class="modal-close-btn" onclick="closePostModal()" aria-label="Close Modal">&times;</button>
             <span class="section-tag" style="color: var(--color-gold);">Article Studio</span>
             <h2 class="quote-serif" id="postModalTitle" style="font-size: 24px; margin-bottom: 20px; color: #FFFFFF;">Add New Blog Post</h2>
@@ -317,8 +333,9 @@
     </div>
 
     <!-- ================= 4. DELETE CONFIRMATION MODAL ================= -->
-    <div class="modal-overlay" id="adminDeleteModal">
-        <div class="modal-dialog admin-delete-card">
+    <div class="modal-overlay" id="adminDeleteModal" data-lenis-prevent>
+        <div class="modal-dialog admin-delete-card" data-lenis-prevent style="position: relative;">
+            <button type="button" class="modal-close-btn" onclick="closeDeleteModal()" aria-label="Close modal" title="Close">&times;</button>
             <div class="delete-warning-icon">
                 <i class="fas fa-exclamation-triangle"></i>
             </div>

@@ -64,8 +64,8 @@
     </nav>
 
     <!-- FULL-SCREEN SPATIAL ESTATE CONCIERGE DRAWER -->
-    <div class="spatial-drawer-overlay" id="spatialDrawer">
-        <div class="spatial-drawer-container">
+    <div class="spatial-drawer-overlay" id="spatialDrawer" data-lenis-prevent>
+        <div class="spatial-drawer-container" data-lenis-prevent>
             <div class="spatial-drawer-header">
                 <div class="drawer-brand">
                     <div class="drawer-crest"><i class="fas fa-monument"></i></div>
@@ -210,7 +210,7 @@
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
                                 <span style="color: var(--color-gold); font-weight: 700; font-size: 14px;">₹1.85 Cr onwards</span>
-                                <a href="project-detail.html" class="btn-card-link" style="color: #FFFFFF; font-weight: 700; font-size: 12px;">Explore 3D Unit <i class="fas fa-arrow-right"></i></a>
+                                <a href="project-detail.html?id=grandeur" class="btn-card-link" style="color: #FFFFFF; font-weight: 700; font-size: 12px;">Explore 3D Unit <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
                                 <span style="color: var(--color-gold); font-weight: 700; font-size: 14px;">₹1.45 Cr onwards</span>
-                                <a href="project-detail.html" class="btn-card-link" style="color: #FFFFFF; font-weight: 700; font-size: 12px;">Explore 3D Unit <i class="fas fa-arrow-right"></i></a>
+                                <a href="project-detail.html?id=elite-vistas" class="btn-card-link" style="color: #FFFFFF; font-weight: 700; font-size: 12px;">Explore 3D Unit <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -258,31 +258,31 @@
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
                                 <span style="color: var(--color-gold); font-weight: 700; font-size: 14px;">₹95 Lakhs onwards</span>
-                                <a href="project-detail.html" class="btn-card-link" style="color: #FFFFFF; font-weight: 700; font-size: 12px;">Explore 3D Unit <i class="fas fa-arrow-right"></i></a>
+                                <a href="project-detail.html?id=green-meadows" class="btn-card-link" style="color: #FFFFFF; font-weight: 700; font-size: 12px;">Explore 3D Unit <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Card 4: Vaaraahi Signature Towers -->
+                    <!-- Card 4: Vaaraahi Sky High -->
                     <div class="carousel-3d-card" data-project="signature" data-cursor-action="EXPLORE">
                         <div class="carousel-card-media">
-                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" alt="Vaaraahi Signature Towers Hyderabad" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" alt="Vaaraahi Sky High Hyderabad" class="carousel-card-img">
                             <div class="carousel-card-glare"></div>
                             <span class="carousel-card-badge">Hyderabad • Luxury Sky Suites</span>
                         </div>
                         <div class="carousel-card-body">
                             <div>
                                 <div class="carousel-card-loc"><i class="fas fa-map-marker-alt"></i> Financial District, Nanakramguda</div>
-                                <h3 class="carousel-card-title">Vaaraahi Signature Towers</h3>
+                                <h3 class="carousel-card-title">Vaaraahi Sky High</h3>
                                 <div class="carousel-card-meta-pills">
-                                    <span><i class="fas fa-building" style="color: var(--color-gold);"></i> 28 Floors</span>
+                                    <span><i class="fas fa-building" style="color: var(--color-gold);"></i> 45 Floors</span>
                                     <span><i class="fas fa-city" style="color: var(--color-gold);"></i> Infinity Sky Lounge</span>
-                                    <span><i class="fas fa-shield-alt" style="color: var(--color-gold);"></i> Upcoming 2027</span>
+                                    <span><i class="fas fa-shield-alt" style="color: var(--color-gold);"></i> Pre-Launch 2026</span>
                                 </div>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
-                                <span style="color: var(--color-gold); font-weight: 700; font-size: 14px;">Price on Request</span>
-                                <a href="contact.html" class="btn-card-link" style="color: #FFFFFF; font-weight: 700; font-size: 12px;">Pre-Register Interest <i class="fas fa-arrow-right"></i></a>
+                                <span style="color: var(--color-gold); font-weight: 700; font-size: 14px;">₹2.20 Cr onwards</span>
+                                <a href="project-detail.html?id=sky-high" class="btn-card-link" style="color: #FFFFFF; font-weight: 700; font-size: 12px;">Explore 3D Unit <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -352,7 +352,7 @@
 
                         <div class="project-card-footer">
                             <button class="btn-toggle-blueprint" data-drawer-id="drawer-grandeur" data-cursor-action="PEEK"><i class="fas fa-eye"></i> Quick Peek Blueprint</button>
-                            <a href="project-detail.html" class="btn-card-link" data-cursor-action="EXPLORE">Explore Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="project-detail.html?id=grandeur" class="btn-card-link" data-cursor-action="EXPLORE">Explore Project <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>
@@ -391,7 +391,7 @@
 
                         <div class="project-card-footer">
                             <button class="btn-toggle-blueprint" data-drawer-id="drawer-elite" data-cursor-action="PEEK"><i class="fas fa-eye"></i> Quick Peek Blueprint</button>
-                            <a href="project-detail.html" class="btn-card-link" data-cursor-action="EXPLORE">Explore Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="project-detail.html?id=elite-vistas" class="btn-card-link" data-cursor-action="EXPLORE">Explore Project <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>
@@ -431,23 +431,62 @@
 
                         <div class="project-card-footer">
                             <button class="btn-toggle-blueprint" data-drawer-id="drawer-meadows" data-cursor-action="PEEK"><i class="fas fa-eye"></i> Quick Peek Blueprint</button>
-                            <a href="project-detail.html" class="btn-card-link" data-cursor-action="EXPLORE">Explore Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="project-detail.html?id=green-meadows" class="btn-card-link" data-cursor-action="EXPLORE">Explore Project <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>
 
-                <!-- Card 4: Vaaraahi Signature Towers -->
-                <article class="project-grid-card gs-reveal" data-city="hyderabad" data-type="apartment" data-status="coming" data-bhk="2bhk 3bhk 4bhk">
+                <!-- Card 4: Vaaraahi Royal Palms -->
+                <article class="project-grid-card gs-reveal" data-city="proddatur" data-type="plotted gated" data-status="ongoing available" data-bhk="3bhk 4bhk">
                     <div class="project-card-image-box">
-                        <span class="badge-status">Coming Soon</span>
-                        <span class="badge-category">Luxury Apartments</span>
-                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Vaaraahi Signature Towers">
+                        <span class="badge-status">New Launch</span>
+                        <span class="badge-category">Plotted Enclave</span>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Vaaraahi Royal Palms">
                         
-                        <div class="card-blueprint-drawer" id="drawer-hyd">
-                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80" alt="Signature Towers Sky Suite Blueprint">
+                        <div class="card-blueprint-drawer" id="drawer-palms">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80" alt="Royal Palms Layout">
                             <div class="drawer-info">
-                                <strong>High-Rise Sky Suite</strong>
-                                <span>2,400 Sq.Ft • Panoramic Balcony</span>
+                                <strong>Bespoke Plotted Enclave</strong>
+                                <span>3,400 Sq.Ft • 40-Ft Bitumen Avenues</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card-body">
+                        <div>
+                            <div class="project-card-location"><i class="fas fa-map-marker-alt"></i> Proddatur Phase-2 • Andhra Pradesh</div>
+                            <h3 class="project-card-title">Vaaraahi Royal Palms</h3>
+                            <p class="project-card-desc">Exclusive plotted enclaves and turnkey duplex villas with 24/7 AI perimeter security, avenue royal palms, and 20,000 Sq.Ft royal clubhouse.</p>
+                            
+                            <div class="card-config-selector">
+                                <span class="config-lbl">Select Config:</span>
+                                <div class="config-buttons">
+                                    <button class="config-btn active" data-unit-area="2,400 Sq.Ft" data-unit-type="3 BHK Villa Plot" data-cursor-action="CONFIG">3 BHK</button>
+                                    <button class="config-btn" data-unit-area="3,400 Sq.Ft" data-unit-type="4 BHK Duplex Estate" data-cursor-action="CONFIG">4 BHK</button>
+                                </div>
+                                <span class="config-spec-readout" style="color: var(--color-gold); font-weight: 700; font-size: 12px; margin-left: auto;">2,400 Sq.Ft</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card-footer">
+                            <button class="btn-toggle-blueprint" data-drawer-id="drawer-palms" data-cursor-action="PEEK"><i class="fas fa-eye"></i> Quick Peek Blueprint</button>
+                            <a href="project-detail.html?id=royal-palms" class="btn-card-link" data-cursor-action="EXPLORE">Explore Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5: Vaaraahi Sky High (Hyderabad) -->
+                <article class="project-grid-card gs-reveal" data-city="hyderabad" data-type="apartment" data-status="coming" data-bhk="3bhk 4bhk">
+                    <div class="project-card-image-box">
+                        <span class="badge-status">Pre-Launch</span>
+                        <span class="badge-category">45-Storey Sky Suites</span>
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Vaaraahi Sky High">
+                        
+                        <div class="card-blueprint-drawer" id="drawer-sky">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80" alt="Sky High Suite Blueprint">
+                            <div class="drawer-info">
+                                <strong>45-Storey Sky Suite</strong>
+                                <span>3,600 Sq.Ft • Private Sky Deck & Pool</span>
                             </div>
                         </div>
                     </div>
@@ -455,23 +494,22 @@
                     <div class="project-card-body">
                         <div>
                             <div class="project-card-location"><i class="fas fa-map-marker-alt"></i> Financial District • Hyderabad</div>
-                            <h3 class="project-card-title">Vaaraahi Signature Towers</h3>
-                            <p class="project-card-desc">High-rise luxury sky suites in Hyderabad's premier IT growth hub, offering panoramic skyline views and multi-tier amenities.</p>
+                            <h3 class="project-card-title">Vaaraahi Sky High</h3>
+                            <p class="project-card-desc">45-storey iconic residential towers featuring panoramic skyline views, rooftop helipad, infinity sky pool, and touchless destination elevators.</p>
                             
                             <div class="card-config-selector">
                                 <span class="config-lbl">Select Config:</span>
                                 <div class="config-buttons">
-                                    <button class="config-btn" data-unit-area="1,650 Sq.Ft" data-unit-type="2 BHK Suite" data-cursor-action="CONFIG">2 BHK</button>
-                                    <button class="config-btn active" data-unit-area="2,400 Sq.Ft" data-unit-type="3 BHK Sky Suite" data-cursor-action="CONFIG">3 BHK</button>
-                                    <button class="config-btn" data-unit-area="3,400 Sq.Ft" data-unit-type="4 BHK Penthouse" data-cursor-action="CONFIG">4 BHK</button>
+                                    <button class="config-btn active" data-unit-area="2,650 Sq.Ft" data-unit-type="3 BHK Sky Suite" data-cursor-action="CONFIG">3 BHK</button>
+                                    <button class="config-btn" data-unit-area="3,600 Sq.Ft" data-unit-type="4 BHK Penthouse" data-cursor-action="CONFIG">4 BHK</button>
                                 </div>
-                                <span class="config-spec-readout" style="color: var(--color-gold); font-weight: 700; font-size: 12px; margin-left: auto;">2,400 Sq.Ft</span>
+                                <span class="config-spec-readout" style="color: var(--color-gold); font-weight: 700; font-size: 12px; margin-left: auto;">2,650 Sq.Ft</span>
                             </div>
                         </div>
 
                         <div class="project-card-footer">
-                            <button class="btn-toggle-blueprint" data-drawer-id="drawer-hyd" data-cursor-action="PEEK"><i class="fas fa-eye"></i> Quick Peek Blueprint</button>
-                            <a href="contact.html" class="btn-card-link" data-cursor-action="REGISTER">Pre-Register <i class="fas fa-arrow-right"></i></a>
+                            <button class="btn-toggle-blueprint" data-drawer-id="drawer-sky" data-cursor-action="PEEK"><i class="fas fa-eye"></i> Quick Peek Blueprint</button>
+                            <a href="project-detail.html?id=sky-high" class="btn-card-link" data-cursor-action="EXPLORE">Explore Project <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>
@@ -559,7 +597,7 @@
                         <li><a href="sustainability.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Why Vaaraahi & Sustainability</a></li>
                         <li><a href="careers.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Careers & Openings</a></li>
                         <li><a href="blogs.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Blogs & News</a></li>
-                        <li><a href="blogs-admin.html"><i class="fas fa-lock" style="color: var(--color-gold); font-size: 10px;"></i> Blogs Admin Portal</a></li>
+                        <li><a href="blogs-admin.html" class="no-barba"><i class="fas fa-lock" style="color: var(--color-gold); font-size: 10px;"></i> Blogs Admin Portal</a></li>
                         <li><a href="contact.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Contact Us</a></li>
                     </ul>
                 </div>

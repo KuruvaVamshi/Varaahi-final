@@ -63,8 +63,8 @@
     </nav>
 
     <!-- FULL-SCREEN SPATIAL ESTATE CONCIERGE DRAWER -->
-    <div class="spatial-drawer-overlay" id="spatialDrawer">
-        <div class="spatial-drawer-container">
+    <div class="spatial-drawer-overlay" id="spatialDrawer" data-lenis-prevent>
+        <div class="spatial-drawer-container" data-lenis-prevent>
             <div class="spatial-drawer-header">
                 <div class="drawer-brand">
                     <div class="drawer-crest"><i class="fas fa-monument"></i></div>
@@ -164,12 +164,12 @@
 
         <!-- ================= 1. PROJECT HERO GALLERY & 360° TOUR EMBED ================= -->
         <section class="project-hero-gallery">
-            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80" alt="Vaaraahi Grandeur Hero" class="gallery-main-slide">
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80" alt="Vaaraahi Project Hero" class="gallery-main-slide" id="projectHeroImg">
             
             <div style="position: absolute; bottom: 30px; left: 6%; z-index: 5; color: #FFFFFF;" class="gs-reveal">
-                <span class="section-tag" style="color: var(--color-gold);">Featured Landmark</span>
-                <h1 class="quote-serif" style="font-size: clamp(34px, 5vw, 58px); color: #FFFFFF; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">Vaaraahi Grandeur</h1>
-                <p style="color: rgba(255, 255, 255, 0.9); font-size: 16px;"><i class="fas fa-map-marker-alt" style="color: var(--color-gold);"></i> Madanapalle Bypass Road, Rayachoty, Andhra Pradesh</p>
+                <span class="section-tag" style="color: var(--color-gold);" id="projectHeroTag">Featured Landmark</span>
+                <h1 class="quote-serif" style="font-size: clamp(34px, 5vw, 58px); color: #FFFFFF; text-shadow: 0 4px 20px rgba(0,0,0,0.5);" id="projectHeroTitle">Vaaraahi Grandeur</h1>
+                <p style="color: rgba(255, 255, 255, 0.9); font-size: 16px;" id="projectHeroLocation"><i class="fas fa-map-marker-alt" style="color: var(--color-gold);"></i> Madanapalle Bypass Road, Rayachoty, Andhra Pradesh</p>
             </div>
 
             <button class="tour-360-badge" onclick="showToast('Loading 360° 4K Virtual Walkthrough...');" data-cursor-action="360°">
@@ -182,19 +182,19 @@
             <div class="overview-specs-grid gs-reveal">
                 <div class="spec-item">
                     <span>Property Type</span>
-                    <strong>Luxury Duplex Villas</strong>
+                    <strong id="overviewPropertyType">Luxury Duplex Villas</strong>
                 </div>
                 <div class="spec-item">
                     <span>Configuration</span>
-                    <strong>3 & 4 BHK Triplex Suites</strong>
+                    <strong id="overviewConfiguration">3 & 4 BHK Triplex Suites</strong>
                 </div>
                 <div class="spec-item">
                     <span>Possession Status</span>
-                    <strong>Phase 1 Ready / Phase 2 Ongoing</strong>
+                    <strong id="overviewPossession">Phase 1 Ready / Phase 2 Ongoing</strong>
                 </div>
                 <div class="spec-item">
                     <span>RERA Registration</span>
-                    <strong>AP RERA #P02400004581</strong>
+                    <strong id="overviewRera">AP RERA #P02400004581</strong>
                 </div>
             </div>
         </section>
@@ -428,31 +428,6 @@
             </div>
         </section>
 
-        <!-- ================= 4. INNOVATIVE TOOL: BEFORE / AFTER HANDOVER SLIDER ================= -->
-        <section style="padding: 90px 6%; background: var(--color-bg-secondary);">
-            <div class="section-header-center gs-reveal">
-                <span class="section-tag">Zero-Deviation Handover</span>
-                <h2>Architectural 3D BIM Model vs. Completed Villa Reality</h2>
-                <p>Compare the initial 3D computer-aided engineering model with the actual finished handover at Vaaraahi Grandeur.</p>
-                <div class="gold-divider"></div>
-            </div>
-
-            <div class="before-after-container gs-reveal" data-cursor-action="DRAG">
-                <div class="before-after-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Vaaraahi Grandeur 3D BIM Architectural Blueprint Model">
-                    <span class="before-after-badge badge-before"><i class="fas fa-cube"></i> BIM 3D Blueprint Model</span>
-                </div>
-                
-                <div class="before-after-img-wrap after-wrap">
-                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80" alt="Vaaraahi Grandeur Actual Completed Handover">
-                    <span class="before-after-badge badge-after"><i class="fas fa-check-circle" style="color: var(--color-gold);"></i> Completed Handover Reality</span>
-                </div>
-
-                <div class="before-after-handle">
-                    <i class="fas fa-arrows-alt-h"></i>
-                </div>
-            </div>
-        </section>
 
         <!-- ================= 5. UNIQUE TOOL: RESORT AMENITY CAMPUS NAVIGATOR & CATEGORY FILTER ================= -->
         <section class="amenities-section">
@@ -636,6 +611,20 @@
             </div>
         </section>
 
+        <!-- ================= 6.5. NEXT LANDMARK PROJECT SWITCHER ================= -->
+        <section class="project-switcher-section" id="projectSwitcherSection" style="padding: 80px 6%; background: #06110D; border-top: 1px solid rgba(197, 160, 89, 0.2);">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag" style="color: var(--color-gold);">Explore More Estates</span>
+                <h2 style="color: #FFFFFF;">Explore Our Other Signature Landmarks</h2>
+                <p style="color: rgba(255, 255, 255, 0.75);">Discover our landmark duplex villas, eco-townships, and luxury sky suites across Andhra Pradesh &amp; Telangana.</p>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="project-switcher-grid gs-reveal" id="projectSwitcherGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 1300px; margin: 0 auto;">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </section>
+
         <!-- ================= 7. BROCHURE DOWNLOAD LEAD CAPTURE ================= -->
         <section class="cta-parallax-band" id="brochureSection">
             <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=80" alt="Brochure Background" class="cta-parallax-bg">
@@ -685,7 +674,7 @@
                         <li><a href="sustainability.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Why Vaaraahi & Sustainability</a></li>
                         <li><a href="careers.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Careers & Openings</a></li>
                         <li><a href="blogs.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Blogs & News</a></li>
-                        <li><a href="blogs-admin.html"><i class="fas fa-lock" style="color: var(--color-gold); font-size: 10px;"></i> Blogs Admin Portal</a></li>
+                        <li><a href="blogs-admin.html" class="no-barba"><i class="fas fa-lock" style="color: var(--color-gold); font-size: 10px;"></i> Blogs Admin Portal</a></li>
                         <li><a href="contact.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Contact Us</a></li>
                     </ul>
                 </div>

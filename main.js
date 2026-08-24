@@ -1704,12 +1704,18 @@ function initCareersPortal() {
                     roleSelect.value = roleName;
                 }
                 modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                if (window.lenis) window.lenis.stop();
             });
         });
     }
 
     window.closeCareerModal = function() {
-        if (modal) modal.classList.remove('active');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            if (window.lenis) window.lenis.start();
+        }
     };
 }
 
@@ -1800,8 +1806,8 @@ function initHomeBlogStrip() {
 
 // ================= 17. BARBA.JS ARCHITECTURAL MULTI-PAGE ROUTING =================
 function initBarbaTransitions() {
-    // Disable Barba on local file:// protocol or if Barba is not loaded
-    if (typeof barba === 'undefined' || window.location.protocol === 'file:') return;
+    // Disable Barba on local file:// protocol, on admin pages, or if Barba is not loaded
+    if (typeof barba === 'undefined' || window.location.protocol === 'file:' || document.body.classList.contains('admin-cms-body') || window.location.pathname.includes('blogs-admin')) return;
 
     // Create Architectural Transition Curtain Overlay if not present
     let curtainWrap = document.querySelector('.barba-curtain-wrap');
@@ -1825,13 +1831,18 @@ function initBarbaTransitions() {
 
     try {
         barba.init({
-            prevent: ({ el }) => {
-                // Prevent Barba from intercepting anchor jumps or external/admin links
+            prevent: ({ el, href }) => {
+                if (!el) return true;
+                const linkHref = (el.getAttribute('href') || href || '').toLowerCase();
+                // Prevent Barba from intercepting anchor jumps, admin portal, external links, or downloads
                 return el.classList.contains('no-barba') || 
-                       el.getAttribute('href')?.startsWith('#') ||
-                       el.getAttribute('href')?.startsWith('mailto:') ||
-                       el.getAttribute('href')?.startsWith('tel:') ||
-                       el.getAttribute('href')?.includes('api.whatsapp.com');
+                       linkHref.startsWith('#') ||
+                       linkHref.startsWith('mailto:') ||
+                       linkHref.startsWith('tel:') ||
+                       linkHref.includes('api.whatsapp.com') ||
+                       linkHref.includes('blogs-admin') ||
+                       linkHref.endsWith('.pdf') ||
+                       el.getAttribute('target') === '_blank';
             },
             transitions: [{
                 name: 'architectural-shutter-transition',
@@ -2520,53 +2531,100 @@ function initVipSchedulerDesk() {
 
 // 8. HORIZONTAL SCROLL TIMELINE FILMSTRIP (About Page)
 function initTimeTravelSlider() {
+    const section = document.getElementById('timelineFilmstrip');
     const track = document.getElementById('filmstripTrack');
     const progressFill = document.getElementById('filmstripProgressFill');
-    if (!track || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    const eraPills = section ? section.querySelectorAll('.era-nav-pill') : [];
+    if (!section || !track || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
     const frames = track.querySelectorAll('.filmstrip-frame');
     if (frames.length < 2) return;
 
-    const totalScroll = (frames.length - 1) * 100;
+    const numFrames = frames.length;
 
-    gsap.to(track, {
-        x: () => -(track.scrollWidth - window.innerWidth),
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.filmstrip-pin-wrapper',
-            start: 'top top',
-            end: () => '+=' + track.scrollWidth,
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-            onUpdate: (self) => {
-                if (progressFill) {
-                    progressFill.style.width = (self.progress * 100) + '%';
-                }
-            }
-        }
+    // Clean up any existing triggers for this section on re-init
+    ScrollTrigger.getAll().forEach(t => {
+        if (t.vars && t.vars.trigger === section) t.kill();
     });
 
-    // Animate frame year watermarks scaling up as they enter
-    frames.forEach((frame, i) => {
-        const wm = frame.querySelector('.frame-year-watermark');
-        if (wm) {
-            gsap.fromTo(wm, 
-                { scale: 0.5, opacity: 0 },
-                {
-                    scale: 1, opacity: 1,
-                    scrollTrigger: {
-                        trigger: frame,
-                        containerAnimation: gsap.getById && gsap.getById('filmstripST'),
-                        start: 'left center',
-                        end: 'right center',
-                        scrub: true
+    const updateActiveEra = (progress) => {
+        const activeIdx = Math.min(numFrames - 1, Math.max(0, Math.round(progress * (numFrames - 1))));
+        eraPills.forEach((pill, idx) => {
+            if (idx === activeIdx) {
+                pill.classList.add('active');
+            } else {
+                pill.classList.remove('active');
+            }
+        });
+    };
+
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 993px)", () => {
+        const tween = gsap.to(track, {
+            xPercent: -100 * (numFrames - 1),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top top',
+                end: () => '+=' + (window.innerHeight * (numFrames - 0.5)),
+                pin: true,
+                scrub: 0.6,
+                snap: {
+                    snapTo: 1 / (numFrames - 1),
+                    duration: { min: 0.2, max: 0.45 },
+                    ease: "power1.inOut"
+                },
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                    if (progressFill) {
+                        progressFill.style.width = (self.progress * 100) + '%';
                     }
+                    updateActiveEra(self.progress);
                 }
-            );
+            }
+        });
+
+        // Click era pills to jump directly to that card
+        eraPills.forEach((pill) => {
+            pill.onclick = () => {
+                const targetIdx = parseInt(pill.getAttribute('data-era-index'), 10) || 0;
+                const st = tween.scrollTrigger;
+                if (st) {
+                    const targetScroll = st.start + (st.end - st.start) * (targetIdx / (numFrames - 1));
+                    window.scrollTo({ top: targetScroll + 2, behavior: 'smooth' });
+                }
+            };
+        });
+    });
+
+    mm.add("(max-width: 992px)", () => {
+        track.style.transform = 'none';
+        const wrapper = section.querySelector('.filmstrip-pin-wrapper');
+        if (wrapper) {
+            wrapper.addEventListener('scroll', () => {
+                const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+                const progress = maxScroll > 0 ? wrapper.scrollLeft / maxScroll : 0;
+                if (progressFill) {
+                    progressFill.style.width = (progress * 100) + '%';
+                }
+                updateActiveEra(progress);
+            }, { passive: true });
+
+            eraPills.forEach((pill) => {
+                pill.onclick = () => {
+                    const targetIdx = parseInt(pill.getAttribute('data-era-index'), 10) || 0;
+                    const targetFrame = frames[targetIdx];
+                    if (targetFrame) {
+                        wrapper.scrollTo({ left: targetFrame.offsetLeft - 20, behavior: 'smooth' });
+                    }
+                };
+            });
         }
     });
 }
+
 
 // 9. ZIGZAG SCROLL-REVEAL COMMITMENT CHAPTERS (About Page)
 function initCommitmentMatrixDial() {
@@ -2637,15 +2695,27 @@ function initAuditWaterfallCascade() {
                 }
             }
         });
-    }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
 
-    chapterCards.forEach(card => cardObserver.observe(card));
+    chapterCards.forEach((card, idx) => {
+        cardObserver.observe(card);
+    });
+
+    // Make HUD category pills clickable to jump directly to that chapter
+    hudPills.forEach((pill, idx) => {
+        pill.style.cursor = 'pointer';
+        pill.onclick = () => {
+            if (chapterCards[idx]) {
+                chapterCards[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        };
+    });
 }
 
 function animateCounter(el, target) {
     const current = parseInt(el.textContent) || 0;
     if (current >= target) return;
-    const step = Math.ceil((target - current) / 12);
+    const step = Math.ceil((target - current) / 10);
     let val = current;
     const tick = () => {
         val = Math.min(val + step, target);
@@ -2732,7 +2802,849 @@ function initInCardUnitConfigurator() {
     });
 }
 
-// 11. Room-by-Room Spatial Inspector (Project Detail)
+// ================= 11. CENTRALIZED MULTI-PROJECT ENGINE & DATA STORE =================
+const PROJECTS_DATABASE = {
+    'grandeur': {
+        id: 'grandeur',
+        name: 'Vaaraahi Grandeur',
+        city: 'Rayachoty',
+        state: 'Andhra Pradesh',
+        tag: 'Featured Landmark • Rayachoty',
+        location: 'Madanapalle Bypass Road, Rayachoty, Andhra Pradesh',
+        price: '₹1.85 Cr onwards',
+        type: 'Luxury Duplex Villas',
+        config: '3 & 4 BHK Triplex Suites (3,200 – 3,850 Sq.Ft)',
+        possession: 'Phase 1 Ready / Phase 2 Ongoing',
+        rera: 'AP RERA #P02400004581',
+        heroImg: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80',
+        commuteSite: 'Vaaraahi Grandeur Site',
+        commuteData: {
+            'car': { nh: '2 Mins (1.2 km)', school: '5 Mins (2.8 km)', hospital: '8 Mins (4.5 km)', airport: '45 Mins (52 km)' },
+            'bike': { nh: '3 Mins (1.2 km)', school: '6 Mins (2.8 km)', hospital: '9 Mins (4.5 km)', airport: '55 Mins (52 km)' },
+            'cycle': { nh: '5 Mins (1.2 km)', school: '12 Mins (2.8 km)', hospital: '18 Mins (4.5 km)', airport: 'Transit Bus (40 Mins)' }
+        },
+        commuteDestinations: [
+            { icon: 'fa-road', name: 'National Highway (NH-40) Junction', sub: 'Direct non-congested bypass', key: 'nh' },
+            { icon: 'fa-graduation-cap', name: 'Delhi Public School & Narayana Academy', sub: 'Dedicated school zone corridor', key: 'school' },
+            { icon: 'fa-hospital-alt', name: 'District Super Specialty Hospital', sub: '24/7 emergency medical access', key: 'hospital' },
+            { icon: 'fa-plane', name: 'Kadapa Domestic Airport', sub: 'Expressway direct route', key: 'airport' }
+        ],
+        floors: {
+            'roof': {
+                tag: 'Level 03 • Rooftop Solar Pavilion',
+                title: 'Level 03: Rooftop Solar Sky Lounge & Stargazing Deck',
+                area: '850 Sq.Ft • Monocrystalline 5.5kW PV • Cool Roof',
+                desc: 'Open-air entertainer lounge featuring 5.5kW monocrystalline photovoltaic solar array, heat-reflective SRI cool roof tiling, and structural pre-wiring for private heated jacuzzi and outdoor barbecue pavilion.',
+                img: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Monocrystalline High-Yield Solar Microgrid (5.5kW)',
+                    'Solar Reflective Index (SRI) > 95 Heat Barrier',
+                    'Acoustic Toughened Glass Safety Balustrades'
+                ]
+            },
+            'first': {
+                tag: 'Level 02 • Master Suite & Family Lounge',
+                title: 'Level 02: Royal Master Suites & Walk-In Wardrobes',
+                area: '1,650 Sq.Ft • 3 Master Bedrooms • Walk-in Closets',
+                desc: 'Southwest power-aligned master bedroom with Italian Botticino marble, custom dressing salon, private cantilever sunrise balcony, and double-height void overlooking the ground floor living salon.',
+                img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Southwest Master Bed Vedic Vastu Alignment',
+                    'Double-Glazed Acoustic UPVC Windows (Soundproofed)',
+                    'Designer Walk-In Closet & Spa-grade 5-Fixture Bath'
+                ]
+            },
+            'ground': {
+                tag: 'Level 01 • Double-Height Living & Foyer',
+                title: 'Level 01: Double-Height Living Salon & Gourmet Kitchen',
+                area: '1,950 Sq.Ft • 18-Ft Ceiling • Italian Botticino Marble',
+                desc: 'Palatial entertaining hall with 18-foot ceiling heights, imported Italian Botticino marble flooring, show island kitchen with quartz counters, and direct outdoor courtyard connection.',
+                img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    '18-Foot Triple-Height Natural Light Well',
+                    '20mm Imported Botticino Italian Marble',
+                    '2-Car Covered EV Fast-Charging Portico'
+                ]
+            },
+            'foundation': {
+                tag: 'Sub-Level • Deep Pile Engineering & Hydrology',
+                title: 'Sub-Level: Percolation Vault & Seismic Core Substructure',
+                area: 'M35 Ready-Mix Concrete • Fe-550D TMT Steel Core',
+                desc: 'Engineered with Fe-550D primary reinforcement steel, M35 grade digitized batching concrete, subterranean rainwater percolation aquifers, and 100% underground concealed conduit network.',
+                img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Fe-550D TMT Rebars & M35 Concrete (>4.2 km/s UPV Velocity)',
+                    'Deep Percolation Groundwater Recharge Wells',
+                    '100% Zero Overhead Utility Cables'
+                ]
+            }
+        }
+    },
+    'elite-vistas': {
+        id: 'elite-vistas',
+        name: 'Vaaraahi Elite Vistas',
+        city: 'Proddatur',
+        state: 'Andhra Pradesh',
+        tag: 'Completed Handover Landmark • Proddatur',
+        location: 'Main Bypass Road, Proddatur, Andhra Pradesh',
+        price: '₹1.45 Cr onwards',
+        type: 'Contemporary Gated Villas',
+        config: '3 & 4 BHK Smart Villas (2,450 – 3,200 Sq.Ft)',
+        possession: '100% Delivered / OC Handed Over',
+        rera: 'AP RERA #P02400003920',
+        heroImg: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80',
+        commuteSite: 'Vaaraahi Elite Vistas Campus',
+        commuteData: {
+            'car': { nh: '1 Min (0.8 km)', school: '4 Mins (2.1 km)', hospital: '7 Mins (3.9 km)', airport: '18 Mins (14 km)' },
+            'bike': { nh: '2 Mins (0.8 km)', school: '5 Mins (2.1 km)', hospital: '8 Mins (3.9 km)', airport: '22 Mins (14 km)' },
+            'cycle': { nh: '4 Mins (0.8 km)', school: '10 Mins (2.1 km)', hospital: '15 Mins (3.9 km)', airport: 'Shuttle (15 Mins)' }
+        },
+        commuteDestinations: [
+            { icon: 'fa-road', name: 'Proddatur Main Ring Road Bypass', sub: 'High-speed arterial connection', key: 'nh' },
+            { icon: 'fa-graduation-cap', name: 'Sri Chaitanya Techno Campus', sub: 'Top-tier schooling corridor', key: 'school' },
+            { icon: 'fa-hospital-alt', name: 'RIMS & Area Multi-Specialty Hospital', sub: '24/7 emergency healthcare', key: 'hospital' },
+            { icon: 'fa-train', name: 'Yerraguntla Railway Junction', sub: 'Express train connectivity', key: 'airport' }
+        ],
+        floors: {
+            'roof': {
+                tag: 'Level 03 • Stargazing Terrace & Yoga Deck',
+                title: 'Level 03: Stargazing Terrace & Wellness Yoga Deck',
+                area: '950 Sq.Ft • Private Terrace & 3.3kW Solar Microgrid',
+                desc: 'Open-air yoga and meditation terrace with panoramic views of the 1 KM linear botanical green park, solar array, and pergolas.',
+                img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    '3.3kW Microgrid Solar Setup with Net Metering',
+                    'Heat-Reflective White Vitrified Cool-Roof Tiles',
+                    'Perimeter Planter Irrigation & Ambient Lighting'
+                ]
+            },
+            'first': {
+                tag: 'Level 02 • Dual Master Suites & Family Hall',
+                title: 'Level 02: Dual Master Suites & Private Balconies',
+                area: '1,350 Sq.Ft • 2 Ensuite Bedrooms + Sunset Balcony',
+                desc: 'Spacious master bedroom with private sunset sit-out balcony, children bedroom suite, and cozy central entertainment lounge.',
+                img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Private Sunset Sit-out Balconies',
+                    '100% Vastu-Compliant Master Placement',
+                    'Attached Dressing Rooms with Custom Millwork'
+                ]
+            },
+            'ground': {
+                tag: 'Level 01 • Living Pavilion & Quartz Kitchen',
+                title: 'Level 01: Open Living Pavilion & Island Dining Deck',
+                area: '1,100 Sq.Ft • Formal Foyer + Dining Deck',
+                desc: 'Open-concept living pavilion connected directly with dining area, modular quartz kitchen, utility yard, and manicured private lawn.',
+                img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Imported Large-Format Vitrified Flooring',
+                    'Modular Island Kitchen Provision with Chimney Duct',
+                    'Covered Car Porch with Dedicated 22kW EV Charger'
+                ]
+            },
+            'foundation': {
+                tag: 'Sub-Level • Reinforced Raft & Underground Grid',
+                title: 'Sub-Level: Subterranean Infrastructure & Soil Shield',
+                area: 'Heavy RCC Raft Foundation • Zero Overhead Cables',
+                desc: 'Sub-structure built on heavy reinforced RCC raft slab with non-corrosive epoxy coating and zero-runoff rainwater percolation wells.',
+                img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Fe-550D Corrosion Resistant Elongation Steel',
+                    'Underground Stormwater Drainage & Optical Conduits',
+                    'Anti-Termite Sub-slab Soil Barrier'
+                ]
+            }
+        }
+    },
+    'green-meadows': {
+        id: 'green-meadows',
+        name: 'Vaaraahi Green Meadows',
+        city: 'Jammalamadugu',
+        state: 'Andhra Pradesh',
+        tag: 'Eco-Sanctuary Living • Jammalamadugu',
+        location: 'Gandhi Road, Jammalamadugu, Andhra Pradesh',
+        price: '₹95 Lakhs onwards',
+        type: 'Eco Township & Duplex Enclaves',
+        config: '2, 3 & 4 BHK Garden Villas (1,850 – 2,750 Sq.Ft)',
+        possession: 'Ongoing Phase 2 / Fast Track',
+        rera: 'AP RERA #P02400004112',
+        heroImg: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80',
+        commuteSite: 'Vaaraahi Green Meadows Eco Site',
+        commuteData: {
+            'car': { nh: '2 Mins (1.0 km)', school: '5 Mins (2.5 km)', hospital: '6 Mins (3.2 km)', airport: '20 Mins (16 km)' },
+            'bike': { nh: '3 Mins (1.0 km)', school: '7 Mins (2.5 km)', hospital: '8 Mins (3.2 km)', airport: '25 Mins (16 km)' },
+            'cycle': { nh: '5 Mins (1.0 km)', school: '14 Mins (2.5 km)', hospital: '16 Mins (3.2 km)', airport: 'River Shuttle (18 Mins)' }
+        },
+        commuteDestinations: [
+            { icon: 'fa-road', name: 'Gandhi Road State Highway', sub: 'Direct highway connectivity', key: 'nh' },
+            { icon: 'fa-graduation-cap', name: 'St. Joseph English Medium High School', sub: 'Prestigious academic institution', key: 'school' },
+            { icon: 'fa-hospital-alt', name: 'Community Health Hospital', sub: 'Full emergency access', key: 'hospital' },
+            { icon: 'fa-mountain', name: 'Gandikota Grand Canyon Tourism Hub', sub: 'Scenic eco-tourism destination', key: 'airport' }
+        ],
+        floors: {
+            'roof': {
+                tag: 'Level 03 • Organic Herb Garden Terrace',
+                title: 'Level 03: Permaculture Herb Terrace & Solar Grid',
+                area: '800 Sq.Ft • Solar Grid & Hydroponic Setup',
+                desc: 'Permaculture herb garden terrace equipped with automatic drip mist irrigation and monocrystalline common grid solar panels.',
+                img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Automated Drip Herb Garden with Rain Harvesting Sump',
+                    '100% Solar-Powered Common Microgrid Integration',
+                    'Terrace Pergola & Barbecue Deck'
+                ]
+            },
+            'first': {
+                tag: 'Level 02 • Bioclimatic Bedrooms & Balcony',
+                title: 'Level 02: Cross-Ventilated Master Suite & Study',
+                area: '1,100 Sq.Ft • 2 Bedrooms with Forest Views',
+                desc: 'Large picture windows oriented north-south to catch mountain breezes, attached bathrooms with solar hot water supply.',
+                img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Cross-Ventilation Window Sashes (5°C Cooler Interiors)',
+                    'Solar Water Heating System Pre-Installed',
+                    'Private Forest-Facing Sunrise Balcony'
+                ]
+            },
+            'ground': {
+                tag: 'Level 01 • Courtyard Living & Organic Garden',
+                title: 'Level 01: Biophilic Courtyard Living & Open Dining',
+                area: '900 Sq.Ft • Courtyard + Dining + Green Deck',
+                desc: 'Open living space centered around an internal courtyard tree, connecting seamlessly to a 400 Sq.Ft private organic garden.',
+                img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Internal Biophilic Light Courtyard',
+                    'Terracotta Cavity Wall Natural Insulation',
+                    'Dedicated EV Two-Wheeler / Car Bay'
+                ]
+            },
+            'foundation': {
+                tag: 'Sub-Level • Hydrological Recharging Wells',
+                title: 'Sub-Level: Subterranean Percolation Aquifers',
+                area: 'Zero-Runoff Percolation Recharge Wells',
+                desc: 'Multi-layer natural gravel percolation beds returning 100% of captured precipitation directly to the subterranean water table.',
+                img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    '100% Rainwater Water-Table Recharging',
+                    'Bio-Septic Dual-Chamber Water Treatment',
+                    'Permeable Eco-Grass Avenue Pavers'
+                ]
+            }
+        }
+    },
+    'royal-palms': {
+        id: 'royal-palms',
+        name: 'Vaaraahi Royal Palms',
+        city: 'Proddatur Phase-2',
+        state: 'Andhra Pradesh',
+        tag: 'Bespoke Plotted Enclave • Proddatur Ph-2',
+        location: 'Ring Road, Proddatur Phase-2, Andhra Pradesh',
+        price: '₹1.10 Cr onwards',
+        type: 'Bespoke Plotted Enclaves & Duplex',
+        config: '3 & 4 BHK Villa Plots & Duplex (2,200 – 3,400 Sq.Ft)',
+        possession: 'New Launch / Booking Open',
+        rera: 'AP RERA #P02400004230',
+        heroImg: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80',
+        commuteSite: 'Vaaraahi Royal Palms Enclave',
+        commuteData: {
+            'car': { nh: '2 Mins (1.5 km)', school: '5 Mins (3.0 km)', hospital: '8 Mins (4.8 km)', airport: '35 Mins (38 km)' },
+            'bike': { nh: '3 Mins (1.5 km)', school: '6 Mins (3.0 km)', hospital: '9 Mins (4.8 km)', airport: '40 Mins (38 km)' },
+            'cycle': { nh: '6 Mins (1.5 km)', school: '15 Mins (3.0 km)', hospital: '20 Mins (4.8 km)', airport: 'Bypass Shuttle (30 Mins)' }
+        },
+        commuteDestinations: [
+            { icon: 'fa-road', name: 'Outer Ring Road Bypass Hub', sub: 'Wide multi-lane connection', key: 'nh' },
+            { icon: 'fa-graduation-cap', name: 'Narayana IIT Olympiad School', sub: 'Top-tier schooling zone', key: 'school' },
+            { icon: 'fa-hospital-alt', name: 'Keshava Reddy Super Specialty Hospital', sub: 'Comprehensive healthcare', key: 'hospital' },
+            { icon: 'fa-plane', name: 'Kadapa Airport Expressway Corridor', sub: 'Fast transit link', key: 'airport' }
+        ],
+        floors: {
+            'roof': {
+                tag: 'Level 03 • Royal Penthouse Terrace & Gazebo',
+                title: 'Level 03: Private Teak Gazebo & 5kW Solar Array',
+                area: '1,100 Sq.Ft • Private Gazebo & Solar Roof',
+                desc: 'Rooftop entertainment patio with teakwood gazebo framing views over the 30-acre royal palm tree canopy.',
+                img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Custom Teak Gazebo & Ambient Bar Counter',
+                    'High-Yield 5kW Monocrystalline Solar Array',
+                    'Heavy-Duty Waterproof Heat-Reflective Tiles'
+                ]
+            },
+            'first': {
+                tag: 'Level 02 • Imperial Master & Guest Suites',
+                title: 'Level 02: Imperial Suites with Walk-in Closets',
+                area: '1,350 Sq.Ft • Dual Suites with Walk-in Closets',
+                desc: 'Twin master bedrooms with Italian marble flooring, 8-foot teak doors, and spacious wardrobe ante-rooms.',
+                img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Solid 8-Foot Burmese Teak Doors',
+                    'Acoustic Double-Glazed Noise-Isolating Windows',
+                    'Luxury Grohe & Kohler Bathroom Fixtures'
+                ]
+            },
+            'ground': {
+                tag: 'Level 01 • Palatial Living & Foyer',
+                title: 'Level 01: Palatial Double-Height Foyer & Dining',
+                area: '1,150 Sq.Ft • Double-Height Entry & Dining',
+                desc: 'Palatial 16-foot entrance foyer, open living hall with floor-to-ceiling glass, and designer dry & wet kitchen layouts.',
+                img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Double-Height Grand Entrance Foyer',
+                    'Imported Italian Statuario Marble',
+                    '2-Car Covered Portico with 22kW Fast Port'
+                ]
+            },
+            'foundation': {
+                tag: 'Sub-Level • Seismic Structural Foundation',
+                title: 'Sub-Level: Heavy Reinforced Seismic Substructure',
+                area: 'Deep Concrete Piling & Anti-Termite Grid',
+                desc: 'Reinforced seismic-resistant foundation designed for 100-year durability with advanced subterranean moisture barriers.',
+                img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Fe-550D High Ductility Steel Core',
+                    'Non-Destructive Ultrasonic Quality Checked',
+                    '100% Underground Concealed Utility Conduits'
+                ]
+            }
+        }
+    },
+    'sky-high': {
+        id: 'sky-high',
+        name: 'Vaaraahi Sky High',
+        city: 'Hyderabad',
+        state: 'Telangana',
+        tag: '45-Storey Iconic Landmark • Hyderabad',
+        location: 'Financial District, Nanakramguda, Hyderabad, Telangana',
+        price: '₹2.20 Cr onwards',
+        type: '45-Storey Ultra-Luxury Sky Suites',
+        config: '3, 4 & 5 BHK Sky Penthouses (2,400 – 4,500 Sq.Ft)',
+        possession: 'Pre-Launch 2026 / VIP Registration',
+        rera: 'TS RERA #P02400005120',
+        heroImg: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80',
+        commuteSite: 'Vaaraahi Sky High Towers',
+        commuteData: {
+            'car': { nh: '3 Mins (1.5 km)', school: '4 Mins (2.0 km)', hospital: '7 Mins (3.5 km)', airport: '25 Mins (28 km)' },
+            'bike': { nh: '4 Mins (1.5 km)', school: '5 Mins (2.0 km)', hospital: '8 Mins (3.5 km)', airport: '30 Mins (28 km)' },
+            'cycle': { nh: '8 Mins (1.5 km)', school: '12 Mins (2.0 km)', hospital: '18 Mins (3.5 km)', airport: 'Metro Express (20 Mins)' }
+        },
+        commuteDestinations: [
+            { icon: 'fa-building', name: 'Wipro Circle & Outer Ring Road (ORR)', sub: 'Direct IT expressway junction', key: 'nh' },
+            { icon: 'fa-graduation-cap', name: 'Oakridge & DPS International Schools', sub: 'World-class education hub', key: 'school' },
+            { icon: 'fa-hospital-alt', name: 'Continental & Care Super Specialty Hospital', sub: 'Premier medical centers', key: 'hospital' },
+            { icon: 'fa-plane', name: 'Rajiv Gandhi International Airport (RGIA)', sub: 'Direct expressway route', key: 'airport' }
+        ],
+        floors: {
+            'roof': {
+                tag: 'Level 45 • Rooftop Helipad & Infinity Sky Pool',
+                title: 'Level 45: Rooftop Helipad & 360° Sky Lounge',
+                area: '40,000 Sq.Ft • 360° Skyline Club & Cabanas',
+                desc: 'Rooftop private leisure club situated 180 meters above ground, offering an infinity edge temperature-controlled pool and private helicopter landing pad.',
+                img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Rooftop Helipad with Aviation Clearance',
+                    '45th Floor Heated Infinity Horizon Pool',
+                    'Private Sky Cabana Lounges & Bar'
+                ]
+            },
+            'first': {
+                tag: 'Level 30-44 • Presidential Sky Penthouse',
+                title: 'Level 30-44: Sky Penthouse & Cantilever Plunge Pool',
+                area: '4,500 Sq.Ft • 5 BHK Triplex with Private Plunge Pool',
+                desc: 'Triple-height glass curtain facade offering panoramic vistas across Hyderabad IT corridor, with private cantilevered infinity plunge pool.',
+                img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Private Cantilevered Glass Infinity Plunge Pool',
+                    'Triple-Glazed Acoustic Acoustic Glass Curtain Wall',
+                    'Touchless Smart Biometric Elevator Entry'
+                ]
+            },
+            'ground': {
+                tag: 'Level 01 • Grand 40-Ft Triple-Height Lobby',
+                title: 'Level 01: 5-Star Concierge Atrium & Valet Salon',
+                area: '15,000 Sq.Ft • 5-Star Concierge & Valet Salon',
+                desc: 'Grand arrival lobby designed with Italian Travertine, cascading indoor water wall, and 24/7 concierge lounge with valet bays.',
+                img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    '40-Foot Triple-Height Italian Travertine Atrium',
+                    'High-Speed 4 m/s Destination Elevators',
+                    'Multi-Bay EV Rapid Charging Infrastructure'
+                ]
+            },
+            'foundation': {
+                tag: 'Sub-Level • Diaphragm Wall Engineering',
+                title: 'Sub-Level: Quadruple Basements & Seismic High-Rise Piling',
+                area: 'Seismic Zone 3 Compliant High-Rise Substructure',
+                desc: 'Substructure with deep diaphragm walls and heavy rock anchors tested for 100+ year seismic resistance and soil stability.',
+                img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+                specs: [
+                    'Deep Diaphragm Wall & Rock-Anchored Piles',
+                    'High-Grade M60 Self-Compacting Concrete Core',
+                    'Integrated Automated Fire Retardant Suppression Grid'
+                ]
+            }
+        }
+    }
+};
+
+// Current active project key in project-detail.html
+let activeProjectKey = 'grandeur';
+
+// ================= 11a. DYNAMIC PROJECT DETAIL PAGE INJECTOR =================
+function initDynamicProjectDetailPage() {
+    const isProjectDetailPage = window.location.pathname.includes('project-detail') || document.querySelector('.project-hero-gallery');
+    if (!isProjectDetailPage) return;
+
+    // Parse ?id= query param from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const requestedId = urlParams.get('id');
+    if (requestedId && PROJECTS_DATABASE[requestedId]) {
+        activeProjectKey = requestedId;
+    } else {
+        activeProjectKey = 'grandeur';
+    }
+
+    const project = PROJECTS_DATABASE[activeProjectKey];
+    if (!project) return;
+
+    // 1. Update Document Title
+    document.title = `${project.name} | Vaaraahi Group of Estates`;
+
+    // 2. Update Hero Elements
+    const heroImg = document.getElementById('projectHeroImg');
+    const heroTag = document.getElementById('projectHeroTag');
+    const heroTitle = document.getElementById('projectHeroTitle');
+    const heroLoc = document.getElementById('projectHeroLocation');
+
+    if (heroImg) heroImg.src = project.heroImg;
+    if (heroTag) heroTag.textContent = project.tag;
+    if (heroTitle) heroTitle.textContent = project.name;
+    if (heroLoc) heroLoc.innerHTML = `<i class="fas fa-map-marker-alt" style="color: var(--color-gold);"></i> ${project.location}`;
+
+    // 3. Update Overview Bar
+    const specType = document.getElementById('overviewPropertyType');
+    const specConfig = document.getElementById('overviewConfiguration');
+    const specPoss = document.getElementById('overviewPossession');
+    const specRera = document.getElementById('overviewRera');
+
+    if (specType) specType.textContent = project.type;
+    if (specConfig) specConfig.textContent = project.config;
+    if (specPoss) specPoss.textContent = project.possession;
+    if (specRera) specRera.textContent = project.rera;
+
+    // 4. Update WhatsApp sticky enquiry text
+    const waBtn = document.querySelector('.btn-floating-whatsapp');
+    if (waBtn) {
+        waBtn.href = `https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Vaaraahi%20Group,%20I%20would%20like%20to%20schedule%20a%20site%20visit%20for%20${encodeURIComponent(project.name)}.`;
+    }
+
+    // 5. Populate Next Project Switcher Ribbon
+    const switcherGrid = document.getElementById('projectSwitcherGrid');
+    if (switcherGrid) {
+        const otherProjects = Object.values(PROJECTS_DATABASE).filter(p => p.id !== activeProjectKey);
+        switcherGrid.innerHTML = otherProjects.map(p => `
+            <a href="project-detail.html?id=${p.id}" class="project-switcher-card" style="display: block; text-decoration: none; background: rgba(255,255,255,0.03); border: 1px solid rgba(197,160,89,0.25); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.35s ease;" data-cursor-action="VIEW">
+                <div style="height: 160px; overflow: hidden; position: relative;">
+                    <img src="${p.heroImg}" alt="${p.name}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;" class="switcher-img">
+                    <span style="position: absolute; top: 12px; left: 12px; background: rgba(10,28,20,0.85); color: var(--color-gold); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-full); border: 1px solid rgba(197,160,89,0.3); text-transform: uppercase;">${p.city}</span>
+                </div>
+                <div style="padding: 16px;">
+                    <h4 style="font-family: var(--font-serif); color: #FFFFFF; font-size: 17px; margin-bottom: 4px;">${p.name}</h4>
+                    <div style="font-size: 12px; color: var(--color-gold); font-weight: 700; margin-bottom: 8px;">${p.price}</div>
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 6px;">
+                        <span>Explore Unit 3D</span> <i class="fas fa-arrow-right" style="color: var(--color-gold);"></i>
+                    </div>
+                </div>
+            </a>
+        `).join('');
+
+        // Hover scale effect
+        switcherGrid.querySelectorAll('.project-switcher-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'var(--color-gold)';
+                card.style.transform = 'translateY(-4px)';
+                const img = card.querySelector('.switcher-img');
+                if (img) img.style.transform = 'scale(1.08)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(197,160,89,0.25)';
+                card.style.transform = 'translateY(0)';
+                const img = card.querySelector('.switcher-img');
+                if (img) img.style.transform = 'scale(1)';
+            });
+        });
+    }
+}
+
+// ================= 11b. 3D EXPLODED VILLA STRUCTURAL ARCHITECTURE & BIM FLOOR INSPECTOR =================
+function initBIMExplodedView() {
+    const section = document.getElementById('explodedVilla3D');
+    if (!section) return;
+
+    const floorLayers = section.querySelectorAll('.villa-3d-floor-layer');
+    const mainImg = document.getElementById('villaFloorMainImg');
+    const canvasBadge = document.getElementById('bimCanvasBadge');
+    const vTag = document.getElementById('villa3dTag');
+    const vTitle = document.getElementById('villa3dFloorTitle');
+    const vArea = document.getElementById('villa3dFloorArea');
+    const vDesc = document.getElementById('villa3dFloorDesc');
+    const vSpecs = document.getElementById('villa3dFloorSpecs');
+
+    function updateFloorView(floorKey) {
+        const project = PROJECTS_DATABASE[activeProjectKey] || PROJECTS_DATABASE['grandeur'];
+        const floorData = (project.floors && project.floors[floorKey]) ? project.floors[floorKey] : (PROJECTS_DATABASE['grandeur'].floors[floorKey] || PROJECTS_DATABASE['grandeur'].floors['roof']);
+
+        if (!floorData) return;
+
+        // Update active class on floor buttons
+        floorLayers.forEach(l => {
+            const isTarget = l.getAttribute('data-floor') === floorKey;
+            l.classList.toggle('active', isTarget);
+        });
+
+        // Update Floor Screen
+        if (mainImg) mainImg.src = floorData.img;
+        if (canvasBadge) canvasBadge.innerHTML = `<i class="fas fa-layer-group"></i> ${floorData.title}`;
+        if (vTag) vTag.textContent = floorData.tag;
+        if (vTitle) vTitle.textContent = floorData.title;
+        if (vArea) vArea.textContent = floorData.area;
+        if (vDesc) vDesc.textContent = floorData.desc;
+
+        if (vSpecs && floorData.specs) {
+            vSpecs.innerHTML = floorData.specs.map(spec => `
+                <li style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9); font-size: 13px; margin-bottom: 8px;">
+                    <i class="fas fa-check-circle" style="color: var(--color-gold);"></i> ${spec}
+                </li>
+            `).join('');
+        }
+
+        // Animate transition
+        if (typeof gsap !== 'undefined') {
+            gsap.fromTo(mainImg, { opacity: 0.4, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
+            gsap.fromTo('#villaSpecDetailBox', { opacity: 0.6, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+        }
+    }
+
+    floorLayers.forEach(layer => {
+        layer.addEventListener('click', () => {
+            const floor = layer.getAttribute('data-floor');
+            if (floor) {
+                updateFloorView(floor);
+                SoundFX.playTap();
+            }
+        });
+    });
+
+    // Initialize with roof layer
+    updateFloorView('roof');
+}
+
+// ================= 11c. 24-HOUR SOLAR & LIGHTING SIMULATOR =================
+function initSolarSimulator() {
+    const simSection = document.querySelector('.solar-simulator-section');
+    if (!simSection) return;
+
+    const modeBtns = simSection.querySelectorAll('.solar-mode-btn');
+    const timeLabel = document.getElementById('solarCurrentTimeLabel');
+    const sunDesc = document.getElementById('solarSunlightDesc');
+    const shader = simSection.querySelector('.solar-lighting-shader');
+    const windowGlow = simSection.querySelector('.solar-window-glow');
+    const facadeUplights = simSection.querySelector('.solar-facade-uplights');
+
+    const SOLAR_STATES = {
+        'dawn': {
+            label: '6:30 AM — Morning East Dawn',
+            desc: 'Gentle morning sunlight streams into Northeast puja and east verandas. Passive solar warming naturally stimulates circadian bio-rhythms.',
+            shader: 'linear-gradient(135deg, rgba(255, 183, 77, 0.35) 0%, rgba(255, 236, 179, 0.15) 60%, rgba(10, 28, 20, 0.4) 100%)',
+            glow: 0.2,
+            uplights: 0.1
+        },
+        'noon': {
+            label: '12:00 PM — Solar Zenith',
+            desc: 'Sun at peak overhead elevation. Engineered architectural cantilever eaves and Porotherm thermal cavity walls deflect 82% of direct radiant heat.',
+            shader: 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0) 100%)',
+            glow: 0,
+            uplights: 0
+        },
+        'golden': {
+            label: '5:30 PM — Golden Hour Sunset',
+            desc: 'Warm westward golden amber illumination bounces off Italian marble and water feature courtyards. Natural cross-breezes purge daytime air.',
+            shader: 'linear-gradient(225deg, rgba(237, 137, 54, 0.45) 0%, rgba(221, 107, 32, 0.25) 50%, rgba(10, 28, 20, 0.6) 100%)',
+            glow: 0.6,
+            uplights: 0.4
+        },
+        'night': {
+            label: '9:00 PM — Resort Night & Architectural Uplighting',
+            desc: 'Warm 2700K concealed perimeter LED lighting illuminates pathways and tree canopies with zero light pollution, creating a serene sanctuary atmosphere.',
+            shader: 'linear-gradient(180deg, rgba(3, 10, 7, 0.75) 0%, rgba(5, 18, 12, 0.88) 100%)',
+            glow: 1,
+            uplights: 1
+        }
+    };
+
+    modeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modeBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            SoundFX.playTap();
+
+            const mode = btn.getAttribute('data-solar-mode');
+            const state = SOLAR_STATES[mode];
+            if (!state) return;
+
+            if (timeLabel) timeLabel.innerHTML = `<i class="far fa-clock"></i> ${state.label}`;
+            if (sunDesc) sunDesc.textContent = state.desc;
+
+            if (shader) {
+                shader.style.background = state.shader;
+                shader.style.opacity = '1';
+            }
+            if (windowGlow) windowGlow.style.opacity = state.glow;
+            if (facadeUplights) facadeUplights.style.opacity = state.uplights;
+
+            if (typeof gsap !== 'undefined') {
+                gsap.fromTo('.solar-sim-canvas', { filter: 'brightness(0.9)' }, { filter: 'brightness(1)', duration: 0.4 });
+            }
+        });
+    });
+}
+
+// ================= 11d. INNOVATIVE BEFORE / AFTER HANDOVER SLIDER =================
+function initBeforeAfterSlider() {
+    const containers = document.querySelectorAll('.before-after-container');
+    if (!containers.length) return;
+
+    containers.forEach(container => {
+        const afterWrap = container.querySelector('.after-wrap');
+        const handle = container.querySelector('.before-after-handle');
+        if (!afterWrap || !handle) return;
+
+        let isDragging = false;
+
+        function setPosition(xPos) {
+            const rect = container.getBoundingClientRect();
+            let offsetX = xPos - rect.left;
+            offsetX = Math.max(0, Math.min(offsetX, rect.width));
+            const percentage = (offsetX / rect.width) * 100;
+
+            afterWrap.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
+            afterWrap.style.webkitClipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
+            handle.style.left = `${percentage}%`;
+        }
+
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            setPosition(e.clientX);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            setPosition(e.clientX);
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch support
+        container.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            if (e.touches.length) setPosition(e.touches[0].clientX);
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            if (e.touches.length) setPosition(e.touches[0].clientX);
+        }, { passive: true });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Initialize at 50% split
+        const initialWidth = container.offsetWidth || 800;
+        const initialPercentage = 50;
+        afterWrap.style.clipPath = `polygon(${initialPercentage}% 0, 100% 0, 100% 100%, ${initialPercentage}% 100%)`;
+        afterWrap.style.webkitClipPath = `polygon(${initialPercentage}% 0, 100% 0, 100% 100%, ${initialPercentage}% 100%)`;
+        handle.style.left = `${initialPercentage}%`;
+    });
+}
+
+// ================= 11e. THREE.JS 3D INTERACTIVE UNIT WALKTHROUGH =================
+function initThreeUnitWalkthrough() {
+    const canvas = document.getElementById('unit3dCanvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    const container = canvas.parentElement;
+    const width = container.clientWidth || 800;
+    const height = Math.min(500, window.innerHeight * 0.6);
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x06110D);
+    scene.fog = new THREE.FogExp2(0x06110D, 0.015);
+
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    camera.position.set(18, 14, 22);
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+
+    // Controls
+    let controls = null;
+    if (typeof THREE.OrbitControls !== 'undefined') {
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.05; // Don't go below ground
+        controls.minDistance = 10;
+        controls.maxDistance = 45;
+    }
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    scene.add(ambientLight);
+
+    const sunLight = new THREE.DirectionalLight(0xffe8d6, 1.2);
+    sunLight.position.set(20, 30, 15);
+    sunLight.castShadow = true;
+    scene.add(sunLight);
+
+    const goldAccentLight = new THREE.PointLight(0xC5A059, 1.5, 30);
+    goldAccentLight.position.set(0, 5, 0);
+    scene.add(goldAccentLight);
+
+    // Villa Architecture Geometry Group
+    const villaGroup = new THREE.Group();
+    scene.add(villaGroup);
+
+    // Ground Platform
+    const groundGeo = new THREE.BoxGeometry(28, 0.6, 24);
+    const groundMat = new THREE.MeshStandardMaterial({ color: 0x0A1C14, roughness: 0.8 });
+    const ground = new THREE.Mesh(groundGeo, groundMat);
+    ground.position.y = -0.3;
+    ground.receiveShadow = true;
+    villaGroup.add(ground);
+
+    // Grid Floor Line Helper
+    const grid = new THREE.GridHelper(26, 26, 0xC5A059, 0x1A382B);
+    grid.position.y = 0.02;
+    villaGroup.add(grid);
+
+    // Ground Floor Body (Double-Height Living & Foyer)
+    const groundFloorGeo = new THREE.BoxGeometry(14, 4.5, 12);
+    const wallMat = new THREE.MeshStandardMaterial({ color: 0x1B382B, roughness: 0.4, metalness: 0.1 });
+    const groundFloor = new THREE.Mesh(groundFloorGeo, wallMat);
+    groundFloor.position.set(0, 2.25, 0);
+    villaGroup.add(groundFloor);
+
+    // Glass Facade (Double height living glass)
+    const glassGeo = new THREE.BoxGeometry(8, 3.8, 0.2);
+    const glassMat = new THREE.MeshPhysicalMaterial({ color: 0x88CCEE, transparent: true, opacity: 0.6, roughness: 0.1, transmission: 0.7 });
+    const glassFacade = new THREE.Mesh(glassGeo, glassMat);
+    glassFacade.position.set(0, 2.25, 6.05);
+    villaGroup.add(glassFacade);
+
+    // First Floor (Master Suite Cantilever)
+    const firstFloorGeo = new THREE.BoxGeometry(15, 4.2, 10);
+    const firstFloorMat = new THREE.MeshStandardMaterial({ color: 0x0F291E, roughness: 0.5 });
+    const firstFloor = new THREE.Mesh(firstFloorGeo, firstFloorMat);
+    firstFloor.position.set(1.5, 6.6, -1);
+    villaGroup.add(firstFloor);
+
+    // Cantilever Balcony
+    const balconyGeo = new THREE.BoxGeometry(8, 0.4, 3);
+    const goldMat = new THREE.MeshStandardMaterial({ color: 0xC5A059, metalness: 0.6, roughness: 0.3 });
+    const balcony = new THREE.Mesh(balconyGeo, goldMat);
+    balcony.position.set(1.5, 4.7, 5.5);
+    villaGroup.add(balcony);
+
+    // Rooftop Solar Sky Deck & Pergola
+    const roofGeo = new THREE.BoxGeometry(13, 0.4, 9);
+    const roof = new THREE.Mesh(roofGeo, goldMat);
+    roof.position.set(1.5, 8.9, -1);
+    villaGroup.add(roof);
+
+    // Solar Panels on Roof
+    for (let i = -3; i <= 3; i += 2.5) {
+        const solarGeo = new THREE.BoxGeometry(2, 0.1, 3.5);
+        const solarMat = new THREE.MeshStandardMaterial({ color: 0x1A202C, roughness: 0.2, metalness: 0.8 });
+        const panel = new THREE.Mesh(solarGeo, solarMat);
+        panel.position.set(i + 1.5, 9.2, -1);
+        panel.rotation.x = -0.15;
+        villaGroup.add(panel);
+    }
+
+    // Animation Loop
+    let animId = null;
+    function animate() {
+        animId = requestAnimationFrame(animate);
+        if (controls) controls.update();
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Camera Dock Buttons
+    const camBtns = container.querySelectorAll('.cam-btn');
+    camBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            camBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            SoundFX.playTap();
+
+            const angle = btn.getAttribute('data-cam-angle');
+            if (typeof gsap !== 'undefined') {
+                if (angle === 'iso') {
+                    gsap.to(camera.position, { x: 18, y: 14, z: 22, duration: 1.2, ease: 'power3.inOut' });
+                } else if (angle === 'top') {
+                    gsap.to(camera.position, { x: 0.1, y: 32, z: 0.1, duration: 1.2, ease: 'power3.inOut' });
+                } else if (angle === 'front') {
+                    gsap.to(camera.position, { x: 0, y: 5, z: 24, duration: 1.2, ease: 'power3.inOut' });
+                }
+            }
+        });
+    });
+
+    // Lighting Dock Buttons
+    const lightBtns = container.querySelectorAll('.lighting-btn');
+    lightBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            lightBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            SoundFX.playTap();
+
+            const mode = btn.getAttribute('data-light-mode');
+            if (mode === 'day') {
+                sunLight.color.setHex(0xffe8d6);
+                sunLight.intensity = 1.2;
+                ambientLight.intensity = 0.7;
+                scene.background.setHex(0x06110D);
+            } else if (mode === 'sunset') {
+                sunLight.color.setHex(0xED8936);
+                sunLight.intensity = 1.6;
+                ambientLight.intensity = 0.4;
+                scene.background.setHex(0x1A0D08);
+            } else if (mode === 'night') {
+                sunLight.color.setHex(0x4299E1);
+                sunLight.intensity = 0.3;
+                ambientLight.intensity = 0.2;
+                goldAccentLight.intensity = 3.0;
+                scene.background.setHex(0x020705);
+            }
+        });
+    });
+
+    // Resize Handler
+    window.addEventListener('resize', () => {
+        const newW = container.clientWidth || 800;
+        const newH = Math.min(500, window.innerHeight * 0.6);
+        camera.aspect = newW / newH;
+        camera.updateProjectionMatrix();
+        renderer.setSize(newW, newH);
+    });
+}
+
+// 12. Room-by-Room Spatial Inspector (Project Detail)
 function initRoomSpatialInspector() {
     const planBtns = document.querySelectorAll('.floorplan-tab-btn');
     const roomBtns = document.querySelectorAll('.room-pill-btn');
@@ -2914,35 +3826,6 @@ function initRoomSpatialInspector() {
     updateDisplay();
 }
 
-// 12. Resort Amenity Campus Navigator (Project Detail)
-function initAmenityCampusNavigator() {
-    const catBtns = document.querySelectorAll('.amenity-cat-btn');
-    const cards = document.querySelectorAll('.amenity-interactive-card');
-
-    if (!catBtns.length || !cards.length) return;
-
-    catBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            catBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-amenity-cat');
-
-            cards.forEach(card => {
-                const cardCats = card.getAttribute('data-cat') || '';
-                if (filter === 'all' || cardCats.includes(filter)) {
-                    card.style.display = 'flex';
-                    if (typeof gsap !== 'undefined') {
-                        gsap.fromTo(card, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.3 });
-                    }
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-}
-
 // 13. Multi-Modal Commute Simulator (Project Detail)
 function initCommuteSimulator() {
     const modeBtns = document.querySelectorAll('.commute-mode-btn');
@@ -2950,14 +3833,29 @@ function initCommuteSimulator() {
     const cSchool = document.getElementById('ctime-school');
     const cHospital = document.getElementById('ctime-hospital');
     const cAirport = document.getElementById('ctime-airport');
+    const commuteDestList = document.getElementById('commuteDestList');
 
     if (!modeBtns.length || !cNh) return;
 
-    const COMMUTE_DATA = {
+    const project = PROJECTS_DATABASE[activeProjectKey] || PROJECTS_DATABASE['grandeur'];
+    const COMMUTE_DATA = project.commuteData || {
         'car': { nh: '2 Mins (1.2 km)', school: '5 Mins (2.8 km)', hospital: '8 Mins (4.5 km)', airport: '45 Mins (52 km)' },
         'bike': { nh: '3 Mins (1.2 km)', school: '6 Mins (2.8 km)', hospital: '9 Mins (4.5 km)', airport: '55 Mins (52 km)' },
         'cycle': { nh: '5 Mins (1.2 km)', school: '12 Mins (2.8 km)', hospital: '18 Mins (4.5 km)', airport: 'Transit Bus (40 Mins)' }
     };
+
+    // Populate dynamic destination names if available
+    if (commuteDestList && project.commuteDestinations) {
+        commuteDestList.innerHTML = project.commuteDestinations.map(dest => `
+            <div class="commute-dest-item">
+                <div>
+                    <strong style="color: var(--color-forest);"><i class="fas ${dest.icon}" style="color: var(--color-gold); margin-right: 8px;"></i> ${dest.name}</strong>
+                    <div style="font-size: 12px; color: var(--color-text-muted);">${dest.sub}</div>
+                </div>
+                <span class="commute-time-pill" id="ctime-${dest.key}">${COMMUTE_DATA['car'][dest.key] || '2 Mins'}</span>
+            </div>
+        `).join('');
+    }
 
     modeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -2967,10 +3865,15 @@ function initCommuteSimulator() {
             const mode = btn.getAttribute('data-cmode');
             const data = COMMUTE_DATA[mode];
             if (data) {
-                cNh.textContent = data.nh;
-                cSchool.textContent = data.school;
-                cHospital.textContent = data.hospital;
-                cAirport.textContent = data.airport;
+                const elNh = document.getElementById('ctime-nh');
+                const elSchool = document.getElementById('ctime-school');
+                const elHospital = document.getElementById('ctime-hospital');
+                const elAirport = document.getElementById('ctime-airport');
+
+                if (elNh) elNh.textContent = data.nh;
+                if (elSchool) elSchool.textContent = data.school;
+                if (elHospital) elHospital.textContent = data.hospital;
+                if (elAirport) elAirport.textContent = data.airport;
 
                 if (typeof gsap !== 'undefined') {
                     gsap.fromTo('.commute-dest-item', { opacity: 0, x: 10 }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.05 });
@@ -5010,6 +5913,7 @@ function initKineticFilmstrip() {
 
     const PROJECTS = [
         {
+            id: 'grandeur',
             solid: 'VAARAAHI',
             outline: 'GRANDEUR',
             title: 'Villas Crafted For You',
@@ -5024,6 +5928,7 @@ function initKineticFilmstrip() {
             ]
         },
         {
+            id: 'elite-vistas',
             solid: 'ELITE',
             outline: 'VISTAS',
             title: 'Gated Luxury Living',
@@ -5038,6 +5943,7 @@ function initKineticFilmstrip() {
             ]
         },
         {
+            id: 'green-meadows',
             solid: 'GREEN',
             outline: 'MEADOWS',
             title: 'Eco Sanctuary Townships',
@@ -5052,6 +5958,7 @@ function initKineticFilmstrip() {
             ]
         },
         {
+            id: 'royal-palms',
             solid: 'ROYAL',
             outline: 'PALMS',
             title: 'Bespoke Plotted Enclaves',
@@ -5066,6 +5973,7 @@ function initKineticFilmstrip() {
             ]
         },
         {
+            id: 'sky-high',
             solid: 'SKY',
             outline: 'HIGH',
             title: 'Architectural Sky Residences',
@@ -5090,6 +5998,10 @@ function initKineticFilmstrip() {
         currentIndex = (index + PROJECTS.length) % PROJECTS.length;
         const p = PROJECTS[currentIndex];
 
+        // Update direct deep link to project detail page
+        const advExploreLink = document.getElementById('advExploreLink');
+        if (advExploreLink) advExploreLink.href = 'project-detail.html?id=' + p.id;
+
         if (direction === 'init') {
             if (backdropImg) backdropImg.src = p.image;
             if (typoSolid) typoSolid.textContent = p.solid;
@@ -5113,55 +6025,81 @@ function initKineticFilmstrip() {
 
         isTransitioning = true;
         const isNext = direction === 'next';
-        const offset = isNext ? 1 : -1;
 
-        // 1. Parallax Wall Slide on Dual Backdrop Layers
+        // 1. 3D Revolving Cylindrical Showcase Transition
         if (slideCurrent && slideNext && backdropImg && nextImg && typeof gsap !== 'undefined') {
             nextImg.src = p.image;
-            
-            // Set starting state for incoming slide & parallax child image
+
+            const rotateInY = isNext ? 42 : -42;
+            const rotateOutY = isNext ? -42 : 42;
+            const xPercentIn = isNext ? 85 : -85;
+            const xPercentOut = isNext ? -85 : 85;
+
+            // Set initial state for incoming 3D revolving cylinder layer
             gsap.set(slideNext, {
-                xPercent: offset * 100,
-                opacity: 1,
+                xPercent: xPercentIn,
+                rotateY: rotateInY,
+                z: -220,
+                scale: 0.88,
+                opacity: 0,
                 zIndex: 3
             });
             gsap.set(nextImg, {
-                xPercent: -offset * 35,
+                xPercent: -xPercentIn * 0.25,
                 scale: 1.15
             });
 
-            // Master Transition Timeline
+            // Master Cylindrical Transition Timeline
             const tl = gsap.timeline({
                 onComplete: () => {
                     backdropImg.src = p.image;
-                    gsap.set(slideCurrent, { xPercent: 0, scale: 1, opacity: 1, filter: 'none' });
-                    gsap.set(slideNext, { opacity: 0, zIndex: 2 });
+                    gsap.set(slideCurrent, {
+                        xPercent: 0,
+                        rotateY: 0,
+                        z: 0,
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'none'
+                    });
+                    gsap.set(slideNext, {
+                        opacity: 0,
+                        zIndex: 2,
+                        xPercent: 0,
+                        rotateY: 0,
+                        z: 0
+                    });
                     isTransitioning = false;
                 }
             });
 
-            // Slide incoming curtain in
+            // Revolving Incoming Slide along 3D cylinder
             tl.to(slideNext, {
                 xPercent: 0,
-                duration: 0.65,
+                rotateY: 0,
+                z: 0,
+                scale: 1,
+                opacity: 1,
+                duration: 0.85,
                 ease: 'power3.inOut'
             }, 0);
 
-            // Counter-slide inner image for depth parallax
+            // Counter-slide inner image for realistic depth parallax
             tl.to(nextImg, {
                 xPercent: 0,
                 scale: 1.05,
-                duration: 0.65,
+                duration: 0.85,
                 ease: 'power3.inOut'
             }, 0);
 
-            // Push current background out with slight scale & dimming
+            // Revolving Outgoing Slide away along 3D cylinder
             tl.to(slideCurrent, {
-                xPercent: -offset * 35,
-                scale: 0.94,
-                opacity: 0.3,
-                filter: 'brightness(0.5)',
-                duration: 0.65,
+                xPercent: xPercentOut,
+                rotateY: rotateOutY,
+                z: -220,
+                scale: 0.88,
+                opacity: 0,
+                filter: 'brightness(0.4) blur(8px)',
+                duration: 0.85,
                 ease: 'power3.inOut'
             }, 0);
         } else {
@@ -5169,23 +6107,25 @@ function initKineticFilmstrip() {
             isTransitioning = false;
         }
 
-        // 2. Kinetic Parallax Split on Giant Typography
+        // 2. Kinetic 3D Depth & Stagger on Giant Typography
         if (typoSolid && typoOutline && typeof gsap !== 'undefined') {
-            gsap.to([typoSolid, typoOutline], {
-                x: -offset * 120,
+            const tlTypo = gsap.timeline();
+            tlTypo.to([typoSolid, typoOutline], {
+                y: -25,
+                scale: 0.94,
                 opacity: 0,
-                filter: 'blur(10px)',
-                duration: 0.25,
+                filter: 'blur(8px)',
+                duration: 0.28,
                 ease: 'power2.in',
                 onComplete: () => {
                     typoSolid.textContent = p.solid;
                     typoOutline.textContent = p.outline;
-                    gsap.fromTo([typoSolid, typoOutline], 
-                        { x: offset * 120, opacity: 0, filter: 'blur(10px)' }, 
-                        { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.45, ease: 'power3.out', stagger: 0.05 }
-                    );
                 }
             });
+            tlTypo.fromTo([typoSolid, typoOutline], 
+                { y: 35, scale: 1.06, opacity: 0, filter: 'blur(10px)' }, 
+                { y: 0, scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.55, stagger: 0.08, ease: 'back.out(1.2)' }
+            );
         } else if (typoSolid && typoOutline) {
             typoSolid.textContent = p.solid;
             typoOutline.textContent = p.outline;
@@ -5195,16 +6135,16 @@ function initKineticFilmstrip() {
         const leftElements = [locBadge, projectTitle, projectMeta].filter(Boolean);
         if (leftElements.length && typeof gsap !== 'undefined') {
             gsap.to(leftElements, {
-                y: -12,
+                y: -14,
                 opacity: 0,
-                duration: 0.18,
+                duration: 0.22,
                 onComplete: () => {
                     if (locText) locText.textContent = p.location;
                     if (projectTitle) projectTitle.textContent = p.title;
                     if (projectMeta) projectMeta.innerHTML = p.metaHtml;
                     gsap.fromTo(leftElements, 
-                        { y: 16, opacity: 0 }, 
-                        { y: 0, opacity: 1, duration: 0.35, stagger: 0.04, ease: 'power2.out' }
+                        { y: 20, opacity: 0 }, 
+                        { y: 0, opacity: 1, duration: 0.45, stagger: 0.06, ease: 'power3.out' }
                     );
                 }
             });
@@ -5228,8 +6168,8 @@ function initKineticFilmstrip() {
 
             if (typeof gsap !== 'undefined') {
                 gsap.fromTo(advantagesList.querySelectorAll('.advantage-item'), 
-                    { opacity: 0, x: offset * 35, scale: 0.96 }, 
-                    { opacity: 1, x: 0, scale: 1, duration: 0.38, stagger: 0.06, ease: 'power2.out' }
+                    { opacity: 0, y: 15, scale: 0.95 }, 
+                    { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.07, ease: 'power2.out' }
                 );
             }
         }
@@ -5515,6 +6455,7 @@ window.closeArticleReader = function() {
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        if (window.lenis) window.lenis.start();
     }
 };
 
@@ -5713,39 +6654,88 @@ function initBlogsAdmin() {
     let currentFilter = 'All';
     let currentSearch = '';
 
+    const loginError = document.getElementById('loginErrorMessage');
+    const toggleEyeBtn = document.getElementById('togglePasswordVisibilityBtn');
+    const eyeIcon = document.getElementById('passwordEyeIcon');
+
     // 1. Authentication Handling
     function checkAuth() {
         if (sessionStorage.getItem('vaaraahi_cms_auth') === 'true') {
             if (gateOverlay) gateOverlay.style.display = 'none';
         } else {
             if (gateOverlay) gateOverlay.style.display = 'flex';
+            if (passwordInput) {
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
         }
     }
 
     function doLogin() {
         const pass = passwordInput ? passwordInput.value.trim() : '';
-        if (pass === 'vaaraahi2026' || pass === 'admin') {
+        if (pass === 'vaaraahi2026' || pass === 'admin' || pass === 'vaaraahi') {
             sessionStorage.setItem('vaaraahi_cms_auth', 'true');
+            if (loginError) loginError.style.display = 'none';
             if (gateOverlay) gateOverlay.style.display = 'none';
             showAdminToast('CMS Unlocked! Welcome to Editorial Studio.');
             renderAdminTable();
         } else {
-            alert('Invalid Passcode. For demo testing, use: vaaraahi2026');
+            if (loginError) loginError.style.display = 'flex';
+            if (passwordInput) {
+                passwordInput.style.borderColor = '#EF4444';
+                passwordInput.focus();
+            }
         }
     }
 
     if (loginBtn) loginBtn.onclick = doLogin;
-    if (quickLoginBtn) {
-        quickLoginBtn.onclick = () => {
-            if (passwordInput) passwordInput.value = 'vaaraahi2026';
-            doLogin();
-        };
-    }
     if (passwordInput) {
         passwordInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') doLogin();
         });
+        passwordInput.addEventListener('input', () => {
+            if (loginError) loginError.style.display = 'none';
+            passwordInput.style.borderColor = '';
+        });
     }
+
+    // Password Visibility Toggle
+    if (toggleEyeBtn && passwordInput) {
+        toggleEyeBtn.onclick = () => {
+            const isPass = passwordInput.type === 'password';
+            passwordInput.type = isPass ? 'text' : 'password';
+            if (eyeIcon) {
+                eyeIcon.className = isPass ? 'fas fa-eye-slash' : 'fas fa-eye';
+            }
+            toggleEyeBtn.innerHTML = isPass ? '<i class="fas fa-eye-slash"></i> Hide' : '<i class="fas fa-eye"></i> Show';
+        };
+    }
+
+    // Global Logout Function
+    window.adminLogout = function() {
+        sessionStorage.removeItem('vaaraahi_cms_auth');
+        if (gateOverlay) gateOverlay.style.display = 'flex';
+        if (passwordInput) {
+            passwordInput.value = '';
+            passwordInput.type = 'password';
+            passwordInput.style.borderColor = '';
+            if (toggleEyeBtn) toggleEyeBtn.innerHTML = '<i class="fas fa-eye"></i> Show';
+            passwordInput.focus();
+        }
+        if (loginError) loginError.style.display = 'none';
+        window.closePostModal();
+        window.closeDeleteModal();
+        showAdminToast('Signed out of Admin Session.');
+    };
+
+    // Global Exit Gate Function
+    window.exitAdminGate = function() {
+        if (document.referrer && document.referrer.includes(window.location.host)) {
+            window.history.back();
+        } else {
+            window.location.href = 'blogs.html';
+        }
+    };
 
     // 2. Render Posts Table & Stats
     function renderAdminTable() {
@@ -5988,12 +6978,18 @@ window.openNewPostModal = function() {
     if (previewWrap) previewWrap.style.display = 'none';
     if (prompt) prompt.style.display = 'block';
     if (charCount) charCount.textContent = '0 / 180 chars';
-    if (modal) modal.style.display = 'flex';
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) window.lenis.stop();
+    }
 };
 
 window.closePostModal = function() {
     const modal = document.getElementById('adminPostModal');
     if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
+    if (window.lenis) window.lenis.start();
 };
 
 window.openEditPostModal = function(id) {
@@ -6034,7 +7030,11 @@ window.openEditPostModal = function(id) {
         if (prompt) prompt.style.display = 'none';
     }
 
-    if (modal) modal.style.display = 'flex';
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) window.lenis.stop();
+    }
 };
 
 window.openDeleteModal = function(id) {
@@ -6058,14 +7058,32 @@ window.openDeleteModal = function(id) {
             }
         };
     }
-    if (modal) modal.style.display = 'flex';
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) window.lenis.stop();
+    }
 };
 
 window.closeDeleteModal = function() {
     const modal = document.getElementById('adminDeleteModal');
     if (modal) modal.style.display = 'none';
     deleteCandidateId = null;
+    document.body.style.overflow = '';
+    if (window.lenis) window.lenis.start();
 };
+
+// Close modal on background overlay click
+document.addEventListener('click', (e) => {
+    const postModal = document.getElementById('adminPostModal');
+    if (postModal && e.target === postModal) {
+        window.closePostModal();
+    }
+    const delModal = document.getElementById('adminDeleteModal');
+    if (delModal && e.target === delModal) {
+        window.closeDeleteModal();
+    }
+});
 
 window.togglePostStatus = function(id) {
     const post = BlogStore.getById(id);
@@ -6143,8 +7161,11 @@ function initAllPageFeatures() {
     safeRun(initTransitNavigator, 'initTransitNavigator');
     safeRun(initZeroSnagVerifier, 'initZeroSnagVerifier');
     safeRun(init3DExplodedVilla, 'init3DExplodedVilla');
+    safeRun(initBIMExplodedView, 'initBIMExplodedView');
     safeRun(init3DCurvedCarousel, 'init3DCurvedCarousel');
     safeRun(initDayNightSimulator, 'initDayNightSimulator');
+    safeRun(initSolarSimulator, 'initSolarSimulator');
+    safeRun(initDynamicProjectDetailPage, 'initDynamicProjectDetailPage');
     safeRun(init3DMasterplanNavigator, 'init3DMasterplanNavigator');
     safeRun(initProjectsFilterAndMap, 'initProjectsFilterAndMap');
     safeRun(initPublicBlogs, 'initPublicBlogs');
@@ -6181,6 +7202,92 @@ function initAllPageFeatures() {
     safeRun(initCareersCultureAndMatchmaker, 'initCareersCultureAndMatchmaker');
     safeRun(initRegionalHQNavigator, 'initRegionalHQNavigator');
     safeRun(initBlogRoiForecaster, 'initBlogRoiForecaster');
+    safeRun(initUniversalModalManager, 'initUniversalModalManager');
+}
+
+// ================= 24. UNIVERSAL MODAL, POPUP & DRAWER CONTROLLER =================
+function initUniversalModalManager() {
+    // 1. Automatically attach data-lenis-prevent to all modal dialogs & scrollable overlays
+    const modalContainers = document.querySelectorAll(
+        '.modal-overlay, .modal-dialog, .career-modal, .career-modal-content, ' +
+        '.blog-reader-modal, .blog-reader-body, .spatial-drawer-overlay, .spatial-drawer-container, ' +
+        '.admin-editor-modal, .admin-gate-card, .admin-delete-card'
+    );
+    modalContainers.forEach(el => {
+        if (!el.hasAttribute('data-lenis-prevent')) {
+            el.setAttribute('data-lenis-prevent', '');
+        }
+    });
+
+    // 2. Global Escape Key Listener for all active popups
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            let closedAny = false;
+
+            // Blog Reader
+            const blogReader = document.getElementById('blogReaderModal');
+            if (blogReader && blogReader.classList.contains('active')) {
+                if (typeof window.closeArticleReader === 'function') window.closeArticleReader();
+                closedAny = true;
+            }
+
+            // Careers Application Modal
+            const careerModal = document.getElementById('careerModal');
+            if (careerModal && careerModal.classList.contains('active')) {
+                if (typeof window.closeCareerModal === 'function') window.closeCareerModal();
+                closedAny = true;
+            }
+
+            // Spatial Concierge Drawer
+            const spatialDrawer = document.getElementById('spatialDrawer');
+            if (spatialDrawer && spatialDrawer.classList.contains('active')) {
+                spatialDrawer.classList.remove('active');
+                closedAny = true;
+            }
+
+            // Admin Post Modal
+            const postModal = document.getElementById('adminPostModal');
+            if (postModal && postModal.style.display === 'flex') {
+                if (typeof window.closePostModal === 'function') window.closePostModal();
+                closedAny = true;
+            }
+
+            // Admin Delete Modal
+            const deleteModal = document.getElementById('adminDeleteModal');
+            if (deleteModal && deleteModal.style.display === 'flex') {
+                if (typeof window.closeDeleteModal === 'function') window.closeDeleteModal();
+                closedAny = true;
+            }
+
+            if (closedAny) {
+                document.body.style.overflow = '';
+                if (window.lenis) window.lenis.start();
+            }
+        }
+    });
+
+    // 3. Global Backdrop Click Listener for all overlays
+    document.addEventListener('click', (e) => {
+        // Blog reader backdrop click
+        const blogReader = document.getElementById('blogReaderModal');
+        if (blogReader && e.target === blogReader) {
+            if (typeof window.closeArticleReader === 'function') window.closeArticleReader();
+        }
+
+        // Career modal backdrop click
+        const careerModal = document.getElementById('careerModal');
+        if (careerModal && e.target === careerModal) {
+            if (typeof window.closeCareerModal === 'function') window.closeCareerModal();
+        }
+
+        // Spatial drawer backdrop click
+        const spatialDrawer = document.getElementById('spatialDrawer');
+        if (spatialDrawer && e.target === spatialDrawer) {
+            spatialDrawer.classList.remove('active');
+            document.body.style.overflow = '';
+            if (window.lenis) window.lenis.start();
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
