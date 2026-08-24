@@ -11782,5 +11782,678 @@ footer.site-footer {
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
+/* ==========================================================================
+   ABOUT PAGE: SECTION 2 — HORIZONTAL SCROLL TIMELINE FILMSTRIP
+   ========================================================================== */
+.timeline-filmstrip-section {
+    padding: 90px 6% 40px;
+    background: var(--color-forest-dark);
+    overflow: hidden;
+}
 
+.filmstrip-pin-wrapper {
+    position: relative;
+    overflow: hidden;
+}
 
+.filmstrip-track {
+    display: flex;
+    gap: 0;
+    will-change: transform;
+}
+
+.filmstrip-frame {
+    min-width: 100vw;
+    position: relative;
+    padding: 50px 6%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.frame-year-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-serif);
+    font-size: clamp(180px, 22vw, 320px);
+    font-weight: 800;
+    color: rgba(197, 160, 89, 0.06);
+    pointer-events: none;
+    line-height: 1;
+    z-index: 0;
+}
+
+.frame-content-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.frame-visual {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.frame-visual img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.filmstrip-frame:hover .frame-visual img {
+    transform: scale(1.04);
+}
+
+.frame-era-badge {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background: rgba(6, 22, 14, 0.88);
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.frame-narrative {
+    color: #FFFFFF;
+}
+
+.frame-era-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    display: block;
+    margin-bottom: 12px;
+}
+
+.frame-narrative h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 2.8vw, 34px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 16px;
+}
+
+.frame-narrative p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 24px;
+}
+
+.frame-stats-row {
+    display: flex;
+    gap: 24px;
+}
+
+.frame-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.fs-val {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-gold);
+}
+
+.fs-lbl {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.filmstrip-progress {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 24px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.filmstrip-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-gold), #E8D5A3);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+@media (max-width: 768px) {
+    .frame-content-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .frame-visual img {
+        height: 240px;
+    }
+    .frame-stats-row {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+}
+
+/* ==========================================================================
+   ABOUT PAGE: SECTION 3 — ZIGZAG COMMITMENT CHAPTERS
+   ========================================================================== */
+.commitment-chapters-section {
+    padding: 90px 6% 60px;
+    background: var(--color-bg-primary);
+    position: relative;
+}
+
+.commit-progress-indicator {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: rgba(6, 22, 14, 0.92);
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    padding: 12px 16px;
+    border-radius: var(--radius-lg);
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.commit-progress-indicator.visible {
+    opacity: 1;
+}
+
+.commit-progress-sep {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(197, 160, 89, 0.6);
+    display: block;
+}
+
+.commit-chapter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.commit-chapter.ch-from-left {
+    transform: translateX(-80px) translateY(40px);
+}
+
+.commit-chapter.ch-from-right {
+    transform: translateX(80px) translateY(40px);
+}
+
+.commit-chapter.ch-visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.ch-img-col {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
+}
+
+.ch-img-col img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.commit-chapter:hover .ch-img-col img {
+    transform: scale(1.05);
+}
+
+.ch-text-col {
+    position: relative;
+}
+
+.ch-number {
+    font-family: var(--font-serif);
+    font-size: clamp(56px, 6vw, 80px);
+    font-weight: 800;
+    color: rgba(197, 160, 89, 0.12);
+    line-height: 1;
+    display: block;
+    margin-bottom: -20px;
+    position: relative;
+    z-index: 0;
+}
+
+.ch-text-col h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 700;
+    color: var(--color-forest);
+    margin: 0 0 14px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+}
+
+.ch-text-col p {
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: var(--color-text-muted);
+    margin-bottom: 18px;
+}
+
+.ch-proof-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ch-proof-list li {
+    font-size: 13px;
+    color: var(--color-text);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.ch-proof-list li i {
+    color: #38A169;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .commit-chapter {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 50px;
+    }
+    .commit-chapter.ch-from-left,
+    .commit-chapter.ch-from-right {
+        transform: translateY(50px);
+    }
+    .ch-img-col img {
+        height: 240px;
+    }
+    .commit-progress-indicator {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   ABOUT PAGE: SECTION 4 — WATERFALL QUALITY AUDIT CASCADE
+   ========================================================================== */
+.audit-waterfall-section {
+    padding: 90px 6% 60px;
+    background: var(--color-forest-dark);
+    color: #FFFFFF;
+}
+
+.audit-waterfall-section h2 {
+    color: #FFFFFF !important;
+}
+
+.audit-waterfall-section .section-header-center p {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.audit-running-counter {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.audit-counter-val {
+    font-family: var(--font-serif);
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 800;
+    color: var(--color-gold);
+    display: block;
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+}
+
+.audit-counter-lbl {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    display: block;
+    margin-top: 8px;
+}
+
+.audit-category-block {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.audit-category-block.audit-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.audit-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.audit-cat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(197, 160, 89, 0.15);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold);
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.audit-cat-header h3 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 4px;
+}
+
+.audit-cat-header p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.audit-checks-cascade {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.audit-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    opacity: 0;
+    transform: translateX(-30px) scale(0.97);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.audit-check-item.audit-item-visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.audit-check-item:hover {
+    background: rgba(197, 160, 89, 0.08);
+    border-color: rgba(197, 160, 89, 0.25);
+}
+
+.audit-check-item i {
+    color: #38A169;
+    font-size: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.audit-check-item strong {
+    font-size: 14px;
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.audit-check-item p {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.audit-footer-badge {
+    max-width: 900px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.audit-footer-badge span {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================================================
+   ABOUT PAGE: SECTION 5 — VERTICAL JOURNEY PATH
+   ========================================================================== */
+.journey-path-section {
+    padding: 90px 6% 80px;
+    background: var(--color-bg-primary);
+    overflow: hidden;
+}
+
+.journey-path-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.journey-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: rgba(20, 54, 38, 0.12);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.journey-line-fill {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(180deg, var(--color-gold), #E8D5A3);
+    border-radius: 2px;
+    transition: height 0.1s linear;
+    box-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
+}
+
+.journey-stop {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 70px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey-stop.js-left {
+    flex-direction: row;
+    padding-right: 52%;
+    transform: translateX(-50px);
+}
+
+.journey-stop.js-right {
+    flex-direction: row-reverse;
+    padding-left: 52%;
+    transform: translateX(50px);
+}
+
+.journey-stop.js-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.journey-node {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-forest-dark);
+    border: 3px solid var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 0 0 6px rgba(197, 160, 89, 0.15);
+    transition: box-shadow 0.4s ease;
+}
+
+.journey-stop.js-visible .journey-node {
+    box-shadow: 0 0 0 10px rgba(197, 160, 89, 0.25), 0 0 25px rgba(197, 160, 89, 0.2);
+}
+
+.journey-node span {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--color-gold);
+}
+
+.journey-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
+}
+
+.jc-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.journey-card:hover .jc-img img {
+    transform: scale(1.05);
+}
+
+.jc-info {
+    padding: 22px 24px 26px;
+}
+
+.jc-info h3 {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--color-forest);
+    margin: 0 0 10px;
+    line-height: 1.3;
+}
+
+.jc-info p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0 0 14px;
+}
+
+.jc-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.jc-specs span {
+    font-size: 12.5px;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.jc-specs span i {
+    color: #38A169;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .journey-line {
+        left: 24px;
+    }
+    .journey-node {
+        left: 24px;
+        width: 40px;
+        height: 40px;
+    }
+    .journey-stop.js-left,
+    .journey-stop.js-right {
+        flex-direction: column;
+        padding-left: 60px;
+        padding-right: 0;
+    }
+    .journey-stop.js-left {
+        transform: translateY(30px);
+    }
+    .journey-stop.js-right {
+        transform: translateY(30px);
+    }
+}

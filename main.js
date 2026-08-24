@@ -2518,166 +2518,189 @@ function initVipSchedulerDesk() {
     }
 }
 
-// 8. 15-Year Time Travel Slider (About Page)
+// 8. HORIZONTAL SCROLL TIMELINE FILMSTRIP (About Page)
 function initTimeTravelSlider() {
-    const eraBtns = document.querySelectorAll('.time-era-btn');
-    const eraBadge = document.getElementById('timeEraBadge');
-    const eraTitle = document.getElementById('timeEraTitle');
-    const eraDesc = document.getElementById('timeEraDesc');
-    const eraImg = document.getElementById('timeEraImg');
-    const eraStat1 = document.getElementById('timeEraStat1');
-    const eraStat2 = document.getElementById('timeEraStat2');
-    const eraStat3 = document.getElementById('timeEraStat3');
+    const track = document.getElementById('filmstripTrack');
+    const progressFill = document.getElementById('filmstripProgressFill');
+    if (!track || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    if (!eraBtns.length || !eraTitle) return;
+    const frames = track.querySelectorAll('.filmstrip-frame');
+    if (frames.length < 2) return;
 
-    const ERA_DATA = {
-        '2010': {
-            badge: 'Era 2010 — Founding Vision',
-            title: 'Founding of Vaaraahi Group & First Land Due-Diligence',
-            desc: 'Vaaraahi Group was established with a singular conviction: to bring institutional-grade structural engineering, 40-year clear legal titles, and pure Vastu Shastra geomancy to Andhra Pradesh.',
-            img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80',
-            s1: '25 Acres', s2: '100%', s3: '1st Enclave'
-        },
-        '2014': {
-            badge: 'Era 2014 — Inaugural Delivery',
-            title: 'First Signature Luxury Villa Handover in Proddatur',
-            desc: 'Completed our landmark duplex villa community with 100% on-time possession, introducing underground drainage, wide avenues, and private landscaped parks.',
-            img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
-            s1: '150 Villas', s2: '100% On-Time', s3: '4.9★ Rating'
-        },
-        '2019': {
-            badge: 'Era 2019 — Multi-City Expansion',
-            title: 'Expansion into Rayachoty & Jammalamadugu',
-            desc: 'Launched Vaaraahi Grandeur and Vaaraahi Green Meadows, establishing resort clubhouses, solar avenue grids, and 40% dedicated native open green spaces.',
-            img: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1000&q=80',
-            s1: '850+ Homes', s2: '4 Cities', s3: '15K Sq.Ft Club'
-        },
-        '2026': {
-            badge: 'Era 2026 & Beyond — Smart Sanctuaries',
-            title: 'Hyderabad Corporate HQ & Sustainable Smart Townships',
-            desc: 'Pioneering EV-ready smart infrastructure, 3D BIM structural clash verification, and net-positive hydrological aquifers across prime growth corridors.',
-            img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80',
-            s1: '1.5M Sq.Ft', s2: '1,000+ Families', s3: 'Zero Snags'
-        }
-    };
+    const totalScroll = (frames.length - 1) * 100;
 
-    eraBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            eraBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const era = btn.getAttribute('data-era');
-            const data = ERA_DATA[era];
-            if (data) {
-                if (eraBadge) eraBadge.textContent = data.badge;
-                if (eraTitle) eraTitle.textContent = data.title;
-                if (eraDesc) eraDesc.textContent = data.desc;
-                if (eraImg) eraImg.src = data.img;
-                if (eraStat1) eraStat1.textContent = data.s1;
-                if (eraStat2) eraStat2.textContent = data.s2;
-                if (eraStat3) eraStat3.textContent = data.s3;
-
-                if (typeof gsap !== 'undefined') {
-                    gsap.fromTo('.time-era-stage', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 });
+    gsap.to(track, {
+        x: () => -(track.scrollWidth - window.innerWidth),
+        ease: 'none',
+        scrollTrigger: {
+            trigger: '.filmstrip-pin-wrapper',
+            start: 'top top',
+            end: () => '+=' + track.scrollWidth,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+                if (progressFill) {
+                    progressFill.style.width = (self.progress * 100) + '%';
                 }
             }
-        });
+        }
+    });
+
+    // Animate frame year watermarks scaling up as they enter
+    frames.forEach((frame, i) => {
+        const wm = frame.querySelector('.frame-year-watermark');
+        if (wm) {
+            gsap.fromTo(wm, 
+                { scale: 0.5, opacity: 0 },
+                {
+                    scale: 1, opacity: 1,
+                    scrollTrigger: {
+                        trigger: frame,
+                        containerAnimation: gsap.getById && gsap.getById('filmstripST'),
+                        start: 'left center',
+                        end: 'right center',
+                        scrub: true
+                    }
+                }
+            );
+        }
     });
 }
 
-// 9. Blueprint Commitment Matrix & Quality Dial (About Page)
+// 9. ZIGZAG SCROLL-REVEAL COMMITMENT CHAPTERS (About Page)
 function initCommitmentMatrixDial() {
-    const matrixBtns = document.querySelectorAll('.matrix-btn');
-    const mBadge = document.getElementById('matrixBadge');
-    const mTitle = document.getElementById('matrixTitle');
-    const mDesc = document.getElementById('matrixDesc');
-    const mImg = document.getElementById('matrixImg');
-    const mList = document.getElementById('matrixProofList');
+    const chapters = document.querySelectorAll('.commit-chapter');
+    const progressIndicator = document.getElementById('commitProgressIndicator');
+    const progressCurrent = document.getElementById('commitProgressCurrent');
+    if (!chapters.length) return;
 
-    if (!matrixBtns.length || !mTitle) return;
-
-    const MATRIX_DATA = {
-        '1': {
-            badge: 'Commitment 01 • Structural Integrity',
-            title: '1. Quality Construction & Primary Fe-550D Steel',
-            desc: 'We construct structures built for a century of resilience. Using primary Fe-550D corrosion-resistant steel rebar, certified M35 batching concrete, and non-destructive ultrasonic testing, our structural tolerances are among the strictest in South India.',
-            img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
-            proofs: ['Certified Fe-550D TMT high-elongation steel rebar (IS 1786)', 'Non-destructive UPV concrete density testing > 4.2 km/s', '300-point third-party zero-snag pre-handover audit']
-        },
-        '2': {
-            badge: 'Commitment 02 • Modern Architecture',
-            title: '2. Contemporary Architecture & Bioclimatic Light',
-            desc: 'Every villa boasts double-height ceilings, seamless indoor-outdoor courtyards, and deep overhangs designed to optimize cross-ventilation and drop interior temperatures.',
-            img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
-            proofs: ['18-foot double-height foyer and living pavilions', 'Porotherm insulated natural terracotta wall blocks', 'Acoustic UPVC double-glazed panoramic windows']
-        },
-        '3': {
-            badge: 'Commitment 03 • Strategic Growth',
-            title: '3. Prime Locations on Booming Expressways',
-            desc: 'Strategically positioned directly along national highways (NH-40), premier educational campuses, and financial district corridors for supreme capital appreciation.',
-            img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80',
-            proofs: ['Direct 2-minute connectivity to national bypass corridors', 'High capital appreciation corridors across AP & Telangana', 'Surrounded by top medical colleges and international schools']
-        },
-        '4': {
-            badge: 'Commitment 04 • Vedic Harmony',
-            title: '4. Thoughtful Planning & 100% Vastu Shastra',
-            desc: 'Harmonized layout geometry with genuine Vastu Shastra geomancy, wide tree-lined boulevards, and zero unsightly overhead electrical cables.',
-            img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-            proofs: ['100% authentic East/North facing auspicious entries', 'Master Suite positioned in southwest Nairutya power zone', 'Zero surface utility clutter with 100% underground conduits']
-        },
-        '5': {
-            badge: 'Commitment 05 • Resort Lifestyle',
-            title: '5. Modern Amenities & 15,000 Sq.Ft Clubhouses',
-            desc: 'Infinity lap swimming pools, indoor badminton courts, state-of-the-art fitness suites, children play zones, and manicured party lawns for family celebrations.',
-            img: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80',
-            proofs: ['15,000 Sq.Ft multi-level clubhouse with private theater', 'Ozone-purified infinity swimming pool with toddler splash area', 'Dedicated rubberized outdoor children activity arena']
-        },
-        '6': {
-            badge: 'Commitment 06 • Governance',
-            title: '6. Transparent Governance & 100% Clear Titles',
-            desc: '40-year forensic revenue title searches, pre-approved bank loans from SBI/HDFC/ICICI, and full RERA carpet area itemized disclosures.',
-            img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
-            proofs: ['40-year litigation-free clear title certificate', 'SBI, HDFC & ICICI APF loan approvals in place', 'Milestone-linked construction escrow payment schedules']
-        },
-        '7': {
-            badge: 'Commitment 07 • Punctuality',
-            title: '7. Timely Execution & Milestone Handover Logs',
-            desc: 'Zero project delay policy powered by automated material supply chains, weekly drone progress monitoring, and guaranteed handover schedules.',
-            img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
-            proofs: ['100% on-time handover record across 15 years', 'Fortnightly video progress reports for resident and NRI buyers', 'Dedicated post-handover facility management team']
-        },
-        '8': {
-            badge: 'Commitment 08 • Wealth Creation',
-            title: '8. Long-Term Value & Superior Rental Yields',
-            desc: 'Sanctuaries designed to deliver maximum capital appreciation, low lifecycle maintenance costs, and enduring generational pride.',
-            img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80',
-            proofs: ['Demonstrated 2.5x capital appreciation over 5-year horizons', 'Low-maintenance architectural materials and solar common power', 'High rental demand from doctors, professionals, and industrialists']
-        }
-    };
-
-    matrixBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            matrixBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const mId = btn.getAttribute('data-matrix-id');
-            const data = MATRIX_DATA[mId];
-            if (data) {
-                if (mBadge) mBadge.textContent = data.badge;
-                if (mTitle) mTitle.textContent = data.title;
-                if (mDesc) mDesc.textContent = data.desc;
-                if (mImg) mImg.src = data.img;
-                if (mList) {
-                    mList.innerHTML = data.proofs.map(p => `<li><i class="fas fa-check-circle" style="color: #38A169;"></i> ${p}</li>`).join('');
-                }
-                if (typeof gsap !== 'undefined') {
-                    gsap.fromTo('.matrix-stage-panel', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.35 });
+    // Use IntersectionObserver for zigzag scroll-reveal with different animations per chapter
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('ch-visible');
+                // Update progress indicator
+                const num = entry.target.getAttribute('data-commit-num');
+                if (progressCurrent && num) {
+                    progressCurrent.textContent = num;
                 }
             }
         });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -60px 0px'
     });
+
+    chapters.forEach(ch => observer.observe(ch));
+
+    // Show/hide progress indicator based on section visibility
+    const sectionObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (progressIndicator) {
+                progressIndicator.classList.toggle('visible', entry.isIntersecting);
+            }
+        });
+    }, { threshold: 0.05 });
+
+    const section = document.getElementById('commitmentChapters');
+    if (section && progressIndicator) {
+        sectionObs.observe(section);
+    }
 }
+
+// 9b. WATERFALL QUALITY AUDIT CASCADE (About Page)
+function initAuditWaterfallCascade() {
+    const categoryBlocks = document.querySelectorAll('.audit-category-block');
+    const checkItems = document.querySelectorAll('.audit-check-item');
+    const counterEl = document.getElementById('auditCounterVal');
+    if (!categoryBlocks.length) return;
+
+    let revealedCount = 0;
+    const totalItems = checkItems.length;
+    const pointsPerItem = Math.round(300 / Math.max(totalItems, 1));
+
+    // Reveal category blocks on scroll
+    const catObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('audit-visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    categoryBlocks.forEach(block => catObserver.observe(block));
+
+    // Reveal individual check items with staggered waterfall delay
+    const itemObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('audit-item-visible')) {
+                revealedCount++;
+                const delay = (revealedCount % 4) * 120;
+                setTimeout(() => {
+                    entry.target.classList.add('audit-item-visible');
+                    // Update running counter
+                    if (counterEl) {
+                        const currentPoints = Math.min(revealedCount * pointsPerItem, 300);
+                        animateCounter(counterEl, currentPoints);
+                    }
+                }, delay);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    checkItems.forEach(item => itemObserver.observe(item));
+}
+
+function animateCounter(el, target) {
+    const current = parseInt(el.textContent) || 0;
+    if (current >= target) return;
+    const step = Math.ceil((target - current) / 15);
+    let val = current;
+    const tick = () => {
+        val = Math.min(val + step, target);
+        el.textContent = val;
+        if (val < target) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+}
+
+// 9c. VERTICAL JOURNEY PATH WITH GROWING LINE (About Page)
+function initJourneyPathScroll() {
+    const container = document.querySelector('.journey-path-container');
+    const lineFill = document.getElementById('journeyLineFill');
+    const stops = document.querySelectorAll('.journey-stop');
+    if (!container || !stops.length) return;
+
+    // Grow the gold vertical line as user scrolls through the section
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.to(lineFill, {
+            height: '100%',
+            ease: 'none',
+            scrollTrigger: {
+                trigger: container,
+                start: 'top 60%',
+                end: 'bottom 40%',
+                scrub: 0.5
+            }
+        });
+    }
+
+    // Reveal journey stops with alternating slide-in animations
+    const stopObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('js-visible');
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    stops.forEach(stop => stopObserver.observe(stop));
+}
+
 
 // 10. In-Card Unit Configurator & Blueprint Drawer (Portfolio Page)
 function initInCardUnitConfigurator() {
@@ -6157,6 +6180,8 @@ function initAllPageFeatures() {
     safeRun(initVipSchedulerDesk, 'initVipSchedulerDesk');
     safeRun(initTimeTravelSlider, 'initTimeTravelSlider');
     safeRun(initCommitmentMatrixDial, 'initCommitmentMatrixDial');
+    safeRun(initAuditWaterfallCascade, 'initAuditWaterfallCascade');
+    safeRun(initJourneyPathScroll, 'initJourneyPathScroll');
     safeRun(initInCardUnitConfigurator, 'initInCardUnitConfigurator');
     safeRun(initRoomSpatialInspector, 'initRoomSpatialInspector');
     safeRun(initAmenityCampusNavigator, 'initAmenityCampusNavigator');

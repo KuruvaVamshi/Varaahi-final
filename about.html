@@ -182,211 +182,457 @@
             </div>
         </section>
 
-        <!-- ================= 2. UNIQUE TOOL: 15-YEAR INTERACTIVE MILESTONE TIME-TRAVEL SLIDER ================= -->
-        <section class="time-travel-section">
+        <!-- ================= 2. SCROLL-DRIVEN HORIZONTAL TIMELINE FILMSTRIP ================= -->
+        <section class="timeline-filmstrip-section" id="timelineFilmstrip">
             <div class="section-header-center gs-reveal">
                 <span class="section-tag">Living Heritage</span>
-                <h2>15-Year Architectural Milestone Time-Travel</h2>
-                <p>Scrub through our 15-year timeline to explore how Vaaraahi expanded from a boutique luxury builder into a regional real estate institution.</p>
+                <h2>15-Year Architectural Milestone Journey</h2>
+                <p>Scroll to travel through our evolution from a boutique luxury builder into a regional real estate institution.</p>
                 <div class="gold-divider"></div>
             </div>
 
-            <div class="time-travel-wrap gs-reveal">
-                <!-- Timeline Era Buttons -->
-                <div class="time-era-nav">
-                    <button class="time-era-btn active" data-era="2010" data-cursor-action="ERA"><i class="fas fa-seedling"></i> 2010 — The Inception</button>
-                    <button class="time-era-btn" data-era="2014" data-cursor-action="ERA"><i class="fas fa-monument"></i> 2014 — Inaugural Delivery</button>
-                    <button class="time-era-btn" data-era="2019" data-cursor-action="ERA"><i class="fas fa-city"></i> 2019 — Multi-City Scale</button>
-                    <button class="time-era-btn" data-era="2026" data-cursor-action="ERA"><i class="fas fa-solar-panel"></i> 2026 — Smart Communities</button>
-                </div>
-
-                <!-- Active Era Visual & Narrative Stage -->
-                <div class="time-era-stage">
-                    <div class="time-era-content">
-                        <span class="section-tag" id="timeEraBadge" style="color: var(--color-gold);">Era 2010 — Founding Vision</span>
-                        <h3 id="timeEraTitle" style="font-family: var(--font-serif); font-size: 28px; color: #FFFFFF; margin: 12px 0 16px;">Founding of Vaaraahi Group & First Land Due-Diligence</h3>
-                        <p id="timeEraDesc" style="font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 24px;">
-                            Vaaraahi Group was established with a singular conviction: to bring institutional-grade structural engineering, 40-year clear legal titles, and pure Vastu Shastra geomancy to Andhra Pradesh and Telangana.
-                        </p>
-
-                        <div class="time-era-stats">
-                            <div class="era-stat-item">
-                                <span class="era-stat-val" id="timeEraStat1">25 Acres</span>
-                                <span class="era-stat-lbl" id="timeEraLabel1">Inaugural Land Bank</span>
+            <div class="filmstrip-pin-wrapper">
+                <div class="filmstrip-track" id="filmstripTrack">
+                    <!-- Era 1: 2010 -->
+                    <div class="filmstrip-frame" data-era="2010">
+                        <div class="frame-year-watermark">2010</div>
+                        <div class="frame-content-grid">
+                            <div class="frame-visual">
+                                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=85" alt="Vaaraahi 2010 — Founding">
+                                <div class="frame-era-badge"><i class="fas fa-seedling"></i> The Inception</div>
                             </div>
-                            <div class="era-stat-item">
-                                <span class="era-stat-val" id="timeEraStat2">100%</span>
-                                <span class="era-stat-lbl" id="timeEraLabel2">Clear Title Vetting</span>
-                            </div>
-                            <div class="era-stat-item">
-                                <span class="era-stat-val" id="timeEraStat3">1st</span>
-                                <span class="era-stat-lbl" id="timeEraLabel3">Boutique Enclave</span>
+                            <div class="frame-narrative">
+                                <span class="frame-era-tag">Era 2010 — Founding Vision</span>
+                                <h3>Founding of Vaaraahi Group & First Land Due-Diligence</h3>
+                                <p>Vaaraahi Group was established with a singular conviction: to bring institutional-grade structural engineering, 40-year clear legal titles, and pure Vastu Shastra geomancy to Andhra Pradesh and Telangana.</p>
+                                <div class="frame-stats-row">
+                                    <div class="frame-stat"><span class="fs-val">25 Acres</span><span class="fs-lbl">Inaugural Land Bank</span></div>
+                                    <div class="frame-stat"><span class="fs-val">100%</span><span class="fs-lbl">Clear Title Vetting</span></div>
+                                    <div class="frame-stat"><span class="fs-val">1st</span><span class="fs-lbl">Boutique Enclave</span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="time-era-visual">
-                        <img id="timeEraImg" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80" alt="Vaaraahi Heritage Era">
+                    <!-- Era 2: 2014 -->
+                    <div class="filmstrip-frame" data-era="2014">
+                        <div class="frame-year-watermark">2014</div>
+                        <div class="frame-content-grid">
+                            <div class="frame-visual">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" alt="Vaaraahi 2014 — First Delivery">
+                                <div class="frame-era-badge"><i class="fas fa-monument"></i> Inaugural Delivery</div>
+                            </div>
+                            <div class="frame-narrative">
+                                <span class="frame-era-tag">Era 2014 — First Handover</span>
+                                <h3>First Signature Luxury Villa Handover in Proddatur</h3>
+                                <p>Completed our landmark duplex villa community with 100% on-time possession, introducing underground drainage, wide avenues, and private landscaped parks.</p>
+                                <div class="frame-stats-row">
+                                    <div class="frame-stat"><span class="fs-val">150 Villas</span><span class="fs-lbl">Delivered On-Time</span></div>
+                                    <div class="frame-stat"><span class="fs-val">100%</span><span class="fs-lbl">On-Time Possession</span></div>
+                                    <div class="frame-stat"><span class="fs-val">4.9★</span><span class="fs-lbl">Owner Rating</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Era 3: 2019 -->
+                    <div class="filmstrip-frame" data-era="2019">
+                        <div class="frame-year-watermark">2019</div>
+                        <div class="frame-content-grid">
+                            <div class="frame-visual">
+                                <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1000&q=85" alt="Vaaraahi 2019 — Expansion">
+                                <div class="frame-era-badge"><i class="fas fa-city"></i> Multi-City Scale</div>
+                            </div>
+                            <div class="frame-narrative">
+                                <span class="frame-era-tag">Era 2019 — Multi-City Expansion</span>
+                                <h3>Expansion into Rayachoty & Jammalamadugu</h3>
+                                <p>Launched Vaaraahi Grandeur and Green Meadows, establishing resort clubhouses, solar avenue grids, and 40% dedicated native open green spaces.</p>
+                                <div class="frame-stats-row">
+                                    <div class="frame-stat"><span class="fs-val">850+</span><span class="fs-lbl">Homes Built</span></div>
+                                    <div class="frame-stat"><span class="fs-val">4 Cities</span><span class="fs-lbl">Active Presence</span></div>
+                                    <div class="frame-stat"><span class="fs-val">15K Sq.Ft</span><span class="fs-lbl">Clubhouse Built</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Era 4: 2026 -->
+                    <div class="filmstrip-frame" data-era="2026">
+                        <div class="frame-year-watermark">2026</div>
+                        <div class="frame-content-grid">
+                            <div class="frame-visual">
+                                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=85" alt="Vaaraahi 2026 — Smart Future">
+                                <div class="frame-era-badge"><i class="fas fa-solar-panel"></i> Smart Communities</div>
+                            </div>
+                            <div class="frame-narrative">
+                                <span class="frame-era-tag">Era 2026 & Beyond — Smart Sanctuaries</span>
+                                <h3>Hyderabad Corporate HQ & Sustainable Smart Townships</h3>
+                                <p>Pioneering EV-ready smart infrastructure, 3D BIM structural clash verification, and net-positive hydrological aquifers across prime growth corridors.</p>
+                                <div class="frame-stats-row">
+                                    <div class="frame-stat"><span class="fs-val">1.5M Sq.Ft</span><span class="fs-lbl">Total Delivered</span></div>
+                                    <div class="frame-stat"><span class="fs-val">1,000+</span><span class="fs-lbl">Families Housed</span></div>
+                                    <div class="frame-stat"><span class="fs-val">Zero</span><span class="fs-lbl">Pending Snags</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Filmstrip scroll progress bar -->
+                <div class="filmstrip-progress"><div class="filmstrip-progress-fill" id="filmstripProgressFill"></div></div>
             </div>
         </section>
 
-        <!-- ================= 3. UNIQUE TOOL: INTERACTIVE BLUEPRINT COMMITMENT MATRIX & QUALITY DIAL ================= -->
-        <section class="commitments-matrix-section">
+        <!-- ================= 3. ZIGZAG SCROLL-REVEAL COMMITMENT CHAPTERS ================= -->
+        <section class="commitment-chapters-section" id="commitmentChapters">
             <div class="section-header-center gs-reveal">
                 <span class="section-tag">Our Guiding Mission</span>
-                <h2>The 8 Commitments of Vaaraahi (Blueprint Matrix)</h2>
-                <p>Click on any of our 8 foundational commitments below to inspect the engineering specifications and ISO quality benchmarks governing every build.</p>
+                <h2>The 8 Commitments of Vaaraahi</h2>
+                <p>Scroll through our foundational pillars — each one backed by engineering specifications and ISO quality benchmarks.</p>
                 <div class="gold-divider"></div>
             </div>
 
-            <div class="commitment-matrix-console gs-reveal">
-                <!-- 8 Interactive Stations Navigation Grid -->
-                <div class="matrix-stations-grid">
-                    <button class="matrix-btn active" data-matrix-id="1" data-cursor-action="COMMIT"><i class="fas fa-hammer"></i> 1. Quality Construction</button>
-                    <button class="matrix-btn" data-matrix-id="2" data-cursor-action="COMMIT"><i class="fas fa-drafting-compass"></i> 2. Contemporary Architecture</button>
-                    <button class="matrix-btn" data-matrix-id="3" data-cursor-action="COMMIT"><i class="fas fa-map-marked-alt"></i> 3. Prime Locations</button>
-                    <button class="matrix-btn" data-matrix-id="4" data-cursor-action="COMMIT"><i class="fas fa-compass"></i> 4. Thoughtful Planning</button>
-                    <button class="matrix-btn" data-matrix-id="5" data-cursor-action="COMMIT"><i class="fas fa-swimming-pool"></i> 5. Modern Amenities</button>
-                    <button class="matrix-btn" data-matrix-id="6" data-cursor-action="COMMIT"><i class="fas fa-handshake"></i> 6. Transparent Governance</button>
-                    <button class="matrix-btn" data-matrix-id="7" data-cursor-action="COMMIT"><i class="fas fa-clock"></i> 7. Timely Execution</button>
-                    <button class="matrix-btn" data-matrix-id="8" data-cursor-action="COMMIT"><i class="fas fa-chart-line"></i> 8. Long-Term Value</button>
+            <!-- Sticky side progress indicator -->
+            <div class="commit-progress-indicator" id="commitProgressIndicator">
+                <span id="commitProgressCurrent">1</span> <span class="commit-progress-sep">of</span> <span>8</span>
+            </div>
+
+            <!-- Chapter 1 -->
+            <div class="commit-chapter ch-from-left" data-commit-num="1">
+                <div class="ch-img-col">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=85" alt="Quality Construction">
                 </div>
+                <div class="ch-text-col">
+                    <span class="ch-number">01</span>
+                    <h3>Quality Construction & Primary Fe-550D Steel</h3>
+                    <p>We construct structures built for a century of resilience. Using primary Fe-550D corrosion-resistant steel rebar, certified M35 batching concrete, and non-destructive ultrasonic testing.</p>
+                    <ul class="ch-proof-list">
+                        <li><i class="fas fa-check-circle"></i> Certified Fe-550D TMT high-elongation steel rebar (IS 1786)</li>
+                        <li><i class="fas fa-check-circle"></i> Non-destructive UPV concrete density testing > 4.2 km/s</li>
+                        <li><i class="fas fa-check-circle"></i> 300-point third-party zero-snag pre-handover audit</li>
+                    </ul>
+                </div>
+            </div>
 
-                <!-- Dynamic Detailed Evidence Stage -->
-                <div class="matrix-stage-panel" id="matrixStagePanel">
-                    <div class="matrix-panel-left">
-                        <span class="section-tag" id="matrixBadge" style="color: var(--color-gold);">Commitment 01</span>
-                        <h3 id="matrixTitle" style="font-family: var(--font-serif); font-size: 26px; color: var(--color-forest); margin: 12px 0 16px;">1. Quality Construction & Certified Structural Steel</h3>
-                        <p id="matrixDesc" style="color: var(--color-text-muted); font-size: 14px; line-height: 1.8; margin-bottom: 20px;">
-                            We construct structures built for a century of resilience. Using primary Fe-550D corrosion-resistant steel rebar, certified M35 batching concrete, and non-destructive ultrasonic testing, our structural tolerances are among the strictest in South India.
-                        </p>
+            <!-- Chapter 2 -->
+            <div class="commit-chapter ch-from-right" data-commit-num="2">
+                <div class="ch-text-col">
+                    <span class="ch-number">02</span>
+                    <h3>Contemporary Architecture & Bioclimatic Light</h3>
+                    <p>Every villa boasts double-height ceilings, seamless indoor-outdoor courtyards, and deep overhangs designed to optimize cross-ventilation and drop interior temperatures.</p>
+                    <ul class="ch-proof-list">
+                        <li><i class="fas fa-check-circle"></i> 18-foot double-height foyer and living pavilions</li>
+                        <li><i class="fas fa-check-circle"></i> Porotherm insulated natural terracotta wall blocks</li>
+                        <li><i class="fas fa-check-circle"></i> Acoustic UPVC double-glazed panoramic windows</li>
+                    </ul>
+                </div>
+                <div class="ch-img-col">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85" alt="Contemporary Architecture">
+                </div>
+            </div>
 
-                        <div class="matrix-proof-list">
-                            <h4><i class="fas fa-check-double" style="color: var(--color-gold);"></i> Engineering Proof Points:</h4>
-                            <ul id="matrixProofList">
-                                <li><i class="fas fa-check-circle" style="color: #38A169;"></i> Certified Fe-550D TMT high-elongation steel rebar (IS 1786)</li>
-                                <li><i class="fas fa-check-circle" style="color: #38A169;"></i> Non-destructive UPV concrete density testing > 4.2 km/s</li>
-                                <li><i class="fas fa-check-circle" style="color: #38A169;"></i> 300-point third-party zero-snag pre-handover audit</li>
-                            </ul>
-                        </div>
-                    </div>
+            <!-- Chapter 3 -->
+            <div class="commit-chapter ch-from-left" data-commit-num="3">
+                <div class="ch-img-col">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=85" alt="Prime Locations">
+                </div>
+                <div class="ch-text-col">
+                    <span class="ch-number">03</span>
+                    <h3>Prime Locations on Booming Expressways</h3>
+                    <p>Strategically positioned along national highways (NH-40), premier educational campuses, and financial district corridors for supreme capital appreciation.</p>
+                    <ul class="ch-proof-list">
+                        <li><i class="fas fa-check-circle"></i> Direct 2-minute connectivity to national bypass corridors</li>
+                        <li><i class="fas fa-check-circle"></i> High capital appreciation corridors across AP & Telangana</li>
+                        <li><i class="fas fa-check-circle"></i> Surrounded by top medical colleges and international schools</li>
+                    </ul>
+                </div>
+            </div>
 
-                    <div class="matrix-panel-right">
-                        <img id="matrixImg" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Commitment Proof">
-                    </div>
+            <!-- Chapter 4 -->
+            <div class="commit-chapter ch-from-right" data-commit-num="4">
+                <div class="ch-text-col">
+                    <span class="ch-number">04</span>
+                    <h3>Thoughtful Planning & 100% Vastu Shastra</h3>
+                    <p>Harmonized layout geometry with genuine Vastu Shastra geomancy, wide tree-lined boulevards, and zero unsightly overhead electrical cables.</p>
+                    <ul class="ch-proof-list">
+                        <li><i class="fas fa-check-circle"></i> 100% authentic East/North facing auspicious entries</li>
+                        <li><i class="fas fa-check-circle"></i> Master Suite in southwest Nairutya power zone</li>
+                        <li><i class="fas fa-check-circle"></i> Zero surface clutter with 100% underground conduits</li>
+                    </ul>
+                </div>
+                <div class="ch-img-col">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=85" alt="Vastu Planning">
+                </div>
+            </div>
+
+            <!-- Chapter 5 -->
+            <div class="commit-chapter ch-from-left" data-commit-num="5">
+                <div class="ch-img-col">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=85" alt="Modern Amenities">
+                </div>
+                <div class="ch-text-col">
+                    <span class="ch-number">05</span>
+                    <h3>Modern Amenities & 15,000 Sq.Ft Clubhouses</h3>
+                    <p>Infinity lap pools, indoor courts, state-of-the-art fitness suites, children play zones, and manicured party lawns for family celebrations.</p>
+                    <ul class="ch-proof-list">
+                        <li><i class="fas fa-check-circle"></i> 15,000 Sq.Ft multi-level clubhouse with private theater</li>
+                        <li><i class="fas fa-check-circle"></i> Ozone-purified infinity pool with toddler splash area</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated rubberized outdoor children activity arena</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 6 -->
+            <div class="commit-chapter ch-from-right" data-commit-num="6">
+                <div class="ch-text-col">
+                    <span class="ch-number">06</span>
+                    <h3>Transparent Governance & 100% Clear Titles</h3>
+                    <p>40-year forensic revenue title searches, pre-approved bank loans from SBI/HDFC/ICICI, and full RERA carpet area itemized disclosures.</p>
+                    <ul class="ch-proof-list">
+                        <li><i class="fas fa-check-circle"></i> 40-year litigation-free clear title certificate</li>
+                        <li><i class="fas fa-check-circle"></i> SBI, HDFC & ICICI APF loan approvals in place</li>
+                        <li><i class="fas fa-check-circle"></i> Milestone-linked construction escrow payment schedules</li>
+                    </ul>
+                </div>
+                <div class="ch-img-col">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=85" alt="Transparent Governance">
+                </div>
+            </div>
+
+            <!-- Chapter 7 -->
+            <div class="commit-chapter ch-from-left" data-commit-num="7">
+                <div class="ch-img-col">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=85" alt="Timely Execution">
+                </div>
+                <div class="ch-text-col">
+                    <span class="ch-number">07</span>
+                    <h3>Timely Execution & Milestone Handover Logs</h3>
+                    <p>Zero project delay policy powered by automated material supply chains, weekly drone monitoring, and guaranteed handover schedules.</p>
+                    <ul class="ch-proof-list">
+                        <li><i class="fas fa-check-circle"></i> 100% on-time handover record across 15 years</li>
+                        <li><i class="fas fa-check-circle"></i> Fortnightly video progress reports for NRI buyers</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated post-handover facility management team</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 8 -->
+            <div class="commit-chapter ch-from-right" data-commit-num="8">
+                <div class="ch-text-col">
+                    <span class="ch-number">08</span>
+                    <h3>Long-Term Value & Superior Rental Yields</h3>
+                    <p>Sanctuaries designed to deliver maximum capital appreciation, low lifecycle maintenance costs, and enduring generational pride.</p>
+                    <ul class="ch-proof-list">
+                        <li><i class="fas fa-check-circle"></i> Demonstrated 2.5x capital appreciation over 5-year horizons</li>
+                        <li><i class="fas fa-check-circle"></i> Low-maintenance materials and solar common power</li>
+                        <li><i class="fas fa-check-circle"></i> High rental demand from doctors and professionals</li>
+                    </ul>
+                </div>
+                <div class="ch-img-col">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=85" alt="Long-Term Value">
                 </div>
             </div>
         </section>
 
-        <!-- ================= 4. INNOVATIVE TOOL: INTERACTIVE 300-POINT ZERO-SNAG & RERA VERIFIER ================= -->
-        <section style="padding: 90px 6%; background: var(--color-bg-primary);">
+        <!-- ================= 4. WATERFALL QUALITY AUDIT CASCADE ================= -->
+        <section class="audit-waterfall-section" id="auditWaterfall">
             <div class="section-header-center gs-reveal">
                 <span class="section-tag">Uncompromising Engineering</span>
-                <h2>300-Point Zero-Snag Quality Audit Console</h2>
+                <h2>300-Point Zero-Snag Quality Audit</h2>
                 <p>Before any set of keys is handed over, each villa must pass our rigorous 4-category engineering inspection with zero pending defects.</p>
                 <div class="gold-divider"></div>
             </div>
 
-            <div class="verifier-console-box gs-reveal">
-                <div class="verifier-category-nav">
-                    <button class="verifier-cat-btn active" data-category="structural" data-cursor-action="AUDIT"><i class="fas fa-shield-alt"></i> Civil & Structural (UPV/Rebars)</button>
-                    <button class="verifier-cat-btn" data-category="waterproofing" data-cursor-action="AUDIT"><i class="fas fa-water"></i> Hydrology & 72-Hr Waterproofing</button>
-                    <button class="verifier-cat-btn" data-category="electrical" data-cursor-action="AUDIT"><i class="fas fa-bolt"></i> Electrical & Thermal Imaging</button>
-                    <button class="verifier-cat-btn" data-category="legal" data-cursor-action="AUDIT"><i class="fas fa-file-contract"></i> 40-Yr Legal & RERA Clearances</button>
-                </div>
+            <div class="audit-running-counter gs-reveal">
+                <span class="audit-counter-val" id="auditCounterVal">0</span>
+                <span class="audit-counter-lbl">of 300 Points Verified</span>
+            </div>
 
-                <div class="verifier-check-grid" id="verifierChecksGrid">
-                    <div class="verifier-check-item gs-reveal">
-                        <i class="fas fa-shield-alt"></i>
-                        <div>
-                            <strong style="color: var(--color-forest); font-size: 14px;">UPV Concrete Homogeneity</strong>
-                            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.5;">Ultrasonic pulse velocity > 4.2 km/s across all load-bearing columns.</p>
-                        </div>
-                    </div>
-                    <div class="verifier-check-item gs-reveal">
-                        <i class="fas fa-cubes"></i>
-                        <div>
-                            <strong style="color: var(--color-forest); font-size: 14px;">Fe-550D TMT Yield Strength</strong>
-                            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.5;">Certified elongation and tensile tests against Indian Standard IS 1786.</p>
-                        </div>
-                    </div>
-                    <div class="verifier-check-item gs-reveal">
-                        <i class="fas fa-layer-group"></i>
-                        <div>
-                            <strong style="color: var(--color-forest); font-size: 14px;">Sub-Soil Compaction Audit</strong>
-                            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.5;">Standard penetration test (SPT) N-value verified by geotech engineers.</p>
-                        </div>
-                    </div>
-                    <div class="verifier-check-item gs-reveal">
-                        <i class="fas fa-ruler-combined"></i>
-                        <div>
-                            <strong style="color: var(--color-forest); font-size: 14px;">3D BIM Dimension Check</strong>
-                            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.5;">Millimeter-precise room dimension and vertical plumb-line audit.</p>
-                        </div>
+            <!-- Category 1: Civil & Structural -->
+            <div class="audit-category-block" data-audit-cat="structural">
+                <div class="audit-cat-header">
+                    <div class="audit-cat-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <h3>Civil & Structural Integrity</h3>
+                        <p>UPV ultrasonic concrete testing, Fe-550D rebar yield verification, and sub-soil compaction audits.</p>
                     </div>
                 </div>
+                <div class="audit-checks-cascade">
+                    <div class="audit-check-item"><i class="fas fa-check-circle"></i><div><strong>UPV Concrete Homogeneity</strong><p>Ultrasonic pulse velocity > 4.2 km/s across all load-bearing columns.</p></div></div>
+                    <div class="audit-check-item"><i class="fas fa-cubes"></i><div><strong>Fe-550D TMT Yield Strength</strong><p>Certified elongation and tensile tests against Indian Standard IS 1786.</p></div></div>
+                    <div class="audit-check-item"><i class="fas fa-layer-group"></i><div><strong>Sub-Soil Compaction Audit</strong><p>Standard penetration test (SPT) N-value verified by geotech engineers.</p></div></div>
+                    <div class="audit-check-item"><i class="fas fa-ruler-combined"></i><div><strong>3D BIM Dimension Check</strong><p>Millimeter-precise room dimension and vertical plumb-line audit.</p></div></div>
+                </div>
+            </div>
 
-                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-                    <span style="font-size: 13px; color: var(--color-text-muted);"><i class="fas fa-check-double" style="color: #2E7D32;"></i> 100% Third-Party Lab Certified & Audited</span>
-                    <button class="btn-luxury-outline" onclick="showToast('Sample 300-Point Audit Checklist downloaded successfully.');" data-cursor-action="DOWNLOAD">
-                        <i class="fas fa-file-pdf"></i> Download Sample Audit Log (PDF)
-                    </button>
+            <!-- Category 2: Hydrology -->
+            <div class="audit-category-block" data-audit-cat="waterproofing">
+                <div class="audit-cat-header">
+                    <div class="audit-cat-icon"><i class="fas fa-water"></i></div>
+                    <div>
+                        <h3>Hydrology & 72-Hr Waterproofing</h3>
+                        <p>Complete terrace flooding, bathroom ponding, and underground seepage verification.</p>
+                    </div>
                 </div>
+                <div class="audit-checks-cascade">
+                    <div class="audit-check-item"><i class="fas fa-tint"></i><div><strong>72-Hour Terrace Flood Test</strong><p>Full roof terrace ponded for 72 hours to detect micro-fissure leakage.</p></div></div>
+                    <div class="audit-check-item"><i class="fas fa-shower"></i><div><strong>Bathroom Drain Gradient</strong><p>Precise slope measurement ensuring zero standing water after drainage.</p></div></div>
+                    <div class="audit-check-item"><i class="fas fa-tachometer-alt"></i><div><strong>Plumbing Pressure Hold</strong><p>10 bar sustained pressure test across all hot and cold water supply lines.</p></div></div>
+                </div>
+            </div>
+
+            <!-- Category 3: Electrical -->
+            <div class="audit-category-block" data-audit-cat="electrical">
+                <div class="audit-cat-header">
+                    <div class="audit-cat-icon"><i class="fas fa-bolt"></i></div>
+                    <div>
+                        <h3>Electrical & Thermal Imaging</h3>
+                        <p>IR thermography hot-spot detection, earthing resistance, and circuit load balancing.</p>
+                    </div>
+                </div>
+                <div class="audit-checks-cascade">
+                    <div class="audit-check-item"><i class="fas fa-thermometer-half"></i><div><strong>IR Thermal Hotspot Scan</strong><p>Infrared camera sweep detecting loose connections and resistance anomalies.</p></div></div>
+                    <div class="audit-check-item"><i class="fas fa-plug"></i><div><strong>Earth Resistance ≤ 2Ω</strong><p>Verified earth pit resistance ensuring lightning and fault protection.</p></div></div>
+                    <div class="audit-check-item"><i class="fas fa-solar-panel"></i><div><strong>Solar Inverter Load Test</strong><p>Full solar micro-grid performance validation under peak load conditions.</p></div></div>
+                </div>
+            </div>
+
+            <!-- Category 4: Legal -->
+            <div class="audit-category-block" data-audit-cat="legal">
+                <div class="audit-cat-header">
+                    <div class="audit-cat-icon"><i class="fas fa-file-contract"></i></div>
+                    <div>
+                        <h3>40-Year Legal & RERA Clearances</h3>
+                        <p>Unbroken revenue pedigree, RERA registration, and occupancy certification.</p>
+                    </div>
+                </div>
+                <div class="audit-checks-cascade">
+                    <div class="audit-check-item"><i class="fas fa-file-signature"></i><div><strong>100% RERA Registered Title</strong><p>Clear marketable title backed by 40-year uninterrupted legal search report.</p></div></div>
+                    <div class="audit-check-item"><i class="fas fa-university"></i><div><strong>APF Bank Loan Approvals</strong><p>Pre-approved financing from SBI, HDFC, ICICI and all major national banks.</p></div></div>
+                    <div class="audit-check-item"><i class="fas fa-certificate"></i><div><strong>RERA Occupancy Certificate (OC)</strong><p>Final governmental completion and occupancy clearances prior to handover.</p></div></div>
+                </div>
+            </div>
+
+            <div class="audit-footer-badge gs-reveal">
+                <span><i class="fas fa-check-double" style="color: #2E7D32;"></i> 100% Third-Party Lab Certified & Audited</span>
+                <button class="btn-luxury-outline" onclick="showToast('Sample 300-Point Audit Checklist downloaded successfully.');" data-cursor-action="DOWNLOAD">
+                    <i class="fas fa-file-pdf"></i> Download Sample Audit Log (PDF)
+                </button>
             </div>
         </section>
 
-        <!-- ================= 5. INTERACTIVE PROCESS TIMELINE (6 STOPS) ================= -->
-        <section class="process-stepper-section">
+        <!-- ================= 5. VERTICAL JOURNEY PATH — 6-STOP DELIVERY PROCESS ================= -->
+        <section class="journey-path-section" id="journeyPath">
             <div class="section-header-center gs-reveal">
                 <span class="section-tag">How We Build</span>
                 <h2>Our 6-Stop Delivery Process</h2>
-                <p>Click through the 6 stages of the Vaaraahi construction journey to see how we guarantee perfection.</p>
+                <p>Scroll through the complete Vaaraahi construction journey — from land discovery to generational homeownership.</p>
                 <div class="gold-divider"></div>
             </div>
 
-            <!-- 6 Step Clickable Track -->
-            <div class="process-steps-track gs-reveal">
-                <div class="process-step-node active" data-cursor-action="STEP">
-                    <div class="step-num">01</div>
-                    <div class="step-title">Discover</div>
-                </div>
-                <div class="process-step-node" data-cursor-action="STEP">
-                    <div class="step-num">02</div>
-                    <div class="step-title">Plan</div>
-                </div>
-                <div class="process-step-node" data-cursor-action="STEP">
-                    <div class="step-num">03</div>
-                    <div class="step-title">Design</div>
-                </div>
-                <div class="process-step-node" data-cursor-action="STEP">
-                    <div class="step-num">04</div>
-                    <div class="step-title">Build</div>
-                </div>
-                <div class="process-step-node" data-cursor-action="STEP">
-                    <div class="step-num">05</div>
-                    <div class="step-title">Deliver</div>
-                </div>
-                <div class="process-step-node" data-cursor-action="STEP">
-                    <div class="step-num">06</div>
-                    <div class="step-title">Relationships</div>
-                </div>
-            </div>
+            <div class="journey-path-container">
+                <!-- The growing gold vertical line -->
+                <div class="journey-line"><div class="journey-line-fill" id="journeyLineFill"></div></div>
 
-            <!-- Dynamic Process Preview Card -->
-            <div class="process-display-card gs-reveal">
-                <div class="process-card-info">
-                    <h3 id="processDisplayTitle">01. Discover & Land Due-Diligence</h3>
-                    <p id="processDisplayDesc">Every acquisition undergoes a rigorous 40-year clear title audit, forensic legal vetting, and groundwater hydrological assessment before master-planning begins.</p>
-                    <ul id="processDisplaySpecs">
-                        <li><i class="fas fa-check-circle"></i> 100% Litigation-Free Clear Titles</li>
-                        <li><i class="fas fa-check-circle"></i> Sub-Soil Compaction Analysis</li>
-                        <li><i class="fas fa-check-circle"></i> Strategic Growth Corridor Selection</li>
-                    </ul>
+                <!-- Stop 1 -->
+                <div class="journey-stop js-left" data-stop="1">
+                    <div class="journey-node"><span>01</span></div>
+                    <div class="journey-card">
+                        <div class="jc-img"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=85" alt="Discover"></div>
+                        <div class="jc-info">
+                            <h3>Discover & Land Due-Diligence</h3>
+                            <p>Every acquisition undergoes a rigorous 40-year clear title audit, forensic legal vetting, and groundwater hydrological assessment before master-planning begins.</p>
+                            <div class="jc-specs">
+                                <span><i class="fas fa-check-circle"></i> 100% Litigation-Free Clear Titles</span>
+                                <span><i class="fas fa-check-circle"></i> Sub-Soil Compaction Analysis</span>
+                                <span><i class="fas fa-check-circle"></i> Strategic Growth Corridor Selection</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="process-card-img">
-                    <img id="processDisplayImg" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Process Stage">
+
+                <!-- Stop 2 -->
+                <div class="journey-stop js-right" data-stop="2">
+                    <div class="journey-node"><span>02</span></div>
+                    <div class="journey-card">
+                        <div class="jc-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=85" alt="Plan"></div>
+                        <div class="jc-info">
+                            <h3>Bioclimatic Master Planning</h3>
+                            <p>Layouts aligned to natural sun path and cross-ventilation contours, reserving 30-40% dedicated green open spaces with 100% Vastu compliance.</p>
+                            <div class="jc-specs">
+                                <span><i class="fas fa-check-circle"></i> 30-40% Green Landscape Corridors</span>
+                                <span><i class="fas fa-check-circle"></i> 100% Vastu-Compliant Geometry</span>
+                                <span><i class="fas fa-check-circle"></i> Underground Utilities Grid Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stop 3 -->
+                <div class="journey-stop js-left" data-stop="3">
+                    <div class="journey-node"><span>03</span></div>
+                    <div class="journey-card">
+                        <div class="jc-img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85" alt="Design"></div>
+                        <div class="jc-info">
+                            <h3>Architectural Engineering & BIM</h3>
+                            <p>3D Building Information Modeling coordinates architectural, structural, and MEP designs down to millimeter precision before excavation.</p>
+                            <div class="jc-specs">
+                                <span><i class="fas fa-check-circle"></i> Full BIM 3D Clash-Detection</span>
+                                <span><i class="fas fa-check-circle"></i> Custom Villa Floorplan Customization</span>
+                                <span><i class="fas fa-check-circle"></i> High-Thermal Mass Envelope Specs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stop 4 -->
+                <div class="journey-stop js-right" data-stop="4">
+                    <div class="journey-node"><span>04</span></div>
+                    <div class="journey-card">
+                        <div class="jc-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=85" alt="Build"></div>
+                        <div class="jc-info">
+                            <h3>Precision Construction & Quality Audit</h3>
+                            <p>Fe-550D TMT corrosion-resistant steel and computerized concrete batching with continuous on-site laboratory testing at every pour.</p>
+                            <div class="jc-specs">
+                                <span><i class="fas fa-check-circle"></i> M30/M35 Certified Concrete</span>
+                                <span><i class="fas fa-check-circle"></i> German Non-Destructive Testing</span>
+                                <span><i class="fas fa-check-circle"></i> Daily Digital Quality Logbooks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stop 5 -->
+                <div class="journey-stop js-left" data-stop="5">
+                    <div class="journey-node"><span>05</span></div>
+                    <div class="journey-card">
+                        <div class="jc-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=85" alt="Deliver"></div>
+                        <div class="jc-info">
+                            <h3>Zero-Snag Handover & Delivery</h3>
+                            <p>Before key handover, each villa undergoes a 300-point inspection covering waterproofing, plumbing pressure, electrical loads, and finish perfection.</p>
+                            <div class="jc-specs">
+                                <span><i class="fas fa-check-circle"></i> 300-Point Pre-Delivery Audit</span>
+                                <span><i class="fas fa-check-circle"></i> RERA Occupancy Certificate</span>
+                                <span><i class="fas fa-check-circle"></i> Formal Family Key Presentation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stop 6 -->
+                <div class="journey-stop js-right" data-stop="6">
+                    <div class="journey-node"><span>06</span></div>
+                    <div class="journey-card">
+                        <div class="jc-img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=85" alt="Relationships"></div>
+                        <div class="jc-info">
+                            <h3>Generational Relationship & Maintenance</h3>
+                            <p>We manage community upkeep with dedicated facility managers, solar power grid management, and transparent resident association handovers.</p>
+                            <div class="jc-specs">
+                                <span><i class="fas fa-check-circle"></i> 10-Year Structural Warranty</span>
+                                <span><i class="fas fa-check-circle"></i> 24/7 Facility Management App</span>
+                                <span><i class="fas fa-check-circle"></i> Active Community Events & Club</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
