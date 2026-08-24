@@ -433,87 +433,161 @@
             </div>
         </section>
 
-        <!-- ================= 4. WATERFALL QUALITY AUDIT CASCADE ================= -->
+        <!-- ================= 4. 300-POINT ZERO-SNAG QUALITY AUDIT SHOWCASE ================= -->
         <section class="audit-waterfall-section" id="auditWaterfall">
             <div class="section-header-center gs-reveal">
-                <span class="section-tag">Uncompromising Engineering</span>
-                <h2>300-Point Zero-Snag Quality Audit</h2>
-                <p>Before any set of keys is handed over, each villa must pass our rigorous 4-category engineering inspection with zero pending defects.</p>
+                <span class="section-tag" style="color: var(--color-gold);">Uncompromising Engineering</span>
+                <h2 style="color: #FFFFFF;">300-Point Zero-Snag Quality Audit</h2>
+                <p style="color: rgba(255, 255, 255, 0.75);">Before any set of keys is handed over, each villa must pass our rigorous 4-category engineering inspection with zero pending defects.</p>
                 <div class="gold-divider"></div>
             </div>
 
-            <div class="audit-running-counter gs-reveal">
-                <span class="audit-counter-val" id="auditCounterVal">0</span>
-                <span class="audit-counter-lbl">of 300 Points Verified</span>
+            <!-- Live HUD Status Strip with Real-Time Counter & Category Pills -->
+            <div class="audit-hud-banner gs-reveal">
+                <div class="hud-stat-box">
+                    <span class="hud-stat-num" id="auditCounterVal">0</span>
+                    <span class="hud-stat-lbl">of 300 Inspection Points Passed</span>
+                </div>
+                <div class="hud-cat-pills">
+                    <div class="hud-pill active"><i class="fas fa-shield-alt"></i> Civil & Structural <span>75 Pts • Passed</span></div>
+                    <div class="hud-pill active"><i class="fas fa-water"></i> Hydrology & Ponding <span>75 Pts • Passed</span></div>
+                    <div class="hud-pill active"><i class="fas fa-bolt"></i> MEP & Thermal Scan <span>75 Pts • Passed</span></div>
+                    <div class="hud-pill active"><i class="fas fa-file-signature"></i> 40-Yr Clear Title <span>75 Pts • Passed</span></div>
+                </div>
             </div>
 
-            <!-- Category 1: Civil & Structural -->
-            <div class="audit-category-block" data-audit-cat="structural">
-                <div class="audit-cat-header">
-                    <div class="audit-cat-icon"><i class="fas fa-shield-alt"></i></div>
-                    <div>
+            <!-- 4 Visual Engineering Inspection Chapters (Zigzag Split Architectural Cards) -->
+            <div class="audit-matrix-chapters">
+                
+                <!-- Category 1: Civil & Structural -->
+                <div class="audit-chapter-card gs-reveal" data-audit-cat="structural">
+                    <div class="audit-card-visual">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=900&q=85" alt="Civil & Structural Integrity">
+                        <div class="audit-seal-badge"><i class="fas fa-certificate"></i> UPV > 4.2 km/s Verified</div>
+                    </div>
+                    <div class="audit-card-info">
+                        <span class="audit-chapter-tag"><i class="fas fa-shield-alt"></i> Category 01 • Structural Resilience</span>
                         <h3>Civil & Structural Integrity</h3>
-                        <p>UPV ultrasonic concrete testing, Fe-550D rebar yield verification, and sub-soil compaction audits.</p>
+                        <p>Every foundation column, suspended slab, and retaining wall undergoes non-destructive ultrasonic pulse velocity (UPV) testing to ensure zero concrete honeycomb voids and peak compressive strength.</p>
+                        <div class="audit-proof-grid">
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>UPV Concrete Homogeneity</strong><span>Ultrasonic pulse velocity > 4.2 km/s across load-bearing columns.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>Fe-550D TMT Yield Strength</strong><span>Certified elongation and tensile tests against Indian Standard IS 1786.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>Sub-Soil Compaction Audit</strong><span>Standard penetration test (SPT) N-value verified by geotech engineers.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>3D BIM Dimension Check</strong><span>Millimeter-precise room dimension and vertical plumb-line audit.</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="audit-checks-cascade">
-                    <div class="audit-check-item"><i class="fas fa-check-circle"></i><div><strong>UPV Concrete Homogeneity</strong><p>Ultrasonic pulse velocity > 4.2 km/s across all load-bearing columns.</p></div></div>
-                    <div class="audit-check-item"><i class="fas fa-cubes"></i><div><strong>Fe-550D TMT Yield Strength</strong><p>Certified elongation and tensile tests against Indian Standard IS 1786.</p></div></div>
-                    <div class="audit-check-item"><i class="fas fa-layer-group"></i><div><strong>Sub-Soil Compaction Audit</strong><p>Standard penetration test (SPT) N-value verified by geotech engineers.</p></div></div>
-                    <div class="audit-check-item"><i class="fas fa-ruler-combined"></i><div><strong>3D BIM Dimension Check</strong><p>Millimeter-precise room dimension and vertical plumb-line audit.</p></div></div>
-                </div>
-            </div>
 
-            <!-- Category 2: Hydrology -->
-            <div class="audit-category-block" data-audit-cat="waterproofing">
-                <div class="audit-cat-header">
-                    <div class="audit-cat-icon"><i class="fas fa-water"></i></div>
-                    <div>
+                <!-- Category 2: Hydrology & Waterproofing -->
+                <div class="audit-chapter-card reverse gs-reveal" data-audit-cat="waterproofing">
+                    <div class="audit-card-info">
+                        <span class="audit-chapter-tag"><i class="fas fa-water"></i> Category 02 • Water Integrity</span>
                         <h3>Hydrology & 72-Hr Waterproofing</h3>
-                        <p>Complete terrace flooding, bathroom ponding, and underground seepage verification.</p>
+                        <p>All roof terraces, master balconies, and wet areas are ponded under standing water for 72 continuous hours. Internal plumbing lines are pressurized to 10 bar to eliminate micro-leakage risks.</p>
+                        <div class="audit-proof-grid">
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>72-Hour Terrace Flood Test</strong><span>Full roof terrace ponded for 72 hours to detect micro-fissure leakage.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>Bathroom Drain Gradient</strong><span>Precise laser slope measurement ensuring zero standing water.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>Plumbing Pressure Hold</strong><span>10 bar sustained pressure test across all hot & cold supply lines.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>Percolation Aquifer Recharge</strong><span>100% rainwater runoff routed to deep underground recharge vaults.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="audit-card-visual">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=85" alt="Hydrology & Waterproofing">
+                        <div class="audit-seal-badge"><i class="fas fa-tint"></i> 72-Hr Flood Passed</div>
                     </div>
                 </div>
-                <div class="audit-checks-cascade">
-                    <div class="audit-check-item"><i class="fas fa-tint"></i><div><strong>72-Hour Terrace Flood Test</strong><p>Full roof terrace ponded for 72 hours to detect micro-fissure leakage.</p></div></div>
-                    <div class="audit-check-item"><i class="fas fa-shower"></i><div><strong>Bathroom Drain Gradient</strong><p>Precise slope measurement ensuring zero standing water after drainage.</p></div></div>
-                    <div class="audit-check-item"><i class="fas fa-tachometer-alt"></i><div><strong>Plumbing Pressure Hold</strong><p>10 bar sustained pressure test across all hot and cold water supply lines.</p></div></div>
-                </div>
-            </div>
 
-            <!-- Category 3: Electrical -->
-            <div class="audit-category-block" data-audit-cat="electrical">
-                <div class="audit-cat-header">
-                    <div class="audit-cat-icon"><i class="fas fa-bolt"></i></div>
-                    <div>
+                <!-- Category 3: Electrical & Thermal -->
+                <div class="audit-chapter-card gs-reveal" data-audit-cat="electrical">
+                    <div class="audit-card-visual">
+                        <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=900&q=85" alt="Electrical & Thermal Imaging">
+                        <div class="audit-seal-badge"><i class="fas fa-bolt"></i> Zero Thermal Hotspots</div>
+                    </div>
+                    <div class="audit-card-info">
+                        <span class="audit-chapter-tag"><i class="fas fa-bolt"></i> Category 03 • MEP & Thermal Scan</span>
                         <h3>Electrical & Thermal Imaging</h3>
-                        <p>IR thermography hot-spot detection, earthing resistance, and circuit load balancing.</p>
+                        <p>FLIR infrared thermal imaging cameras scan all distribution boards and concealed wiring under full load to detect electrical resistance hotspots before plastering.</p>
+                        <div class="audit-proof-grid">
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>IR Thermal Hotspot Scan</strong><span>Infrared sweep detecting loose connections and resistance anomalies.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>Earth Resistance ≤ 2Ω</strong><span>Verified earth pit resistance ensuring lightning and fault protection.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>Solar Inverter Load Test</strong><span>Full solar micro-grid performance validation under peak load conditions.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>FRLS Copper Wiring</strong><span>100% Fire-Retardant Low Smoke pure copper conductors throughout.</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="audit-checks-cascade">
-                    <div class="audit-check-item"><i class="fas fa-thermometer-half"></i><div><strong>IR Thermal Hotspot Scan</strong><p>Infrared camera sweep detecting loose connections and resistance anomalies.</p></div></div>
-                    <div class="audit-check-item"><i class="fas fa-plug"></i><div><strong>Earth Resistance ≤ 2Ω</strong><p>Verified earth pit resistance ensuring lightning and fault protection.</p></div></div>
-                    <div class="audit-check-item"><i class="fas fa-solar-panel"></i><div><strong>Solar Inverter Load Test</strong><p>Full solar micro-grid performance validation under peak load conditions.</p></div></div>
-                </div>
-            </div>
 
-            <!-- Category 4: Legal -->
-            <div class="audit-category-block" data-audit-cat="legal">
-                <div class="audit-cat-header">
-                    <div class="audit-cat-icon"><i class="fas fa-file-contract"></i></div>
-                    <div>
+                <!-- Category 4: Legal & Governance -->
+                <div class="audit-chapter-card reverse gs-reveal" data-audit-cat="legal">
+                    <div class="audit-card-info">
+                        <span class="audit-chapter-tag"><i class="fas fa-file-contract"></i> Category 04 • Forensic Title</span>
                         <h3>40-Year Legal & RERA Clearances</h3>
-                        <p>Unbroken revenue pedigree, RERA registration, and occupancy certification.</p>
+                        <p>Our senior legal counsel conducts an unbroken 40-year revenue lineage audit. All projects hold RERA clearances and tripartite pre-approvals from SBI, HDFC, and ICICI.</p>
+                        <div class="audit-proof-grid">
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>100% RERA Registered Title</strong><span>Clear marketable title backed by 40-year uninterrupted legal search.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>APF Bank Loan Approvals</strong><span>Pre-approved financing from SBI, HDFC, ICICI and major national banks.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>RERA Occupancy Certificate (OC)</strong><span>Final governmental completion and occupancy clearances prior to handover.</span></div>
+                            </div>
+                            <div class="audit-check-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div><strong>Zero Litigation Indemnity</strong><span>Complete legal title warranty protected by institutional developer covenant.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="audit-card-visual">
+                        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=900&q=85" alt="Legal & RERA Clearances">
+                        <div class="audit-seal-badge"><i class="fas fa-file-shield"></i> 100% Clear Title</div>
                     </div>
                 </div>
-                <div class="audit-checks-cascade">
-                    <div class="audit-check-item"><i class="fas fa-file-signature"></i><div><strong>100% RERA Registered Title</strong><p>Clear marketable title backed by 40-year uninterrupted legal search report.</p></div></div>
-                    <div class="audit-check-item"><i class="fas fa-university"></i><div><strong>APF Bank Loan Approvals</strong><p>Pre-approved financing from SBI, HDFC, ICICI and all major national banks.</p></div></div>
-                    <div class="audit-check-item"><i class="fas fa-certificate"></i><div><strong>RERA Occupancy Certificate (OC)</strong><p>Final governmental completion and occupancy clearances prior to handover.</p></div></div>
-                </div>
+
             </div>
 
+            <!-- Footer Badge & Sample Download Action -->
             <div class="audit-footer-badge gs-reveal">
-                <span><i class="fas fa-check-double" style="color: #2E7D32;"></i> 100% Third-Party Lab Certified & Audited</span>
+                <span><i class="fas fa-check-double" style="color: #38A169;"></i> 100% Third-Party Lab Certified & Audited</span>
                 <button class="btn-luxury-outline" onclick="showToast('Sample 300-Point Audit Checklist downloaded successfully.');" data-cursor-action="DOWNLOAD">
                     <i class="fas fa-file-pdf"></i> Download Sample Audit Log (PDF)
                 </button>

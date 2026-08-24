@@ -2609,53 +2609,43 @@ function initCommitmentMatrixDial() {
     }
 }
 
-// 9b. WATERFALL QUALITY AUDIT CASCADE (About Page)
+// 9b. 300-POINT ZERO-SNAG QUALITY AUDIT SHOWCASE (About Page)
 function initAuditWaterfallCascade() {
-    const categoryBlocks = document.querySelectorAll('.audit-category-block');
-    const checkItems = document.querySelectorAll('.audit-check-item');
+    const chapterCards = document.querySelectorAll('.audit-chapter-card');
     const counterEl = document.getElementById('auditCounterVal');
-    if (!categoryBlocks.length) return;
+    const hudPills = document.querySelectorAll('.hud-pill');
+    if (!chapterCards.length) return;
 
-    let revealedCount = 0;
-    const totalItems = checkItems.length;
-    const pointsPerItem = Math.round(300 / Math.max(totalItems, 1));
+    let totalPoints = 0;
+    const catPoints = [75, 150, 225, 300];
 
-    // Reveal category blocks on scroll
-    const catObserver = new IntersectionObserver((entries) => {
+    const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('audit-visible');
-            }
-        });
-    }, { threshold: 0.15 });
-
-    categoryBlocks.forEach(block => catObserver.observe(block));
-
-    // Reveal individual check items with staggered waterfall delay
-    const itemObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('audit-item-visible')) {
-                revealedCount++;
-                const delay = (revealedCount % 4) * 120;
-                setTimeout(() => {
-                    entry.target.classList.add('audit-item-visible');
-                    // Update running counter
-                    if (counterEl) {
-                        const currentPoints = Math.min(revealedCount * pointsPerItem, 300);
-                        animateCounter(counterEl, currentPoints);
+                // Calculate and animate point counter
+                const catIdx = Array.from(chapterCards).indexOf(entry.target);
+                if (catIdx >= 0 && counterEl) {
+                    const targetScore = catPoints[catIdx] || 300;
+                    if (targetScore > totalPoints) {
+                        totalPoints = targetScore;
+                        animateCounter(counterEl, totalPoints);
                     }
-                }, delay);
+                    if (hudPills[catIdx]) {
+                        hudPills[catIdx].classList.add('active');
+                    }
+                }
             }
         });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
 
-    checkItems.forEach(item => itemObserver.observe(item));
+    chapterCards.forEach(card => cardObserver.observe(card));
 }
 
 function animateCounter(el, target) {
     const current = parseInt(el.textContent) || 0;
     if (current >= target) return;
-    const step = Math.ceil((target - current) / 15);
+    const step = Math.ceil((target - current) / 12);
     let val = current;
     const tick = () => {
         val = Math.min(val + step, target);
