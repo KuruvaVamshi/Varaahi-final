@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us & Regional Offices — Vaaraahi Group</title>
-    <meta name="description" content="Connect with Vaaraahi Group across our regional offices in Hyderabad, Proddatur, Jammalamadugu, and Rayachoty. Book a site visit or speak with our property advisors.">
+    <title>Careers — Vaaraahi Group | Join Our High-Performance Team</title>
+    <meta name="description" content="Explore exciting career opportunities across engineering, architecture, quality assurance, and project management at Vaaraahi Group.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,14 +44,14 @@
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="portfolio.html">Projects</a></li>
                 <li><a href="sustainability.html">Sustainability</a></li>
-                <li><a href="careers.html">Careers</a></li>
+                <li><a href="careers.html" class="active">Careers</a></li>
                 <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
 
         <div class="nav-actions">
-            <a href="contact.html" class="nav-cta active" data-cursor-action="ENQUIRE">
+            <a href="contact.html" class="nav-cta" data-cursor-action="ENQUIRE">
                 <span class="cta-pulse-dot"></span>
                 <span>Enquire Now</span>
             </a>
@@ -129,7 +129,7 @@
                         <li><a href="sustainability.html"><i class="fas fa-leaf"></i> <span>Sustainability & Geomancy</span> <small>Bioclimatic & Vastu</small></a></li>
                         <li><a href="careers.html"><i class="fas fa-briefcase"></i> <span>Careers Portal</span> <small>Build With Us</small></a></li>
                         <li><a href="blogs.html"><i class="fas fa-newspaper"></i> <span>Insights & Press</span> <small>Architecture Articles</small></a></li>
-                        <li><a href="contact.html" class="active"><i class="fas fa-map-marker-alt"></i> <span>Contact & Site Visit</span> <small>Experience Center</small></a></li>
+                        <li><a href="contact.html"><i class="fas fa-map-marker-alt"></i> <span>Contact & Site Visit</span> <small>Experience Center</small></a></li>
                     </ul>
                 </div>
 
@@ -161,172 +161,203 @@
     </div>
 
     <!-- MAIN BARBA CONTAINER -->
-    <main data-barba="container" data-barba-namespace="contact">
+    <main data-barba="container" data-barba-namespace="careers">
 
         <!-- ================= 1. HERO SECTION ================= -->
-        <section class="hero-greensiri" style="min-height: 50vh; padding-top: 140px; padding-bottom: 40px;">
+        <section class="hero-greensiri" style="min-height: 55vh; padding-top: 140px; padding-bottom: 50px;">
             <div class="hero-bg-wrapper">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Contact Hero" class="hero-bg-img">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80" alt="Vaaraahi Careers Hero" class="hero-bg-img">
                 <div class="hero-overlay"></div>
             </div>
 
             <div class="hero-content gs-reveal">
-                <span class="hero-eyebrow">✦ Connect With Our Advisory Team ✦</span>
-                <h1 class="hero-heading" style="font-size: clamp(32px, 4.5vw, 54px);">Begin Your Journey Home</h1>
-                <p class="hero-subheading" style="max-width: 680px;">Whether scheduling a private site walkthrough, inquiring about floor plan customizations, or speaking with our legal counsel, our advisors are here for you.</p>
+                <span class="hero-eyebrow">✦ Join Our High-Performance Team ✦</span>
+                <h1 class="hero-heading" style="font-size: clamp(32px, 4.5vw, 54px);">Shape the Skyline.<br>Build Your Legacy.</h1>
+                <p class="hero-subheading" style="max-width: 700px;">Join an engineer-led real estate institution where craftsmanship, innovation, and integrity are celebrated at every level.</p>
             </div>
         </section>
 
-        <!-- ================= 2. ENQUIRY FORM & DIRECT CALL BAR ================= -->
-        <section class="contact-section">
-            <div class="contact-layout-grid">
-                
-                <!-- Left: Interactive Enquiry Form -->
-                <div class="contact-form-box gs-reveal">
-                    <span class="section-tag">Direct Enquiry</span>
-                    <h2 class="quote-serif" style="font-size: 28px; margin-bottom: 8px;">Schedule a Consultation</h2>
-                    <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 24px;">Fill in your details below and our dedicated property advisor will get in touch within 2 hours.</p>
-
-                    <form id="mainContactForm">
-                        <div class="form-group">
-                            <label>Your Full Name *</label>
-                            <input type="text" placeholder="e.g. Anand Varma" required aria-label="Full Name">
-                        </div>
-
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                            <div class="form-group">
-                                <label>Phone Number (+91) *</label>
-                                <input type="tel" placeholder="+91 98765 43210" required aria-label="Phone Number">
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address *</label>
-                                <input type="email" placeholder="anand@example.com" required aria-label="Email Address">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Project of Interest *</label>
-                            <select required aria-label="Project of Interest">
-                                <option value="" disabled selected>Select a Signature Landmark</option>
-                                <option value="Vaaraahi Grandeur (Rayachoty)">Vaaraahi Grandeur (Rayachoty)</option>
-                                <option value="Vaaraahi Elite Vistas (Proddatur)">Vaaraahi Elite Vistas (Proddatur)</option>
-                                <option value="Vaaraahi Green Meadows (Jammalamadugu)">Vaaraahi Green Meadows (Jammalamadugu)</option>
-                                <option value="Hyderabad Corporate & Residential Developments">Hyderabad Developments</option>
-                                <option value="General Corporate Advisory">General Corporate Advisory</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Message / Specific Questions</label>
-                            <textarea rows="4" placeholder="Mention preferred villa configuration, site visit schedule, or financing inquiries..." aria-label="Message"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;" data-cursor-action="SUBMIT">Submit Consultation Request <i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-
-                <!-- Right: Direct Connect & Operating Hours -->
-                <div class="gs-reveal" style="display: flex; flex-direction: column; justify-content: center; gap: 30px;">
-                    
-                    <div style="background: var(--color-forest); color: #FFFFFF; padding: 36px; border-radius: var(--radius-lg); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-md);">
-                        <span class="section-tag" style="color: var(--color-gold);">Instant Connect</span>
-                        <h3 class="quote-serif" style="color: #FFFFFF; font-size: 26px; margin-bottom: 16px;">Speak With an Advisor Now</h3>
-                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 14px; line-height: 1.7; margin-bottom: 24px;">
-                            Our regional customer directors and legal due diligence managers are available Monday through Sunday to address questions regarding floor plans, APF loan approvals, and site tours.
-                        </p>
-
-                        <div style="display: flex; flex-direction: column; gap: 16px;">
-                            <a href="tel:+919876543210" style="display: flex; align-items: center; gap: 14px; color: #FFFFFF;" data-cursor-action="CALL">
-                                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-gold); color: var(--color-forest-dark); display: flex; align-items: center; justify-content: center; font-size: 16px;">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <span style="font-size: 11px; text-transform: uppercase; color: var(--color-gold); letter-spacing: 1px;">Direct Central Line</span>
-                                    <strong style="display: block; font-size: 16px;">+91 98765 43210 / +91 98765 43211</strong>
-                                </div>
-                            </a>
-
-                            <a href="mailto:info@vaaraahigroup.com" style="display: flex; align-items: center; gap: 14px; color: #FFFFFF;" data-cursor-action="MAIL">
-                                <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: var(--color-gold); border: 1px solid var(--color-gold); display: flex; align-items: center; justify-content: center; font-size: 16px;">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <span style="font-size: 11px; text-transform: uppercase; color: var(--color-gold); letter-spacing: 1px;">Advisory Desk Email</span>
-                                    <strong style="display: block; font-size: 16px;">info@vaaraahigroup.com</strong>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div style="background: #FFFFFF; padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
-                        <h4 style="font-family: var(--font-serif); color: var(--color-forest); font-size: 18px; margin-bottom: 12px;"><i class="far fa-clock" style="color: var(--color-gold);"></i> Site Office Hours</h4>
-                        <div style="font-size: 13px; color: var(--color-text-muted); line-height: 1.8;">
-                            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-border); padding: 8px 0;">
-                                <span>Monday – Saturday:</span>
-                                <strong style="color: var(--color-forest);">9:00 AM – 7:30 PM</strong>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0;">
-                                <span>Sunday & Holidays:</span>
-                                <strong style="color: var(--color-forest);">9:30 AM – 6:30 PM (Site Visits Active)</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ================= 3. UNIQUE TOOL: INTERACTIVE REGIONAL HQ & EXPERIENCE CENTRE NAVIGATOR ================= -->
-        <section style="padding: 90px 6%; background: var(--color-bg-secondary);">
+        <!-- ================= 2. UNIQUE TOOL: INTERACTIVE CULTURE & BENEFIT EXPLORER ================= -->
+        <section class="careers-culture-section">
             <div class="section-header-center gs-reveal">
-                <span class="section-tag">Physical Experience Hubs</span>
-                <h2>Regional Headquarters & Experience Centre Navigator</h2>
-                <p>Select any regional office to inspect its physical address, direct phone lines, operational team, and launch real-time GPS navigation.</p>
+                <span class="section-tag">Life at Vaaraahi</span>
+                <h2>Engineering Culture & Growth Explorer</h2>
+                <p>Click on any pillar to inspect our institutional commitments to engineer safety, professional mastery, and leadership elevation.</p>
                 <div class="gold-divider"></div>
             </div>
 
-            <div class="office-navigator-box gs-reveal">
-                <!-- City Office Tabs -->
-                <div class="office-nav-tabs">
-                    <button class="office-tab-btn active" data-office="hyd" data-cursor-action="OFFICE"><i class="fas fa-building"></i> Hyderabad HQ</button>
-                    <button class="office-tab-btn" data-office="proddatur" data-cursor-action="OFFICE"><i class="fas fa-home"></i> Proddatur Office</button>
-                    <button class="office-tab-btn" data-office="rayachoty" data-cursor-action="OFFICE"><i class="fas fa-tree"></i> Rayachoty Site Hub</button>
-                    <button class="office-tab-btn" data-office="jammalamadugu" data-cursor-action="OFFICE"><i class="fas fa-city"></i> Jammalamadugu Hub</button>
+            <div class="culture-explorer-grid gs-reveal">
+                <div class="culture-card active" data-culture="cert">
+                    <div class="culture-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>BIM & Tech Certifications</h3>
+                    <p>100% company-sponsored Building Information Modeling (BIM) & structural testing certifications.</p>
+                    <span class="culture-tag">Professional Mastery</span>
                 </div>
 
-                <!-- Dynamic Office Display Card -->
-                <div class="office-display-card">
-                    <div class="office-details-panel">
-                        <span class="badge-status" id="officeTypeBadge" style="margin-bottom: 8px; display: inline-block;">Corporate Headquarters</span>
-                        <h3 id="officeTitle" style="font-family: var(--font-serif); font-size: 26px; color: var(--color-forest); margin-bottom: 12px;">Vaaraahi Corporate Tower, Hyderabad</h3>
-                        
-                        <p id="officeAddress" style="font-size: 14px; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 20px;">
-                            Floor 8, Vaaraahi Signature Towers, Financial District, Nanakramguda, Hyderabad, Telangana 500032
-                        </p>
+                <div class="culture-card" data-culture="safety">
+                    <div class="culture-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>Zero-Harm Safety Protocol</h3>
+                    <p>International PPE standards, daily toolbox talks, and digitized hazard identification on all job sites.</p>
+                    <span class="culture-tag">100% On-Site Safety</span>
+                </div>
 
-                        <div class="office-contact-stack">
-                            <div class="office-contact-line"><i class="fas fa-phone" style="color: var(--color-gold);"></i> <span id="officePhone">+91 40 2988 7700 / +91 98765 43210</span></div>
-                            <div class="office-contact-line"><i class="fas fa-envelope" style="color: var(--color-gold);"></i> <span id="officeEmail">hyd@vaaraahigroup.com</span></div>
-                            <div class="office-contact-line"><i class="fas fa-clock" style="color: var(--color-gold);"></i> <span id="officeHours">Mon – Sat: 9:00 AM – 7:30 PM | Sun: 10:00 AM – 5:00 PM</span></div>
-                        </div>
+                <div class="culture-card" data-culture="comp">
+                    <div class="culture-icon"><i class="fas fa-award"></i></div>
+                    <h3>Merit-Based Elevation</h3>
+                    <p>Direct project ownership, transparent performance bonuses, and fast-track pathways to project directorship.</p>
+                    <span class="culture-tag">Generous Rewards</span>
+                </div>
 
-                        <div style="margin-top: 24px; display: flex; gap: 14px; flex-wrap: wrap;">
-                            <button class="btn-gold" id="btnOfficeDirections" onclick="showToast('Launching Google Maps Navigation...');" data-cursor-action="MAP">
-                                <i class="fas fa-directions"></i> Get GPS Directions
-                            </button>
-                            <a href="tel:+919876543210" class="btn-luxury-outline" data-cursor-action="CALL">
-                                <i class="fas fa-phone-alt"></i> Call Office Directly
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="office-visual-panel">
-                        <img id="officeImg" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Office Experience Hub">
-                    </div>
+                <div class="culture-card" data-culture="care">
+                    <div class="culture-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Comprehensive Family Health</h3>
+                    <p>Full health insurance coverage for employee and immediate family, plus annual wellness retreats.</p>
+                    <span class="culture-tag">Work-Life Harmony</span>
                 </div>
             </div>
         </section>
+
+        <!-- ================= 3. UNIQUE TOOL: SMART CAREER MATCHMAKER & LIVE ROLE FILTER ================= -->
+        <section style="padding: 90px 6%; background: var(--color-bg-secondary);">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Current Openings</span>
+                <h2>Smart Role Matchmaker & Opportunities</h2>
+                <p>Filter by technical discipline or location to find your optimal career match at Vaaraahi Group.</p>
+                <div class="gold-divider"></div>
+            </div>
+
+            <!-- Interactive Department Filter Tabs -->
+            <div class="career-dept-tabs gs-reveal">
+                <button class="career-dept-btn active" data-dept="all" data-cursor-action="FILTER"><i class="fas fa-th-large"></i> All Openings (5)</button>
+                <button class="career-dept-btn" data-dept="civil" data-cursor-action="FILTER"><i class="fas fa-hammer"></i> Civil & Structural</button>
+                <button class="career-dept-btn" data-dept="bim" data-cursor-action="FILTER"><i class="fas fa-drafting-compass"></i> Architecture & BIM</button>
+                <button class="career-dept-btn" data-dept="qa" data-cursor-action="FILTER"><i class="fas fa-clipboard-check"></i> Quality & Audit</button>
+                <button class="career-dept-btn" data-dept="sales" data-cursor-action="FILTER"><i class="fas fa-users"></i> Advisory & Sales</button>
+            </div>
+
+            <div class="careers-roles-grid gs-reveal">
+                
+                <!-- Role 1 -->
+                <div class="role-card-item" data-dept="civil">
+                    <div class="role-info">
+                        <h3>Senior Civil Project Engineer</h3>
+                        <div class="role-badges">
+                            <span class="badge-role"><i class="fas fa-map-marker-alt"></i> Rayachoty / Proddatur</span>
+                            <span class="badge-role"><i class="fas fa-briefcase"></i> Full-Time</span>
+                            <span class="badge-role"><i class="fas fa-user-clock"></i> 5+ Years Experience</span>
+                        </div>
+                        <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 10px;">Lead on-site construction of 4 BHK luxury duplex enclaves, managing M35 concrete quality, rebar fabrication, and subcontractor teams.</p>
+                    </div>
+                    <button class="btn-luxury btn-apply-role" data-role="Senior Civil Project Engineer" data-cursor-action="APPLY">
+                        Apply For Role <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="role-card-item" data-dept="qa">
+                    <div class="role-info">
+                        <h3>Quality Assurance & Snag Auditor</h3>
+                        <div class="role-badges">
+                            <span class="badge-role"><i class="fas fa-map-marker-alt"></i> All Andhra Pradesh Sites</span>
+                            <span class="badge-role"><i class="fas fa-briefcase"></i> Full-Time</span>
+                            <span class="badge-role"><i class="fas fa-user-clock"></i> 4+ Years Experience</span>
+                        </div>
+                        <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 10px;">Execute our 300-point zero-snag delivery checklist, conducting UPV concrete scans, hydrology checks, and thermal imaging.</p>
+                    </div>
+                    <button class="btn-luxury btn-apply-role" data-role="Quality Assurance & Snag Auditor" data-cursor-action="APPLY">
+                        Apply For Role <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Role 3 -->
+                <div class="role-card-item" data-dept="bim">
+                    <div class="role-info">
+                        <h3>BIM Specialist & Villa Architect</h3>
+                        <div class="role-badges">
+                            <span class="badge-role"><i class="fas fa-map-marker-alt"></i> Hyderabad HQ</span>
+                            <span class="badge-role"><i class="fas fa-briefcase"></i> Full-Time</span>
+                            <span class="badge-role"><i class="fas fa-user-clock"></i> 3+ Years Experience</span>
+                        </div>
+                        <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 10px;">Develop 3D Revit models, coordinate clash detection between structural and MEP disciplines, and optimize bioclimatic airflow.</p>
+                    </div>
+                    <button class="btn-luxury btn-apply-role" data-role="BIM Specialist & Villa Architect" data-cursor-action="APPLY">
+                        Apply For Role <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Role 4 -->
+                <div class="role-card-item" data-dept="sales">
+                    <div class="role-info">
+                        <h3>Client Relationship & Sales Manager</h3>
+                        <div class="role-badges">
+                            <span class="badge-role"><i class="fas fa-map-marker-alt"></i> Hyderabad / Rayachoty</span>
+                            <span class="badge-role"><i class="fas fa-briefcase"></i> Full-Time</span>
+                            <span class="badge-role"><i class="fas fa-user-clock"></i> 3+ Years Experience</span>
+                        </div>
+                        <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 10px;">Serve as high-touch advisory counsel for resident and NRI homebuyers, guiding site walkthroughs, APF documentation, and custom floor plans.</p>
+                    </div>
+                    <button class="btn-luxury btn-apply-role" data-role="Client Relationship & Sales Manager" data-cursor-action="APPLY">
+                        Apply For Role <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Role 5 -->
+                <div class="role-card-item" data-dept="civil">
+                    <div class="role-info">
+                        <h3>MEP & Underground Utilities Engineer</h3>
+                        <div class="role-badges">
+                            <span class="badge-role"><i class="fas fa-map-marker-alt"></i> Jammalamadugu / Proddatur</span>
+                            <span class="badge-role"><i class="fas fa-briefcase"></i> Full-Time</span>
+                            <span class="badge-role"><i class="fas fa-user-clock"></i> 4+ Years Experience</span>
+                        </div>
+                        <p style="font-size: 13px; color: var(--color-text-muted); margin-top: 10px;">Oversee 100% underground cabling installations, solar street grids, rainwater percolation aquifers, and sewage treatment systems.</p>
+                    </div>
+                    <button class="btn-luxury btn-apply-role" data-role="MEP & Underground Utilities Engineer" data-cursor-action="APPLY">
+                        Apply For Role <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= APPLICATION MODAL DRAWER ================= -->
+        <div class="career-modal" id="careerModal">
+            <div class="career-modal-content">
+                <button class="career-modal-close" onclick="closeCareerModal()" aria-label="Close modal">&times;</button>
+                <span class="section-tag">Talent Application</span>
+                <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--color-forest); margin: 8px 0 20px;">Submit Your Credentials</h3>
+
+                <form id="careerApplicationForm">
+                    <div style="margin-bottom: 16px;">
+                        <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px;">Role Selected</label>
+                        <input type="text" id="applicationRoleSelect" readonly style="width: 100%; padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-bg-secondary); font-weight: 600; color: var(--color-forest);">
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px;">Full Name</label>
+                        <input type="text" placeholder="Your Full Name" required style="width: 100%; padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                        <div>
+                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px;">Email Address</label>
+                            <input type="email" placeholder="email@domain.com" required style="width: 100%; padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                        </div>
+                        <div>
+                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px;">Mobile Number</label>
+                            <input type="tel" placeholder="+91 98765 43210" required style="width: 100%; padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px;">Upload Resume / Portfolio Link</label>
+                        <input type="url" placeholder="LinkedIn profile or Google Drive portfolio link" required style="width: 100%; padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                    </div>
+
+                    <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;" data-cursor-action="SUBMIT">Submit Application <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
 
         <!-- ================= SITE-WIDE FOOTER ================= -->
         <footer class="site-footer">
@@ -404,7 +435,7 @@
         <a href="contact.html" class="btn-floating-book" data-cursor-action="VISIT">
             <i class="fas fa-calendar-alt" style="color: var(--color-gold);"></i> Book Site Visit
         </a>
-        <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Vaaraahi%20Group,%20I%20would%20like%20to%20enquire%20about%20your%20luxury%20projects." target="_blank" class="btn-floating-whatsapp" aria-label="Chat on WhatsApp" data-cursor-action="CHAT">
+        <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Vaaraahi%20Group,%20I%20would%20like%20to%20enquire%20about%20your%20open%20positions." target="_blank" class="btn-floating-whatsapp" aria-label="Chat on WhatsApp" data-cursor-action="CHAT">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>

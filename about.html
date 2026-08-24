@@ -3,327 +3,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us — Vaaraahi Group</title>
-    <meta name="description" content="Learn about Vaaraahi Group's 15-year legacy of crafting generational sanctuaries across Andhra Pradesh and Telangana.">
+    <title>About Us — Vaaraahi Group | Heritage, Mission & Leadership</title>
+    <meta name="description" content="Discover the 15-year legacy, 8 mission commitments, 6 values pillars, leadership profile, and process timeline of Vaaraahi Group.">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Unified Luxury Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body data-barba="wrapper">
 
-    <div class="transition-wipe"></div>
+    <!-- TOP SCROLL PROGRESS BAR -->
+    <div class="scroll-progress-bar"></div>
 
+    <!-- LUXURY CUSTOM CURSOR -->
+    <div class="lux-cursor"></div>
+    <div class="lux-follower"></div>
+
+    <!-- MAIN NAVIGATION -->
+    <!-- FLOATING ARCHITECTURAL CAPSULE NAVBAR -->
     <nav class="main-nav" id="navbar">
-        <a href="index.html" class="logo-container">
-            <span class="logo-title">VAARAAHI</span>
-            <span class="logo-tagline">Group of Estates</span>
+        <a href="index.html" class="logo-container" data-cursor-action="HOME">
+            <img src="assets/vaaraahi-logo-horizontal.png" alt="Vaaraahi Logo" class="brand-logo-img">
+            <div class="logo-text-group">
+                <span class="logo-title">VAARAAHI</span>
+                <span class="logo-tagline">COMMITTED TO DELIVER</span>
+            </div>
         </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About Us</a></li>
-            <li><a href="portfolio.html">Projects</a></li>
-            <li><a href="engineering.html">Quality</a></li>
-            <li><a href="transparency.html">Approvals</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div style="display: flex; align-items: center; gap: 16px;">
-            <a href="contact.html" class="nav-cta">Enquire Now</a>
-            <button class="mobile-toggle" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
+
+        <div class="nav-links-wrapper">
+            <div class="nav-glider" id="navGlider"></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="portfolio.html">Projects</a></li>
+                <li><a href="sustainability.html">Sustainability</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-actions">
+            <a href="contact.html" class="nav-cta" data-cursor-action="ENQUIRE">
+                <span class="cta-pulse-dot"></span>
+                <span>Enquire Now</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </nav>
 
+    <!-- FULL-SCREEN SPATIAL ESTATE CONCIERGE DRAWER -->
+    <div class="spatial-drawer-overlay" id="spatialDrawer">
+        <div class="spatial-drawer-container">
+            <div class="spatial-drawer-header">
+                <div class="drawer-brand">
+                    <div class="drawer-crest"><i class="fas fa-monument"></i></div>
+                    <div>
+                        <h3>VAARAAHI SPATIAL CONCIERGE</h3>
+                        <p>Signature Luxury Duplex Villas, Gated Communities & Plotted Enclaves Across AP & TG</p>
+                    </div>
+                </div>
+                <button class="spatial-drawer-close" id="spatialDrawerClose" aria-label="Close Spatial Concierge">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="spatial-drawer-grid">
+                <!-- Left: Signature Landmark Estates Quick Access -->
+                <div class="spatial-drawer-col">
+                    <span class="drawer-col-tag"><i class="fas fa-layer-group"></i> Signature Landmark Estates</span>
+                    <div class="spatial-project-cards">
+                        <a href="project-detail.html" class="spatial-proj-card">
+                            <div class="proj-thumb">
+                                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=400&q=80" alt="Vaaraahi Siri Meadows">
+                            </div>
+                            <div class="proj-info">
+                                <h4>Vaaraahi Siri Meadows</h4>
+                                <span>Proddatur • Ultra-Luxury Gated Duplex Villas</span>
+                                <span class="proj-pill">100% Clear RERA • Handover Ready</span>
+                            </div>
+                        </a>
+
+                        <a href="portfolio.html" class="spatial-proj-card">
+                            <div class="proj-thumb">
+                                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" alt="Royal Palm Enclave">
+                            </div>
+                            <div class="proj-info">
+                                <h4>Vaaraahi Royal Palms</h4>
+                                <span>Hyderabad IT Corridor • Sustainable Eco-Estates</span>
+                                <span class="proj-pill">Phase II Booking Open</span>
+                            </div>
+                        </a>
+
+                        <a href="portfolio.html" class="spatial-proj-card">
+                            <div class="proj-thumb">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Emerald Crest">
+                            </div>
+                            <div class="proj-info">
+                                <h4>Vaaraahi Emerald Crest</h4>
+                                <span>Jammalamadugu • Highway Frontage Plotted Gated Community</span>
+                                <span class="proj-pill">APF & Bank Approved</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Center: Direct Navigation Sitemap -->
+                <div class="spatial-drawer-col">
+                    <span class="drawer-col-tag"><i class="fas fa-compass"></i> Architectural Directory</span>
+                    <ul class="drawer-links-nav">
+                        <li><a href="index.html"><i class="fas fa-home"></i> <span>Home Portal</span> <small>3D Spatial Rig</small></a></li>
+                        <li><a href="about.html"><i class="fas fa-landmark"></i> <span>Heritage & Story</span> <small>15+ Years Legacy</small></a></li>
+                        <li><a href="portfolio.html"><i class="fas fa-cubes"></i> <span>All Projects</span> <small>Villas & Enclaves</small></a></li>
+                        <li><a href="sustainability.html"><i class="fas fa-leaf"></i> <span>Sustainability & Geomancy</span> <small>Bioclimatic & Vastu</small></a></li>
+                        <li><a href="careers.html"><i class="fas fa-briefcase"></i> <span>Careers Portal</span> <small>Build With Us</small></a></li>
+                        <li><a href="blogs.html"><i class="fas fa-newspaper"></i> <span>Insights & Press</span> <small>Architecture Articles</small></a></li>
+                        <li><a href="contact.html"><i class="fas fa-map-marker-alt"></i> <span>Contact & Site Visit</span> <small>Experience Center</small></a></li>
+                    </ul>
+                </div>
+
+                <!-- Right: VIP Investor Desk -->
+                <div class="spatial-drawer-col spatial-concierge-card">
+                    <span class="drawer-col-tag"><i class="fas fa-headset"></i> VIP Investor Desk</span>
+                    <div class="concierge-box">
+                        <div class="concierge-live-status">
+                            <span class="pulse-green"></span>
+                            <span>Executive Advisors Online</span>
+                        </div>
+                        <h4>Schedule a Private Spatial Walkthrough</h4>
+                        <p>Receive exclusive investor kits, APF approvals, structural blueprints, and schedule an on-ground chauffeur visit.</p>
+                        
+                        <div class="concierge-hotlines">
+                            <a href="tel:+919876543210" class="hotline-btn"><i class="fas fa-phone-alt"></i> +91 98765 43210</a>
+                            <a href="https://wa.me/919876543210" target="_blank" class="hotline-btn whatsapp"><i class="fab fa-whatsapp"></i> Instant WhatsApp Concierge</a>
+                        </div>
+
+                        <div class="concierge-metrics-strip">
+                            <div><strong>100%</strong><span>RERA Approved</span></div>
+                            <div><strong>1.5M+</strong><span>Sq.Ft Built</span></div>
+                            <div><strong>1,000+</strong><span>Families</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN BARBA CONTAINER -->
     <main data-barba="container" data-barba-namespace="about">
-        
-        <!-- HERO -->
+
+        <!-- ================= 1. HERO SECTION ================= -->
         <section class="hero-greensiri">
             <div class="hero-bg-wrapper">
-                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80" alt="About Us Hero" class="hero-bg-img">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80" alt="Vaaraahi Heritage Hero" class="hero-bg-img">
                 <div class="hero-overlay"></div>
             </div>
-            <div class="hero-content">
-                <span class="hero-eyebrow">The Vaaraahi Legacy</span>
+
+            <div class="hero-content gs-reveal">
+                <span class="hero-eyebrow">✦ The Vaaraahi Story ✦</span>
                 <h1 class="hero-heading">Crafting Generational<br>Sanctuaries Since 2010</h1>
-                <p class="hero-subheading">Our ambition is not simply to build more homes. Our ambition is to build better homes, better communities, and better lifestyles across South India.</p>
+                <p class="hero-subheading">Our ambition is not merely to construct buildings, but to curate enduring lifestyles, thriving communities, and architectural landmarks that celebrate South Indian heritage.</p>
             </div>
+
             <div class="hero-scroll-indicator">
                 <span>Scroll</span>
                 <div class="hero-scroll-line"></div>
             </div>
         </section>
 
-        <!-- SPLIT STORY: ORIGIN & VISION -->
-        <section class="split-story-section">
-            <div class="split-story-grid">
-                <div class="story-visual-composition gs-reveal">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80" alt="Vaaraahi Heritage" class="main-story-img">
-                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=600&q=80" alt="Architectural Detail" class="secondary-story-img">
-                    <div class="story-experience-badge">
-                        <h4>2010</h4>
-                        <p>Year Founded</p>
-                    </div>
-                </div>
-
-                <div class="story-content gs-reveal">
-                    <span class="section-tag">Our Origin Story</span>
-                    <h2 class="quote-serif" style="font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 16px;">Born from a Vision of Architectural Purity</h2>
-                    
-                    <div class="story-quote-box">
-                        <p>"We don't build for today. We build for the generations who will call these spaces home."</p>
-                    </div>
-
-                    <p style="color: var(--color-text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 24px;">
-                        Vaaraahi Group was founded with an unwavering conviction: that every family in Andhra Pradesh and Telangana deserves access to world-class architecture, transparent governance, and construction that stands the test of time. What began as a single villa project in Proddatur has blossomed into one of the region's most trusted real estate brands.
-                    </p>
-
-                    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-                        <a href="portfolio.html" class="btn-luxury">View Our Legacy Projects <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- STATS -->
-        <section class="stats-ribbon">
-            <div class="stats-grid gs-reveal">
-                <div class="stat-box">
-                    <h3><span class="stat-num-val" data-target="15">0</span><span class="gold">+</span></h3>
-                    <p>Years of Excellence</p>
-                </div>
-                <div class="stat-box">
-                    <h3><span class="stat-num-val" data-target="1000">0</span><span class="gold">+</span></h3>
-                    <p>Happy Families</p>
-                </div>
-                <div class="stat-box">
-                    <h3><span class="stat-num-val" data-target="5">0</span><span class="gold">+</span></h3>
-                    <p>Landmark Projects</p>
-                </div>
-                <div class="stat-box">
-                    <h3><span class="stat-num-val" data-target="4">0</span><span class="gold"></span></h3>
-                    <p>Cities Across AP & TS</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PANORAMIC BREAK -->
-        <section class="panoramic-break">
-            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80" alt="Vaaraahi Community" class="panoramic-bg-img">
-            <div class="panoramic-overlay"></div>
-            <div class="panoramic-content gs-reveal">
-                <span class="hero-eyebrow" style="color: var(--color-gold-light);">Our Belief</span>
-                <h2>"A house is a collection of bricks.<br>A home is where family legacies unfold."</h2>
-                <p>Every design decision, every material choice, every structural beam is placed with your family's future in mind.</p>
-            </div>
-        </section>
-
-        <!-- INTERACTIVE LEADERSHIP TIMELINE -->
-        <section class="pillars-interactive-section">
+        <!-- ================= 2. UNIQUE TOOL: 15-YEAR INTERACTIVE MILESTONE TIME-TRAVEL SLIDER ================= -->
+        <section class="time-travel-section">
             <div class="section-header-center gs-reveal">
-                <span class="section-tag">Executive Leadership</span>
-                <h2>The People Behind the Promise</h2>
-                <p>Click on each milestone to explore the journey that shaped Vaaraahi Group into a regional powerhouse.</p>
+                <span class="section-tag">Living Heritage</span>
+                <h2>15-Year Architectural Milestone Time-Travel</h2>
+                <p>Scrub through our 15-year timeline to explore how Vaaraahi expanded from a boutique luxury builder into a regional real estate institution.</p>
+                <div class="gold-divider"></div>
             </div>
 
-            <div class="pillar-console-wrapper gs-reveal">
-                <div class="pillar-nav-rail">
-                    <button class="pillar-tab-btn active" data-tab="timeline-1">
-                        <div class="tab-btn-left">
-                            <span class="tab-btn-num">2010</span>
-                            <span class="tab-btn-title">The Founding</span>
-                        </div>
-                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
-                    </button>
-                    <button class="pillar-tab-btn" data-tab="timeline-2">
-                        <div class="tab-btn-left">
-                            <span class="tab-btn-num">2015</span>
-                            <span class="tab-btn-title">City Pride Delivered</span>
-                        </div>
-                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
-                    </button>
-                    <button class="pillar-tab-btn" data-tab="timeline-3">
-                        <div class="tab-btn-left">
-                            <span class="tab-btn-num">2020</span>
-                            <span class="tab-btn-title">Expanding Horizons</span>
-                        </div>
-                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
-                    </button>
-                    <button class="pillar-tab-btn" data-tab="timeline-4">
-                        <div class="tab-btn-left">
-                            <span class="tab-btn-num">2024</span>
-                            <span class="tab-btn-title">Grandeur & Lotus Grand</span>
-                        </div>
-                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
-                    </button>
-                    <button class="pillar-tab-btn" data-tab="timeline-5">
-                        <div class="tab-btn-left">
-                            <span class="tab-btn-num">2026</span>
-                            <span class="tab-btn-title">Hyderabad Expansion</span>
-                        </div>
-                        <i class="fas fa-chevron-right tab-btn-arrow"></i>
-                    </button>
+            <div class="time-travel-wrap gs-reveal">
+                <!-- Timeline Era Buttons -->
+                <div class="time-era-nav">
+                    <button class="time-era-btn active" data-era="2010" data-cursor-action="ERA"><i class="fas fa-seedling"></i> 2010 — The Inception</button>
+                    <button class="time-era-btn" data-era="2014" data-cursor-action="ERA"><i class="fas fa-monument"></i> 2014 — Inaugural Delivery</button>
+                    <button class="time-era-btn" data-era="2019" data-cursor-action="ERA"><i class="fas fa-city"></i> 2019 — Multi-City Scale</button>
+                    <button class="time-era-btn" data-era="2026" data-cursor-action="ERA"><i class="fas fa-solar-panel"></i> 2026 — Smart Communities</button>
                 </div>
 
-                <div class="pillar-display-stage">
-                    <div class="pillar-stage-panel active" id="timeline-1">
-                        <div class="stage-badge-header">
-                            <span class="stage-badge">Founding Year</span>
-                        </div>
-                        <div class="stage-image-preview">
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="The Founding">
-                        </div>
-                        <h3 class="stage-title">A Dream Takes Shape in Proddatur</h3>
-                        <p class="stage-description">Vaaraahi Group was founded by a team of visionary civil engineers and legal experts who saw the vast gap between what families deserved and what the market offered in Tier-2 South Indian cities.</p>
-                        <div class="stage-metrics-grid">
-                            <div class="stage-metric-box"><span>First Project</span><strong>Proddatur Residential Enclave</strong></div>
-                            <div class="stage-metric-box"><span>Core Team</span><strong>5 Founding Directors</strong></div>
+                <!-- Active Era Visual & Narrative Stage -->
+                <div class="time-era-stage">
+                    <div class="time-era-content">
+                        <span class="section-tag" id="timeEraBadge" style="color: var(--color-gold);">Era 2010 — Founding Vision</span>
+                        <h3 id="timeEraTitle" style="font-family: var(--font-serif); font-size: 28px; color: #FFFFFF; margin: 12px 0 16px;">Founding of Vaaraahi Group & First Land Due-Diligence</h3>
+                        <p id="timeEraDesc" style="font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 24px;">
+                            Vaaraahi Group was established with a singular conviction: to bring institutional-grade structural engineering, 40-year clear legal titles, and pure Vastu Shastra geomancy to Andhra Pradesh and Telangana.
+                        </p>
+
+                        <div class="time-era-stats">
+                            <div class="era-stat-item">
+                                <span class="era-stat-val" id="timeEraStat1">25 Acres</span>
+                                <span class="era-stat-lbl" id="timeEraLabel1">Inaugural Land Bank</span>
+                            </div>
+                            <div class="era-stat-item">
+                                <span class="era-stat-val" id="timeEraStat2">100%</span>
+                                <span class="era-stat-lbl" id="timeEraLabel2">Clear Title Vetting</span>
+                            </div>
+                            <div class="era-stat-item">
+                                <span class="era-stat-val" id="timeEraStat3">1st</span>
+                                <span class="era-stat-lbl" id="timeEraLabel3">Boutique Enclave</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="pillar-stage-panel" id="timeline-2">
-                        <div class="stage-badge-header">
-                            <span class="stage-badge">Flagship Delivery</span>
-                        </div>
-                        <div class="stage-image-preview">
-                            <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="City Pride">
-                        </div>
-                        <h3 class="stage-title">Vaaraahi City Pride — 100% Delivered</h3>
-                        <p class="stage-description">Our flagship luxury apartment development in Proddatur was handed over with zero delays and zero pending snags, establishing the Vaaraahi reputation for reliability and craftsmanship.</p>
-                        <div class="stage-metrics-grid">
-                            <div class="stage-metric-box"><span>Units Delivered</span><strong>100% On-Time Handover</strong></div>
-                            <div class="stage-metric-box"><span>Snag Rating</span><strong>300-Point Zero Defects</strong></div>
-                        </div>
-                    </div>
-
-                    <div class="pillar-stage-panel" id="timeline-3">
-                        <div class="stage-badge-header">
-                            <span class="stage-badge">Geographic Expansion</span>
-                        </div>
-                        <div class="stage-image-preview">
-                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Expansion">
-                        </div>
-                        <h3 class="stage-title">Expanding Into 3 Cities Simultaneously</h3>
-                        <p class="stage-description">Buoyed by customer trust and NRI investor demand, Vaaraahi expanded operations to Rayachoty, Jammalamadugu, and began land acquisition scouting in Hyderabad's growth corridors.</p>
-                        <div class="stage-metrics-grid">
-                            <div class="stage-metric-box"><span>NRI Clients</span><strong>40%+ of Buyer Base</strong></div>
-                            <div class="stage-metric-box"><span>New Markets</span><strong>Rayachoty, Jammalamadugu</strong></div>
-                        </div>
-                    </div>
-
-                    <div class="pillar-stage-panel" id="timeline-4">
-                        <div class="stage-badge-header">
-                            <span class="stage-badge">Luxury Redefined</span>
-                        </div>
-                        <div class="stage-image-preview">
-                            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Grandeur Launch">
-                        </div>
-                        <h3 class="stage-title">Grandeur & Lotus Grand Launched</h3>
-                        <p class="stage-description">The most ambitious projects in Vaaraahi's history — featuring duplex luxury villas with clubhouses, infinity pools, and community parks across Rayachoty and Jammalamadugu.</p>
-                        <div class="stage-metrics-grid">
-                            <div class="stage-metric-box"><span>Project Scale</span><strong>Multi-Acre Gated Townships</strong></div>
-                            <div class="stage-metric-box"><span>Amenities</span><strong>Resort-Grade Clubhouses</strong></div>
-                        </div>
-                    </div>
-
-                    <div class="pillar-stage-panel" id="timeline-5">
-                        <div class="stage-badge-header">
-                            <span class="stage-badge">The Next Chapter</span>
-                        </div>
-                        <div class="stage-image-preview">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Hyderabad">
-                        </div>
-                        <h3 class="stage-title">Hyderabad — The Metropolis Awaits</h3>
-                        <p class="stage-description">Strategic land parcels secured along Hyderabad's prime ORR growth corridors for ultra-premium villa enclaves, marking Vaaraahi's entry into the metropolitan luxury segment.</p>
-                        <div class="stage-metrics-grid">
-                            <div class="stage-metric-box"><span>Market Entry</span><strong>Hyderabad ORR Corridor</strong></div>
-                            <div class="stage-metric-box"><span>Segment</span><strong>Ultra-Premium Villas</strong></div>
-                        </div>
+                    <div class="time-era-visual">
+                        <img id="timeEraImg" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80" alt="Vaaraahi Heritage Era">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CHAIRMAN'S MESSAGE WITH IMAGE -->
-        <section class="split-story-section" style="background-color: var(--color-bg-secondary);">
-            <div class="split-story-grid" style="direction: rtl;">
-                <div class="story-visual-composition gs-reveal" style="direction: ltr;">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80" alt="Chairman Vision" class="main-story-img">
+        <!-- ================= 3. UNIQUE TOOL: INTERACTIVE BLUEPRINT COMMITMENT MATRIX & QUALITY DIAL ================= -->
+        <section class="commitments-matrix-section">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Our Guiding Mission</span>
+                <h2>The 8 Commitments of Vaaraahi (Blueprint Matrix)</h2>
+                <p>Click on any of our 8 foundational commitments below to inspect the engineering specifications and ISO quality benchmarks governing every build.</p>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="commitment-matrix-console gs-reveal">
+                <!-- 8 Interactive Stations Navigation Grid -->
+                <div class="matrix-stations-grid">
+                    <button class="matrix-btn active" data-matrix-id="1" data-cursor-action="COMMIT"><i class="fas fa-hammer"></i> 1. Quality Construction</button>
+                    <button class="matrix-btn" data-matrix-id="2" data-cursor-action="COMMIT"><i class="fas fa-drafting-compass"></i> 2. Contemporary Architecture</button>
+                    <button class="matrix-btn" data-matrix-id="3" data-cursor-action="COMMIT"><i class="fas fa-map-marked-alt"></i> 3. Prime Locations</button>
+                    <button class="matrix-btn" data-matrix-id="4" data-cursor-action="COMMIT"><i class="fas fa-compass"></i> 4. Thoughtful Planning</button>
+                    <button class="matrix-btn" data-matrix-id="5" data-cursor-action="COMMIT"><i class="fas fa-swimming-pool"></i> 5. Modern Amenities</button>
+                    <button class="matrix-btn" data-matrix-id="6" data-cursor-action="COMMIT"><i class="fas fa-handshake"></i> 6. Transparent Governance</button>
+                    <button class="matrix-btn" data-matrix-id="7" data-cursor-action="COMMIT"><i class="fas fa-clock"></i> 7. Timely Execution</button>
+                    <button class="matrix-btn" data-matrix-id="8" data-cursor-action="COMMIT"><i class="fas fa-chart-line"></i> 8. Long-Term Value</button>
                 </div>
-                <div class="story-content gs-reveal" style="direction: ltr;">
-                    <span class="section-tag">Chairman's Message</span>
-                    <h2 class="quote-serif" style="font-size: clamp(24px, 3vw, 36px); margin-bottom: 16px;">A Personal Promise to Every Family</h2>
+
+                <!-- Dynamic Detailed Evidence Stage -->
+                <div class="matrix-stage-panel" id="matrixStagePanel">
+                    <div class="matrix-panel-left">
+                        <span class="section-tag" id="matrixBadge" style="color: var(--color-gold);">Commitment 01</span>
+                        <h3 id="matrixTitle" style="font-family: var(--font-serif); font-size: 26px; color: var(--color-forest); margin: 12px 0 16px;">1. Quality Construction & Certified Structural Steel</h3>
+                        <p id="matrixDesc" style="color: var(--color-text-muted); font-size: 14px; line-height: 1.8; margin-bottom: 20px;">
+                            We construct structures built for a century of resilience. Using primary Fe-550D corrosion-resistant steel rebar, certified M35 batching concrete, and non-destructive ultrasonic testing, our structural tolerances are among the strictest in South India.
+                        </p>
+
+                        <div class="matrix-proof-list">
+                            <h4><i class="fas fa-check-double" style="color: var(--color-gold);"></i> Engineering Proof Points:</h4>
+                            <ul id="matrixProofList">
+                                <li><i class="fas fa-check-circle" style="color: #38A169;"></i> Certified Fe-550D TMT high-elongation steel rebar (IS 1786)</li>
+                                <li><i class="fas fa-check-circle" style="color: #38A169;"></i> Non-destructive UPV concrete density testing > 4.2 km/s</li>
+                                <li><i class="fas fa-check-circle" style="color: #38A169;"></i> 300-point third-party zero-snag pre-handover audit</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="matrix-panel-right">
+                        <img id="matrixImg" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Commitment Proof">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 4. INNOVATIVE TOOL: INTERACTIVE 300-POINT ZERO-SNAG & RERA VERIFIER ================= -->
+        <section style="padding: 90px 6%; background: var(--color-bg-primary);">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Uncompromising Engineering</span>
+                <h2>300-Point Zero-Snag Quality Audit Console</h2>
+                <p>Before any set of keys is handed over, each villa must pass our rigorous 4-category engineering inspection with zero pending defects.</p>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="verifier-console-box gs-reveal">
+                <div class="verifier-category-nav">
+                    <button class="verifier-cat-btn active" data-category="structural" data-cursor-action="AUDIT"><i class="fas fa-shield-alt"></i> Civil & Structural (UPV/Rebars)</button>
+                    <button class="verifier-cat-btn" data-category="waterproofing" data-cursor-action="AUDIT"><i class="fas fa-water"></i> Hydrology & 72-Hr Waterproofing</button>
+                    <button class="verifier-cat-btn" data-category="electrical" data-cursor-action="AUDIT"><i class="fas fa-bolt"></i> Electrical & Thermal Imaging</button>
+                    <button class="verifier-cat-btn" data-category="legal" data-cursor-action="AUDIT"><i class="fas fa-file-contract"></i> 40-Yr Legal & RERA Clearances</button>
+                </div>
+
+                <div class="verifier-check-grid" id="verifierChecksGrid">
+                    <div class="verifier-check-item gs-reveal">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong style="color: var(--color-forest); font-size: 14px;">UPV Concrete Homogeneity</strong>
+                            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.5;">Ultrasonic pulse velocity > 4.2 km/s across all load-bearing columns.</p>
+                        </div>
+                    </div>
+                    <div class="verifier-check-item gs-reveal">
+                        <i class="fas fa-cubes"></i>
+                        <div>
+                            <strong style="color: var(--color-forest); font-size: 14px;">Fe-550D TMT Yield Strength</strong>
+                            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.5;">Certified elongation and tensile tests against Indian Standard IS 1786.</p>
+                        </div>
+                    </div>
+                    <div class="verifier-check-item gs-reveal">
+                        <i class="fas fa-layer-group"></i>
+                        <div>
+                            <strong style="color: var(--color-forest); font-size: 14px;">Sub-Soil Compaction Audit</strong>
+                            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.5;">Standard penetration test (SPT) N-value verified by geotech engineers.</p>
+                        </div>
+                    </div>
+                    <div class="verifier-check-item gs-reveal">
+                        <i class="fas fa-ruler-combined"></i>
+                        <div>
+                            <strong style="color: var(--color-forest); font-size: 14px;">3D BIM Dimension Check</strong>
+                            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.5;">Millimeter-precise room dimension and vertical plumb-line audit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                    <span style="font-size: 13px; color: var(--color-text-muted);"><i class="fas fa-check-double" style="color: #2E7D32;"></i> 100% Third-Party Lab Certified & Audited</span>
+                    <button class="btn-luxury-outline" onclick="showToast('Sample 300-Point Audit Checklist downloaded successfully.');" data-cursor-action="DOWNLOAD">
+                        <i class="fas fa-file-pdf"></i> Download Sample Audit Log (PDF)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 5. INTERACTIVE PROCESS TIMELINE (6 STOPS) ================= -->
+        <section class="process-stepper-section">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">How We Build</span>
+                <h2>Our 6-Stop Delivery Process</h2>
+                <p>Click through the 6 stages of the Vaaraahi construction journey to see how we guarantee perfection.</p>
+                <div class="gold-divider"></div>
+            </div>
+
+            <!-- 6 Step Clickable Track -->
+            <div class="process-steps-track gs-reveal">
+                <div class="process-step-node active" data-cursor-action="STEP">
+                    <div class="step-num">01</div>
+                    <div class="step-title">Discover</div>
+                </div>
+                <div class="process-step-node" data-cursor-action="STEP">
+                    <div class="step-num">02</div>
+                    <div class="step-title">Plan</div>
+                </div>
+                <div class="process-step-node" data-cursor-action="STEP">
+                    <div class="step-num">03</div>
+                    <div class="step-title">Design</div>
+                </div>
+                <div class="process-step-node" data-cursor-action="STEP">
+                    <div class="step-num">04</div>
+                    <div class="step-title">Build</div>
+                </div>
+                <div class="process-step-node" data-cursor-action="STEP">
+                    <div class="step-num">05</div>
+                    <div class="step-title">Deliver</div>
+                </div>
+                <div class="process-step-node" data-cursor-action="STEP">
+                    <div class="step-num">06</div>
+                    <div class="step-title">Relationships</div>
+                </div>
+            </div>
+
+            <!-- Dynamic Process Preview Card -->
+            <div class="process-display-card gs-reveal">
+                <div class="process-card-info">
+                    <h3 id="processDisplayTitle">01. Discover & Land Due-Diligence</h3>
+                    <p id="processDisplayDesc">Every acquisition undergoes a rigorous 40-year clear title audit, forensic legal vetting, and groundwater hydrological assessment before master-planning begins.</p>
+                    <ul id="processDisplaySpecs">
+                        <li><i class="fas fa-check-circle"></i> 100% Litigation-Free Clear Titles</li>
+                        <li><i class="fas fa-check-circle"></i> Sub-Soil Compaction Analysis</li>
+                        <li><i class="fas fa-check-circle"></i> Strategic Growth Corridor Selection</li>
+                    </ul>
+                </div>
+                <div class="process-card-img">
+                    <img id="processDisplayImg" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Process Stage">
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 6. LEADERSHIP PROFILE WITH PHILOSOPHY AUDIO-NOTES ================= -->
+        <section class="leadership-section">
+            <div class="section-header-center gs-reveal">
+                <span class="section-tag">Visionary Leadership</span>
+                <h2>The Mind Behind Vaaraahi</h2>
+                <p>Guiding the brand with an uncompromising philosophy of architectural craft and customer trust.</p>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="leader-card-box gs-reveal">
+                <div class="leader-photo-wrap">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Founder & Managing Director">
+                </div>
+                <div class="leader-content">
+                    <div class="leader-title">Founder & Managing Director</div>
+                    <h3>Sri K. Vamshi Vardhan Reddy</h3>
                     
-                    <div class="story-quote-box">
-                        <p>"Our customers place something irreplaceable in our hands — their hard-earned life savings and the future of their children. We will never compromise on that sacred trust."</p>
+                    <div class="leader-quote">
+                        "When we build a home, we are not pouring concrete and laying bricks. We are constructing someone's sacred sanctuary and family legacy."
                     </div>
 
-                    <p style="color: var(--color-text-muted); font-size: 15px; line-height: 1.8; margin-bottom: 20px;">
-                        As Managing Director, I personally oversee the quality of every project we undertake. My commitment is simple: if I wouldn't be proud to live in it myself, it doesn't get the Vaaraahi name. This philosophy has guided us through 15 years and will continue for generations to come.
+                    <p class="leader-bio">
+                        With over two decades of hands-on civil engineering leadership and real estate innovation across South India, Sri K. Vamshi Vardhan Reddy founded Vaaraahi Group to bridge the gap between traditional craftsmanship and modern sustainable living. Under his stewardship, Vaaraahi has delivered over 1.5 million square feet of residential developments with a pristine 100% on-time delivery record and zero legal disputes.
                     </p>
-                    <p style="color: var(--color-gold-hover); font-weight: 700; font-family: var(--font-serif); font-size: 16px;">— Managing Director, Vaaraahi Group</p>
+
+                    <!-- Interactive Leadership Philosophy Audio-Note -->
+                    <div class="voice-note-player" data-audio-id="founder-voice" style="background: rgba(255,255,255,0.06); border-color: rgba(197,160,89,0.3); margin-top: 20px;">
+                        <button class="btn-voice-play" data-cursor-action="PLAY"><i class="fas fa-play"></i></button>
+                        <div class="voice-waveform-bar">
+                            <div class="wave-track"></div>
+                            <div class="wave-track"></div>
+                            <div class="wave-track"></div>
+                            <div class="wave-track"></div>
+                            <div class="wave-track"></div>
+                            <div class="wave-track"></div>
+                            <div class="wave-track"></div>
+                            <div class="wave-track"></div>
+                            <div class="wave-track"></div>
+                        </div>
+                        <span class="voice-duration" style="color: var(--color-gold);">1:15 • Listen to Founder's Engineering Philosophy</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA BANNER -->
-        <section class="cta-banner">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80" alt="Dream Home" class="cta-bg">
-            <div class="cta-content gs-reveal">
-                <span class="hero-eyebrow">Connect With Us</span>
-                <h2>Meet With Our Executive Team</h2>
-                <p>Visit our corporate headquarters in Hyderabad or our regional offices across Andhra Pradesh.</p>
+        <!-- ================= 7. THE VAARAAHI PROMISE & CLOSING CTA ================= -->
+        <section class="cta-parallax-band">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Vaaraahi Promise" class="cta-parallax-bg">
+            
+            <div class="cta-band-content gs-reveal">
+                <span class="section-tag" style="color: var(--color-gold);">Our Sacred Oath</span>
+                <h2>The Vaaraahi Promise</h2>
+                
+                <div style="font-family: var(--font-serif); font-size: clamp(18px, 2.2vw, 24px); color: #FFFFFF; line-height: 1.8; margin: 30px 0 40px; font-style: italic;">
+                    Better Locations.<br>
+                    Better Architectural Planning.<br>
+                    Better Quality Materials.<br>
+                    Better Transparent Governance.<br>
+                    <span style="color: var(--color-gold); font-weight: 700; font-style: normal;">Better Living for Generations.</span>
+                </div>
+
                 <div class="hero-actions">
-                    <a href="contact.html" class="btn-luxury">Schedule Appointment <i class="fas fa-arrow-right"></i></a>
-                    <a href="portfolio.html" class="btn-luxury-outline">Explore Projects</a>
+                    <a href="portfolio.html" class="btn-gold" data-cursor-action="EXPLORE">Explore Our Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="contact.html" class="btn-luxury-outline" data-cursor-action="CONNECT">Get in Touch With Us</a>
                 </div>
             </div>
         </section>
 
-        <!-- FULL FOOTER -->
-        <footer class="main-footer">
-            <div class="footer-grid">
+        <!-- ================= SITE-WIDE FOOTER ================= -->
+        <footer class="site-footer">
+            <div class="footer-top-grid">
                 <div class="footer-col">
-                    <span class="logo-title" style="color: var(--color-gold); font-size: 22px; display: block; margin-bottom: 8px;">VAARAAHI GROUP</span>
-                    <p style="color: rgba(255,255,255,0.7); max-width: 320px;">Building Dreams. Creating Landmarks. Enriching Lives.</p>
+                    <a href="index.html" class="logo-container" style="margin-bottom: 20px;">
+                        <img src="assets/vaaraahi-logo-horizontal.png" alt="Vaaraahi Logo" class="footer-logo-img">
+                        <div class="logo-text-group">
+                            <span class="logo-title">VAARAAHI</span>
+                            <span class="logo-tagline">COMMITTED TO DELIVER</span>
+                        </div>
+                    </a>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: 13px; line-height: 1.8; margin-bottom: 20px;">
+                        Building Dreams. Creating Landmarks. Enriching Lives. Premium residential communities and luxury duplex villas crafted for generations across Telangana and Andhra Pradesh.
+                    </p>
+                    <div class="footer-social-icons">
+                        <a href="https://facebook.com" target="_blank" class="social-icon-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
+
                 <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="portfolio.html">Projects</a></li>
-                        <li><a href="engineering.html">Quality</a></li>
-                        <li><a href="transparency.html">Approvals</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                    <h4>Quick Navigation</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> About Us & Heritage</a></li>
+                        <li><a href="portfolio.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Projects Portfolio</a></li>
+                        <li><a href="sustainability.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Why Vaaraahi & Sustainability</a></li>
+                        <li><a href="careers.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Careers & Openings</a></li>
+                        <li><a href="blogs.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Blogs & News</a></li>
+                        <li><a href="blogs-admin.html"><i class="fas fa-lock" style="color: var(--color-gold); font-size: 10px;"></i> Blogs Admin Portal</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Contact Us</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-col">
-                    <h4>Projects</h4>
-                    <ul class="footer-links">
-                        <li><a href="portfolio.html">Vaaraahi Grandeur</a></li>
-                        <li><a href="portfolio.html">Vaaraahi Lotus Grand</a></li>
-                        <li><a href="portfolio.html">Vaaraahi City Pride</a></li>
+                    <h4>Active Projects</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="project-detail.html">Vaaraahi Grandeur (Rayachoty)</a></li>
+                        <li><a href="project-detail.html">Vaaraahi Elite Vistas (Proddatur)</a></li>
+                        <li><a href="project-detail.html">Vaaraahi Green Meadows (Jammalamadugu)</a></li>
+                        <li><a href="portfolio.html">Vaaraahi Signature Towers (Hyderabad)</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-col">
-                    <h4>Get In Touch</h4>
-                    <p><i class="fas fa-phone-alt" style="color: var(--color-gold); margin-right: 8px;"></i> +91 90000 00000</p>
-                    <p><i class="fas fa-envelope" style="color: var(--color-gold); margin-right: 8px;"></i> invest@vaaraahigroup.com</p>
+                    <h4>Regional Headquarters</h4>
+                    <div style="font-size: 13px; color: rgba(255, 255, 255, 0.75); line-height: 1.7;">
+                        <p style="margin-bottom: 8px;"><strong style="color: var(--color-gold);">Hyderabad:</strong> Financial District, Nanakramguda, Telangana 500032</p>
+                        <p style="margin-bottom: 8px;"><strong style="color: var(--color-gold);">Proddatur:</strong> Main Bypass Road, YSR Kadapa, AP 516360</p>
+                        <p style="margin-bottom: 8px;"><strong style="color: var(--color-gold);">Rayachoty:</strong> Madanapalle Road, Annamayya Dist, AP 516269</p>
+                        <p><strong style="color: var(--color-gold);">Jammalamadugu:</strong> Gandhi Road, YSR Kadapa, AP 516434</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>© 2026 Vaaraahi Group of Estates. All Rights Reserved.</p>
-                <a href="transparency.html" style="color: var(--color-gold);">100% RERA Compliant</a>
+
+            <div class="footer-bottom-bar">
+                <div>
+                    © 2026 Vaaraahi Group of Estates. All Rights Reserved. Crafted with architectural excellence.
+                </div>
+                <div class="footer-legal-links">
+                    <a href="contact.html">Privacy Policy</a>
+                    <a href="contact.html">Terms & Conditions</a>
+                    <a href="contact.html">RERA Compliance Disclaimer</a>
+                </div>
             </div>
         </footer>
+
     </main>
 
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <!-- STICKY BOOKING WIDGET -->
+    <div class="sticky-enquiry-bar">
+        <a href="contact.html" class="btn-floating-book" data-cursor-action="VISIT">
+            <i class="fas fa-calendar-alt" style="color: var(--color-gold);"></i> Book Site Visit
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Vaaraahi%20Group,%20I%20would%20like%20to%20enquire%20about%20your%20luxury%20projects." target="_blank" class="btn-floating-whatsapp" aria-label="Chat on WhatsApp" data-cursor-action="CHAT">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.7/dist/barba.umd.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

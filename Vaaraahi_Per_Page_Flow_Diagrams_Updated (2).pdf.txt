@@ -1,0 +1,277 @@
+VA AR A A H I GR O UP
+Website Flow Diagrams
+UPDATED VERSION
+One detailed page-by-page breakdown — every section and sub-element
+Summary of changes in this revision:
+• "Why Vaaraahi" and "Sustainability" have been merged into a single page: WHY VAARAAHI & SUSTAINABILITY.
+• "News & Updates" has been removed and replaced with a BLOGS page (public) and a new BLOGS ADMIN page for managing
+posts (add / edit / delete, each with one image and text).
+• Cross-page references to News & Updates (on Home and Footer) have been updated to point to Blogs.
+
+-- 1 of 11 --
+
+V A A R A A H I G R O U P — P A G E 1 O F 1 0
+HOME — Full Flow
+Every section and sub-element on this page, top to bottom
+UPDATE: Section renamed from "News & Press Strip" to "Blogs & Press Strip"; now links to the new Blogs page. "Why
+Vaaraahi (condensed)" expanded to also flag Sustainability, reflecting the page merge.
+Main content section Sub-element / component within that section
+Hero Section
+Rotating background imagery (2–3 project photos, slow crossfade)
+Headline "Building Dreams. Creating Landmarks. Enriching Lives." + sub-tagline
+Two CTA buttons: Explore Our Projects / About Vaaraahi
+Scroll-down cue animation
+"By the Numbers" Stats Strip
+Years active (count-up on scroll)
+Projects delivered (count-up on scroll)
+Families housed (count-up on scroll)
+Cities present (count-up on scroll)
+Featured Projects Carousel
+Project card: image, status tag, category, name, location, short pitch, "Learn
+More"
+Repeats for each featured project (currently 3)
+Auto-advance with manual swipe/arrow control
+Why Vaaraahi & Sustainability
+(condensed)
+5 pillar icons: Trust, Quality, Transparency, Responsibility, Excellence
+Sustainability highlight strip (2–3 icons: eco-friendly design, green spaces,
+energy-conscious build)
+"See full page" link to standalone Why Vaaraahi & Sustainability page
+Testimonials Customer quote + name/photo/location
+Carousel navigation dots, auto-advance, pause-on-hover
+Blogs & Press Strip 3 latest blog post cards (image, date, headline)
+"View all blogs" link to Blogs page
+Final CTA Band
+Heading "Your Dream Home Awaits" + sub-line
+Inline enquiry form: name, phone, project interest
+Background image with gentle parallax
+
+-- 2 of 11 --
+
+V A A R A A H I G R O U P — P A G E 2 O F 1 0
+ABOUT US — Full Flow
+Every section and sub-element on this page, top to bottom
+Main content section Sub-element / component within that section
+Hero + "Who We Are" Narrative
+Hero image / headline
+3-paragraph company narrative
+Vision Statement
+Mission — 8 Commitments
+Quality Construction, Contemporary Architecture, Prime Locations
+Thoughtful Planning, Modern Amenities, Transparent Relationships
+Timely Execution, Long-Term Value Creation
+Values — 6 Pillars
+Trust — transparent communication, responsible commitments
+Quality — never compromised, planning to finishing
+Integrity — honesty, accountability, professionalism
+Innovation — better ideas, modern designs
+Customer First — decisions guided by buyer aspirations
+Value Creation — lasting value for generations
+Process Timeline (6 Stops) 01 Discover → 02 Plan → 03 Design
+04 Build → 05 Deliver → 06 Build Relationships
+Leadership Profile
+Photo of Founder & Managing Director
+Name, title, philosophy pull-quote
+Bio paragraph on vision and approach
+Milestones Timeline
+Founding year
+First project delivered
+Expansion by city (new addition)
+"The Vaaraahi Promise" + Closing
+CTA
+5-line promise statement (Better Locations → Better Living)
+Two CTA buttons: Explore Our Projects / Get in Touch
+
+-- 3 of 11 --
+
+V A A R A A H I G R O U P — P A G E 3 O F 1 0
+PROJECTS (LISTING) — Full Flow
+Every section and sub-element on this page, top to bottom
+Main content section Sub-element / component within that section
+Filter Bar
+City dropdown
+Property Type toggle (Villa / Apartment)
+Status filter (Available / Ongoing / Completed / Coming Soon)
+Configuration filter (BHK)
+Project Cards Grid
+Card: image, status badge, category tag, name, location
+Price-on-request tag + "View Details" button
+Repeats for every project in the portfolio
+Map View Toggle Switch between grid view and map view
+Interactive map with pins across all 4 cities
+
+-- 4 of 11 --
+
+V A A R A A H I G R O U P — P A G E 4 O F 1 0
+PROJECT DETAIL (Template — opens from each project card) — Full Flow
+Every section and sub-element on this page, top to bottom
+Main content section Sub-element / component within that section
+Gallery Image / video carousel
+Optional 360° walkthrough embed
+Overview Panel
+Property type & configuration
+Price range
+Possession status
+RERA registration number
+Floor Plans Tab Unit type selector (2 BHK / 3 BHK / 4 BHK etc.)
+Downloadable PDF per unit type
+Amenities Grid Icon + label per amenity (clubhouse, security, parking, play area, etc.)
+Location Section Embedded map
+Nearby landmarks & connectivity list (schools, hospitals, highways)
+Brochure Download Lead-capture form: name, phone, email
+PDF download triggered after submit
+Sticky Enquiry Panel
+Name, phone, email, message fields
+"Book a Site Visit" button
+WhatsApp click-through button
+
+-- 5 of 11 --
+
+V A A R A A H I G R O U P — P A G E 5 O F 1 0
+WHY VAARAAHI & SUSTAINABILITY — Full Flow
+Every section and sub-element on this page, top to bottom
+UPDATE: Merged from the previous separate "Why Vaaraahi" and "Sustainability" pages into a single page with two clearly-
+labelled halves, joined by an intro banner with jump links.
+Main content section Sub-element / component within that section
+Intro Banner
+Combined headline introducing both what makes Vaaraahi different and its
+sustainability commitments
+Short intro copy + anchor links to jump to "Why Vaaraahi" or "Sustainability"
+sections on the same page
+5 Pillars Expanded (Why Vaaraahi)
+Trust — full section with supporting imagery
+Quality — full section with supporting imagery
+Transparency — full section with supporting imagery
+Responsibility — full section with supporting imagery
+Excellence — full section with supporting imagery
+"What You Get With Vaaraahi"
+Checklist Side-by-side checklist: Vaaraahi vs. a typical developer
+Environmental Stewardship
+(Sustainability)
+Rainwater harvesting & groundwater recharge
+Native, drought-tolerant landscaping
+Permeable paving in common areas
+Underground electrical cabling
+Energy-Conscious Design
+Orientation for natural ventilation
+High-thermal-mass construction materials
+LED lighting in common areas
+Solar-ready rooftop infrastructure
+Community-Centred Planning
+Minimum 30% open & green space
+Pedestrian pathways & cycling tracks
+Children's play areas & gathering spaces
+Inclusive design for all ages
+Built to Last
+Premium-grade structural materials
+Third-party quality inspections
+Anti-corrosion, weather-resistant treatments
+Long-term maintenance planning
+Testimonials Carousel Video and/or text testimonials
+Navigation dots / arrows
+Leadership Quote + Closing CTA "Sustainability is a journey, not a destination" quote
+CTA button to Explore Our Projects
+
+-- 6 of 11 --
+
+V A A R A A H I G R O U P — P A G E 6 O F 1 0
+CAREERS — Full Flow
+Every section and sub-element on this page, top to bottom
+Main content section Sub-element / component within that section
+Culture & Values Introduction Overview of workplace culture and guiding values
+Open Roles List Role card: title, location, employment type
+"Apply" button per role
+Application Form
+Name, email, phone
+Resume upload
+Position applying for (dropdown)
+
+-- 7 of 11 --
+
+V A A R A A H I G R O U P — P A G E 7 O F 1 0
+BLOGS — Full Flow
+Every section and sub-element on this page, top to bottom
+UPDATE: New page replacing "News & Updates." Content is managed from the Blogs Admin page rather than hard-coded.
+Main content section Sub-element / component within that section
+Blogs Hero / Intro Page headline + short intro copy
+Featured / pinned blog post highlight (large image + title + excerpt)
+Filter & Search Bar
+Category filter tags (e.g. Construction Updates, Company News, Industry
+Insights)
+Search field for post titles/keywords
+Blog Cards Grid
+Card: image, title, date, category tag, short excerpt, "Read More"
+Repeats for every published blog post
+Pulled live from Blogs Admin — no manual page edits needed
+Pagination / Load More Numbered pagination or "Load More" button as post count grows
+Blog Detail (Template — opens
+from each blog card)
+Hero image, title, publish date, author/tag
+Full text content of the post
+Social share buttons
+"Related Posts" strip (3 cards)
+
+-- 8 of 11 --
+
+V A A R A A H I G R O U P — P A G E 8 O F 1 0
+BLOGS ADMIN (Internal — content management) — Full Flow
+Every section and sub-element on this page, top to bottom
+UPDATE: New internal-only page. Lets staff add, edit, and delete blog posts (each with one image and text) that feed the
+public Blogs page.
+Main content section Sub-element / component within that section
+Admin Access Gate Login form: username/email + password
+Restricted to authorised staff only
+Manage Posts — List View
+Table of all posts: thumbnail image, title, date, status (Published / Draft)
+"Edit" button per row
+"Delete" button per row, with confirmation prompt before removal
+"+ Add New Post" button
+Add / Edit Post Form
+Title field
+Text/body content field (rich text editor)
+Single image upload (one featured image per post)
+Category/tag selector
+Status toggle: Save as Draft / Publish
+"Save" and "Cancel" buttons
+Delete Confirmation Modal: "Are you sure you want to delete this post?" with Confirm / Cancel
+Deleted posts are removed from the public Blogs page immediately
+
+-- 9 of 11 --
+
+V A A R A A H I G R O U P — P A G E 9 O F 1 0
+CONTACT US — Full Flow
+Every section and sub-element on this page, top to bottom
+Main content section Sub-element / component within that section
+Enquiry Form
+Name, phone, email fields
+Project of interest (dropdown)
+Message field
+Submit button + on-page confirmation state
+Click-to-Call + WhatsApp Direct phone call button
+WhatsApp chat button
+City Office Cards
+Hyderabad — address + embedded map
+Proddatur — address + embedded map
+Jammalamadugu — address + embedded map
+Rayachoty — address + embedded map
+Business Hours + General Enquiry
+Email Listed business hours and a general enquiry email address
+
+-- 10 of 11 --
+
+V A A R A A H I G R O U P — P A G E 1 0 O F 1 0
+FOOTER (Site-Wide — appears on every page) — Full Flow
+Every section and sub-element on this page, top to bottom
+UPDATE: Footer navigation now points to Blogs instead of News & Updates.
+Main content section Sub-element / component within that section
+Quick Links Main navigation repeated (now including Blogs in place of News & Updates)
+Project Quick-Links Direct links to each active project
+City Addresses Hyderabad, Proddatur, Jammalamadugu, Rayachoty
+Social Media Icons Icon links to social platforms
+Legal Links
+Privacy Policy
+Terms & Conditions
+Disclaimer
+
+-- 11 of 11 --
+

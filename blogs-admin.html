@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs Admin CMS — Vaaraahi Group Editorial Portal</title>
+    <meta name="description" content="Internal Content Management System for Vaaraahi Group staff to publish, edit, upload photos, and manage architectural articles.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Unified Luxury Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body class="admin-cms-body">
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="main-nav admin-nav" id="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="assets/vaaraahi-logo-horizontal.png" alt="Vaaraahi Logo" class="brand-logo-img">
+            <div class="logo-text-group">
+                <span class="logo-title">VAARAAHI</span>
+                <span class="logo-tagline">Editorial CMS</span>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="portfolio.html">Projects</a></li>
+            <li><a href="blogs.html">Public Journal</a></li>
+            <li><a href="blogs-admin.html" class="active">CMS Dashboard</a></li>
+        </ul>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <a href="blogs.html" class="btn-luxury btn-sm"><i class="fas fa-external-link-alt"></i> View Live Journal</a>
+        </div>
+    </nav>
+
+    <!-- ================= 1. ADMIN ACCESS AUTH GATE MODAL ================= -->
+    <div class="modal-overlay" id="adminGateOverlay" style="display: flex;">
+        <div class="modal-dialog admin-gate-card">
+            <div class="admin-lock-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <span class="section-tag" style="color: var(--color-gold);">Editorial Staff Portal</span>
+            <h2 class="quote-serif" style="font-size: 26px; margin: 10px 0 8px; color: #FFFFFF;">Blogs CMS Authentication</h2>
+            <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-bottom: 24px;">Please enter your authorized administrator passcode to publish and edit articles.</p>
+
+            <div class="form-group" style="text-align: left; margin-bottom: 20px;">
+                <label style="color: #FFFFFF;"><i class="fas fa-key text-gold"></i> Admin Passcode</label>
+                <input type="password" id="adminPasswordInput" placeholder="Enter passcode..." value="vaaraahi2026" class="admin-input-dark">
+                <span style="font-size: 11px; color: var(--color-gold); margin-top: 6px; display: inline-block;">Demo Access: <code>vaaraahi2026</code></span>
+            </div>
+
+            <button type="button" class="btn-gold" id="adminLoginBtn" style="width: 100%; margin-bottom: 12px;">
+                <span>Unlock Editorial Desk</span> <i class="fas fa-unlock"></i>
+            </button>
+            <button type="button" class="btn-luxury-ghost" id="quickLoginDemoBtn" style="width: 100%; font-size: 11.5px;">
+                1-Click Quick Demo Login
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= 2. ADMIN DASHBOARD CONTENT ================= -->
+    <main class="admin-main-wrap">
+        
+        <!-- Header Ribbon -->
+        <div class="admin-header-row">
+            <div>
+                <span class="section-tag" style="color: var(--color-gold);">✦ ARCHITECTURAL JOURNAL CMS ✦</span>
+                <h1 class="admin-page-title">Manage Publications & Articles</h1>
+                <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; margin-top: 4px;">Create, upload photography, write whitepapers, and publish live to the Vaaraahi portal.</p>
+            </div>
+            <button class="btn-gold btn-create-post" onclick="openNewPostModal()">
+                <i class="fas fa-plus-circle"></i> <span>Write New Blog Post</span>
+            </button>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="admin-metrics-bar">
+            <div class="admin-stat-card">
+                <div class="stat-icon-wrap"><i class="fas fa-newspaper"></i></div>
+                <div class="stat-meta">
+                    <h4>Total Articles</h4>
+                    <div class="val" id="adminStatTotal">6</div>
+                </div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-icon-wrap icon-green"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-meta">
+                    <h4>Published Online</h4>
+                    <div class="val text-green" id="adminStatPublished">6</div>
+                </div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-icon-wrap icon-gold"><i class="fas fa-edit"></i></div>
+                <div class="stat-meta">
+                    <h4>Drafts in Review</h4>
+                    <div class="val text-gold" id="adminStatDrafts">0</div>
+                </div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-icon-wrap"><i class="fas fa-eye"></i></div>
+                <div class="stat-meta">
+                    <h4>Reader Impressions</h4>
+                    <div class="val" id="adminStatViews">16,240</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="admin-table-toolbar">
+            <div class="admin-search-wrap">
+                <i class="fas fa-search"></i>
+                <input type="text" id="adminSearchInput" placeholder="Filter articles by title, author, or category...">
+            </div>
+            <div class="admin-status-filters" id="adminStatusFilters">
+                <button class="admin-filter-pill active" data-status="All">All (<span id="countFilterAll">6</span>)</button>
+                <button class="admin-filter-pill" data-status="Published">Published (<span id="countFilterPub">6</span>)</button>
+                <button class="admin-filter-pill" data-status="Draft">Drafts (<span id="countFilterDraft">0</span>)</button>
+            </div>
+        </div>
+
+        <!-- Posts Management Table -->
+        <div class="admin-table-container">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Cover Image</th>
+                        <th>Article Headline & Author</th>
+                        <th style="width: 170px;">Category</th>
+                        <th style="width: 140px;">Published Date</th>
+                        <th style="width: 120px;">Status</th>
+                        <th style="width: 160px; text-align: right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="adminPostsTableBody">
+                    <!-- Dynamically populated by main.js from BlogStore -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SITE-WIDE FOOTER ================= -->
+        <footer class="site-footer" style="margin-top: 80px;">
+            <div class="footer-top-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo-container" style="margin-bottom: 20px;">
+                        <img src="assets/vaaraahi-logo-horizontal.png" alt="Vaaraahi Logo" class="footer-logo-img">
+                        <div class="logo-text-group">
+                            <span class="logo-title">VAARAAHI</span>
+                            <span class="logo-tagline">COMMITTED TO DELIVER</span>
+                        </div>
+                    </a>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: 13px; line-height: 1.8;">
+                        Central CMS Portal for publishing architectural insights, engineering audits, and sustainable real estate reports.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Navigation</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Home</a></li>
+                        <li><a href="portfolio.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Portfolio</a></li>
+                        <li><a href="blogs.html"><i class="fas fa-chevron-right" style="color: var(--color-gold); font-size: 10px;"></i> Public Journal Feed</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Editorial Desk</h4>
+                    <p style="color: rgba(255,255,255,0.75); font-size: 13px; line-height: 1.7;">
+                        Articles saved here are stored in local storage and instantly reflected on the Public Journal and Homepage feeds.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <div>© 2026 Vaaraahi Group of Estates. All Rights Reserved.</div>
+                <div class="footer-legal-links">
+                    <a href="blogs.html">Return to Public Blogs</a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ================= 3. ADD / EDIT POST MODAL WITH PHOTO UPLOADER ================= -->
+    <div class="modal-overlay" id="adminPostModal">
+        <div class="modal-dialog admin-editor-modal">
+            <button class="modal-close-btn" onclick="closePostModal()" aria-label="Close Modal">&times;</button>
+            <span class="section-tag" style="color: var(--color-gold);">Article Studio</span>
+            <h2 class="quote-serif" id="postModalTitle" style="font-size: 24px; margin-bottom: 20px; color: #FFFFFF;">Add New Blog Post</h2>
+
+            <form id="adminPostForm">
+                <input type="hidden" id="postIdInput" value="">
+
+                <!-- 1. Title -->
+                <div class="form-group">
+                    <label><i class="fas fa-heading text-gold"></i> Article Title / Headline *</label>
+                    <input type="text" id="postTitleInput" placeholder="e.g. Advancements in Fe-550D Rebar Testing & Corrosion Resistance" required class="admin-input-dark">
+                </div>
+
+                <!-- 2. Metadata Grid -->
+                <div class="admin-form-grid-3">
+                    <div class="form-group">
+                        <label><i class="fas fa-tag text-gold"></i> Category *</label>
+                        <select id="postCategoryInput" required class="admin-select-dark">
+                            <option value="Sustainability">Sustainability</option>
+                            <option value="Construction Updates">Construction Updates</option>
+                            <option value="Industry Insights">Industry Insights</option>
+                            <option value="Architecture & Vastu">Architecture & Vastu</option>
+                            <option value="Company News">Company News</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-user-edit text-gold"></i> Author & Role *</label>
+                        <input type="text" id="postAuthorInput" placeholder="e.g. Ar. Rajesh Varma, Design Lead" required class="admin-input-dark">
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-globe text-gold"></i> Publication Status *</label>
+                        <select id="postStatusInput" required class="admin-select-dark">
+                            <option value="Published">Published (Live on Website)</option>
+                            <option value="Draft">Draft (Internal Only)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 3. Photo Uploader & Image Management -->
+                <div class="form-group">
+                    <label><i class="fas fa-image text-gold"></i> Featured Cover Photo *</label>
+                    
+                    <!-- Drag & Drop Upload Zone -->
+                    <div class="admin-dropzone" id="adminDropzone">
+                        <input type="file" id="postFileInput" accept="image/*" style="display: none;">
+                        <div class="dropzone-inner" id="dropzonePrompt">
+                            <div class="dropzone-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                            <h4>Click to browse or Drag & Drop a photo</h4>
+                            <p>Supports PNG, JPG, WebP (Automatically converted for instant preview)</p>
+                            <button type="button" class="btn-luxury-ghost btn-xs" onclick="document.getElementById('postFileInput').click()">
+                                <i class="fas fa-folder-open"></i> Choose Image File
+                            </button>
+                        </div>
+
+                        <!-- Live Image Preview Box -->
+                        <div class="dropzone-preview" id="postImagePreviewWrap" style="display: none;">
+                            <img src="" id="postImagePreview" alt="Cover Preview">
+                            <div class="preview-info">
+                                <span class="preview-badge"><i class="fas fa-check-circle"></i> Photo Ready</span>
+                                <button type="button" class="btn-remove-photo" id="btnClearPhoto">
+                                    <i class="fas fa-trash-alt"></i> Remove / Change Photo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Image URL Input Fallback & Presets -->
+                    <div class="admin-url-fallback-row">
+                        <div style="flex: 1;">
+                            <span style="font-size: 11px; color: rgba(255,255,255,0.6); display: block; margin-bottom: 4px;">Or paste direct image link URL:</span>
+                            <input type="url" id="postImageInput" placeholder="https://images.unsplash.com/..." class="admin-input-dark">
+                        </div>
+                    </div>
+
+                    <!-- Quick Image Presets -->
+                    <div class="admin-preset-chips">
+                        <span class="preset-label">Architectural Presets:</span>
+                        <button type="button" class="preset-chip" onclick="applyImagePreset('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80')">Villa Exterior</button>
+                        <button type="button" class="preset-chip" onclick="applyImagePreset('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80')">Vedic Courtyard</button>
+                        <button type="button" class="preset-chip" onclick="applyImagePreset('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80')">Steel Engineering</button>
+                        <button type="button" class="preset-chip" onclick="applyImagePreset('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80')">Eco Aquifer</button>
+                        <button type="button" class="preset-chip" onclick="applyImagePreset('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80')">NRI Real Estate</button>
+                    </div>
+                </div>
+
+                <!-- 4. Excerpt -->
+                <div class="form-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <label style="margin: 0;"><i class="fas fa-align-left text-gold"></i> Short Excerpt (Card Summary) *</label>
+                        <span id="excerptCharCount" style="font-size: 11px; color: var(--color-gold);">0 / 180 chars</span>
+                    </div>
+                    <textarea id="postExcerptInput" rows="2" placeholder="Brief 1-2 sentence executive summary of this article..." required class="admin-textarea-dark"></textarea>
+                </div>
+
+                <!-- 5. Full Body Text with Quick Formatting Toolbar -->
+                <div class="form-group">
+                    <label><i class="fas fa-paragraph text-gold"></i> Full Article Body Text *</label>
+                    
+                    <!-- Formatting Toolbar -->
+                    <div class="admin-editor-toolbar">
+                        <button type="button" class="toolbar-btn" onclick="formatEditorText('b')" title="Bold"><i class="fas fa-bold"></i></button>
+                        <button type="button" class="toolbar-btn" onclick="formatEditorText('i')" title="Italic"><i class="fas fa-italic"></i></button>
+                        <button type="button" class="toolbar-btn" onclick="formatEditorText('h3')" title="Subheading"><i class="fas fa-heading"></i></button>
+                        <button type="button" class="toolbar-btn" onclick="formatEditorText('p')" title="Paragraph"><i class="fas fa-paragraph"></i></button>
+                        <button type="button" class="toolbar-btn" onclick="formatEditorText('quote')" title="Quote Block"><i class="fas fa-quote-right"></i></button>
+                        <button type="button" class="toolbar-btn" onclick="formatEditorText('ul')" title="Bullet List"><i class="fas fa-list-ul"></i></button>
+                    </div>
+
+                    <textarea id="postContentInput" rows="7" placeholder="Write full article body paragraphs here... HTML formatting and line breaks are fully supported." required class="admin-textarea-dark"></textarea>
+                </div>
+
+                <!-- Modal Actions -->
+                <div class="admin-modal-actions">
+                    <button type="button" class="btn-luxury-ghost" onclick="closePostModal()">Cancel</button>
+                    <button type="submit" class="btn-gold" id="btnSubmitPost">
+                        <i class="fas fa-save"></i> <span>Save & Publish Post</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= 4. DELETE CONFIRMATION MODAL ================= -->
+    <div class="modal-overlay" id="adminDeleteModal">
+        <div class="modal-dialog admin-delete-card">
+            <div class="delete-warning-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3 class="quote-serif" style="font-size: 22px; margin-bottom: 8px; color: #FFFFFF;">Confirm Article Deletion</h3>
+            <p style="font-size: 13px; color: rgba(255, 255, 255, 0.75); margin-bottom: 24px; line-height: 1.6;">
+                Are you sure you want to permanently delete <strong id="deletePostTitle" style="color: var(--color-gold);">this post</strong>? It will be removed from the public website immediately.
+            </p>
+            
+            <div style="display: flex; gap: 12px; justify-content: center;">
+                <button type="button" class="btn-luxury-ghost" onclick="closeDeleteModal()">Cancel</button>
+                <button type="button" class="btn-action-delete-confirm" id="confirmDeleteBtn">
+                    <i class="fas fa-trash-alt"></i> Yes, Permanently Delete
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="admin-toast" id="adminToast">
+        <i class="fas fa-check-circle toast-icon"></i>
+        <span class="toast-msg">Article published successfully!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <script src="main.js?v=5"></script>
+</body>
+</html>

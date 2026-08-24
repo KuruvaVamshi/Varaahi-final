@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us & Regional Offices — Vaaraahi Group</title>
-    <meta name="description" content="Connect with Vaaraahi Group across our regional offices in Hyderabad, Proddatur, Jammalamadugu, and Rayachoty. Book a site visit or speak with our property advisors.">
+    <title>Blogs & Updates — Vaaraahi Group | Real Estate Insights & News</title>
+    <meta name="description" content="Read architectural insights, sustainable engineering whitepapers, regional market trends, and live handover reports from Vaaraahi Group.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,13 +45,13 @@
                 <li><a href="portfolio.html">Projects</a></li>
                 <li><a href="sustainability.html">Sustainability</a></li>
                 <li><a href="careers.html">Careers</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="blogs.html" class="active">Blogs</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
 
         <div class="nav-actions">
-            <a href="contact.html" class="nav-cta active" data-cursor-action="ENQUIRE">
+            <a href="contact.html" class="nav-cta" data-cursor-action="ENQUIRE">
                 <span class="cta-pulse-dot"></span>
                 <span>Enquire Now</span>
             </a>
@@ -129,7 +129,7 @@
                         <li><a href="sustainability.html"><i class="fas fa-leaf"></i> <span>Sustainability & Geomancy</span> <small>Bioclimatic & Vastu</small></a></li>
                         <li><a href="careers.html"><i class="fas fa-briefcase"></i> <span>Careers Portal</span> <small>Build With Us</small></a></li>
                         <li><a href="blogs.html"><i class="fas fa-newspaper"></i> <span>Insights & Press</span> <small>Architecture Articles</small></a></li>
-                        <li><a href="contact.html" class="active"><i class="fas fa-map-marker-alt"></i> <span>Contact & Site Visit</span> <small>Experience Center</small></a></li>
+                        <li><a href="contact.html"><i class="fas fa-map-marker-alt"></i> <span>Contact & Site Visit</span> <small>Experience Center</small></a></li>
                     </ul>
                 </div>
 
@@ -161,172 +161,180 @@
     </div>
 
     <!-- MAIN BARBA CONTAINER -->
-    <main data-barba="container" data-barba-namespace="contact">
+    <main data-barba="container" data-barba-namespace="blogs">
 
         <!-- ================= 1. HERO SECTION ================= -->
-        <section class="hero-greensiri" style="min-height: 50vh; padding-top: 140px; padding-bottom: 40px;">
+        <section class="hero-greensiri blog-page-hero">
             <div class="hero-bg-wrapper">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Contact Hero" class="hero-bg-img">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=85" alt="Vaaraahi Blogs Hero" class="hero-bg-img">
                 <div class="hero-overlay"></div>
             </div>
 
             <div class="hero-content gs-reveal">
-                <span class="hero-eyebrow">✦ Connect With Our Advisory Team ✦</span>
-                <h1 class="hero-heading" style="font-size: clamp(32px, 4.5vw, 54px);">Begin Your Journey Home</h1>
-                <p class="hero-subheading" style="max-width: 680px;">Whether scheduling a private site walkthrough, inquiring about floor plan customizations, or speaking with our legal counsel, our advisors are here for you.</p>
+                <span class="hero-eyebrow">ARCHITECTURAL JOURNAL & REGIONAL INTELLIGENCE</span>
+                <h1 class="hero-heading" style="font-size: clamp(34px, 4.8vw, 56px);">
+                    Thought Leadership,<br>Engineering & Market Perspectives
+                </h1>
+                <p class="hero-subheading" style="max-width: 720px;">
+                    Explore architectural whitepapers, 300-point quality audit reports, Vedic geomancy blueprints, and investment intelligence from the creators of Vaaraahi Group.
+                </p>
+
+                <!-- Hero Metrics Strip -->
+                <div class="blog-hero-metrics">
+                    <div class="b-metric-item">
+                        <i class="fas fa-file-shield"></i>
+                        <span>100% Verified Technical Audits</span>
+                    </div>
+                    <div class="b-metric-item">
+                        <i class="fas fa-compass"></i>
+                        <span>Bioclimatic & Vastu Guides</span>
+                    </div>
+                    <div class="b-metric-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Rayalaseema Growth Indices</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- ================= 2. ENQUIRY FORM & DIRECT CALL BAR ================= -->
-        <section class="contact-section">
-            <div class="contact-layout-grid">
-                
-                <!-- Left: Interactive Enquiry Form -->
-                <div class="contact-form-box gs-reveal">
-                    <span class="section-tag">Direct Enquiry</span>
-                    <h2 class="quote-serif" style="font-size: 28px; margin-bottom: 8px;">Schedule a Consultation</h2>
-                    <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 24px;">Fill in your details below and our dedicated property advisor will get in touch within 2 hours.</p>
-
-                    <form id="mainContactForm">
-                        <div class="form-group">
-                            <label>Your Full Name *</label>
-                            <input type="text" placeholder="e.g. Anand Varma" required aria-label="Full Name">
-                        </div>
-
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                            <div class="form-group">
-                                <label>Phone Number (+91) *</label>
-                                <input type="tel" placeholder="+91 98765 43210" required aria-label="Phone Number">
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address *</label>
-                                <input type="email" placeholder="anand@example.com" required aria-label="Email Address">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Project of Interest *</label>
-                            <select required aria-label="Project of Interest">
-                                <option value="" disabled selected>Select a Signature Landmark</option>
-                                <option value="Vaaraahi Grandeur (Rayachoty)">Vaaraahi Grandeur (Rayachoty)</option>
-                                <option value="Vaaraahi Elite Vistas (Proddatur)">Vaaraahi Elite Vistas (Proddatur)</option>
-                                <option value="Vaaraahi Green Meadows (Jammalamadugu)">Vaaraahi Green Meadows (Jammalamadugu)</option>
-                                <option value="Hyderabad Corporate & Residential Developments">Hyderabad Developments</option>
-                                <option value="General Corporate Advisory">General Corporate Advisory</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Message / Specific Questions</label>
-                            <textarea rows="4" placeholder="Mention preferred villa configuration, site visit schedule, or financing inquiries..." aria-label="Message"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;" data-cursor-action="SUBMIT">Submit Consultation Request <i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-
-                <!-- Right: Direct Connect & Operating Hours -->
-                <div class="gs-reveal" style="display: flex; flex-direction: column; justify-content: center; gap: 30px;">
-                    
-                    <div style="background: var(--color-forest); color: #FFFFFF; padding: 36px; border-radius: var(--radius-lg); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-md);">
-                        <span class="section-tag" style="color: var(--color-gold);">Instant Connect</span>
-                        <h3 class="quote-serif" style="color: #FFFFFF; font-size: 26px; margin-bottom: 16px;">Speak With an Advisor Now</h3>
-                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 14px; line-height: 1.7; margin-bottom: 24px;">
-                            Our regional customer directors and legal due diligence managers are available Monday through Sunday to address questions regarding floor plans, APF loan approvals, and site tours.
-                        </p>
-
-                        <div style="display: flex; flex-direction: column; gap: 16px;">
-                            <a href="tel:+919876543210" style="display: flex; align-items: center; gap: 14px; color: #FFFFFF;" data-cursor-action="CALL">
-                                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-gold); color: var(--color-forest-dark); display: flex; align-items: center; justify-content: center; font-size: 16px;">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <span style="font-size: 11px; text-transform: uppercase; color: var(--color-gold); letter-spacing: 1px;">Direct Central Line</span>
-                                    <strong style="display: block; font-size: 16px;">+91 98765 43210 / +91 98765 43211</strong>
-                                </div>
-                            </a>
-
-                            <a href="mailto:info@vaaraahigroup.com" style="display: flex; align-items: center; gap: 14px; color: #FFFFFF;" data-cursor-action="MAIL">
-                                <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: var(--color-gold); border: 1px solid var(--color-gold); display: flex; align-items: center; justify-content: center; font-size: 16px;">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <span style="font-size: 11px; text-transform: uppercase; color: var(--color-gold); letter-spacing: 1px;">Advisory Desk Email</span>
-                                    <strong style="display: block; font-size: 16px;">info@vaaraahigroup.com</strong>
-                                </div>
-                            </a>
+        <!-- ================= 2. SPOTLIGHT FEATURED EDITORIAL STORY ================= -->
+        <section class="blog-spotlight-section">
+            <div class="spotlight-container gs-reveal">
+                <div class="spotlight-card" id="spotlightCard" data-cursor-action="READ">
+                    <!-- Left: Media Cover with Live Badge & 3D Tilt -->
+                    <div class="spotlight-media-wrap">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Spotlight Article" class="spotlight-img" id="spotlightImg">
+                        <div class="spotlight-media-overlay"></div>
+                        <span class="spotlight-featured-badge">EDITOR'S CHOICE SPOTLIGHT</span>
+                        <div class="spotlight-listen-pill">
+                            <i class="fas fa-headphones"></i>
+                            <span>5 Min Read • Audio Summary Available</span>
                         </div>
                     </div>
 
-                    <div style="background: #FFFFFF; padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
-                        <h4 style="font-family: var(--font-serif); color: var(--color-forest); font-size: 18px; margin-bottom: 12px;"><i class="far fa-clock" style="color: var(--color-gold);"></i> Site Office Hours</h4>
-                        <div style="font-size: 13px; color: var(--color-text-muted); line-height: 1.8;">
-                            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-border); padding: 8px 0;">
-                                <span>Monday – Saturday:</span>
-                                <strong style="color: var(--color-forest);">9:00 AM – 7:30 PM</strong>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0;">
-                                <span>Sunday & Holidays:</span>
-                                <strong style="color: var(--color-forest);">9:30 AM – 6:30 PM (Site Visits Active)</strong>
-                            </div>
+                    <!-- Right: Narrative & Key Insights -->
+                    <div class="spotlight-body">
+                        <div class="spotlight-meta-top">
+                            <span class="spotlight-cat-pill">Sustainability & Bioclimatic</span>
+                            <span class="spotlight-date"><i class="far fa-calendar-alt"></i> August 12, 2026</span>
+                            <span class="spotlight-views"><i class="far fa-eye"></i> 2,420 Readers</span>
                         </div>
-                    </div>
 
-                </div>
+                        <h2 class="spotlight-title">
+                            The Bioclimatic Blueprint: How Wind Channels & Solar Geomancy Cool Luxury Villas by 5°C
+                        </h2>
 
-            </div>
-        </section>
-
-        <!-- ================= 3. UNIQUE TOOL: INTERACTIVE REGIONAL HQ & EXPERIENCE CENTRE NAVIGATOR ================= -->
-        <section style="padding: 90px 6%; background: var(--color-bg-secondary);">
-            <div class="section-header-center gs-reveal">
-                <span class="section-tag">Physical Experience Hubs</span>
-                <h2>Regional Headquarters & Experience Centre Navigator</h2>
-                <p>Select any regional office to inspect its physical address, direct phone lines, operational team, and launch real-time GPS navigation.</p>
-                <div class="gold-divider"></div>
-            </div>
-
-            <div class="office-navigator-box gs-reveal">
-                <!-- City Office Tabs -->
-                <div class="office-nav-tabs">
-                    <button class="office-tab-btn active" data-office="hyd" data-cursor-action="OFFICE"><i class="fas fa-building"></i> Hyderabad HQ</button>
-                    <button class="office-tab-btn" data-office="proddatur" data-cursor-action="OFFICE"><i class="fas fa-home"></i> Proddatur Office</button>
-                    <button class="office-tab-btn" data-office="rayachoty" data-cursor-action="OFFICE"><i class="fas fa-tree"></i> Rayachoty Site Hub</button>
-                    <button class="office-tab-btn" data-office="jammalamadugu" data-cursor-action="OFFICE"><i class="fas fa-city"></i> Jammalamadugu Hub</button>
-                </div>
-
-                <!-- Dynamic Office Display Card -->
-                <div class="office-display-card">
-                    <div class="office-details-panel">
-                        <span class="badge-status" id="officeTypeBadge" style="margin-bottom: 8px; display: inline-block;">Corporate Headquarters</span>
-                        <h3 id="officeTitle" style="font-family: var(--font-serif); font-size: 26px; color: var(--color-forest); margin-bottom: 12px;">Vaaraahi Corporate Tower, Hyderabad</h3>
-                        
-                        <p id="officeAddress" style="font-size: 14px; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 20px;">
-                            Floor 8, Vaaraahi Signature Towers, Financial District, Nanakramguda, Hyderabad, Telangana 500032
+                        <p class="spotlight-excerpt">
+                            Explore how Vaaraahi Group merges aerodynamic southwest-northeast wind funnels, high-thermal-mass terracotta cavity walls, and subterranean aquifer percolation to create naturally cooler microclimates without energy waste.
                         </p>
 
-                        <div class="office-contact-stack">
-                            <div class="office-contact-line"><i class="fas fa-phone" style="color: var(--color-gold);"></i> <span id="officePhone">+91 40 2988 7700 / +91 98765 43210</span></div>
-                            <div class="office-contact-line"><i class="fas fa-envelope" style="color: var(--color-gold);"></i> <span id="officeEmail">hyd@vaaraahigroup.com</span></div>
-                            <div class="office-contact-line"><i class="fas fa-clock" style="color: var(--color-gold);"></i> <span id="officeHours">Mon – Sat: 9:00 AM – 7:30 PM | Sun: 10:00 AM – 5:00 PM</span></div>
+                        <!-- Key Takeaway Bullets -->
+                        <div class="spotlight-takeaways">
+                            <div class="takeaway-pill"><i class="fas fa-temperature-arrow-down"></i> 4°C-6°C Cooler Indoors</div>
+                            <div class="takeaway-pill"><i class="fas fa-wind"></i> Aerodynamic Cross-Breezes</div>
+                            <div class="takeaway-pill"><i class="fas fa-water"></i> 100% Aquifer Recharge</div>
                         </div>
 
-                        <div style="margin-top: 24px; display: flex; gap: 14px; flex-wrap: wrap;">
-                            <button class="btn-gold" id="btnOfficeDirections" onclick="showToast('Launching Google Maps Navigation...');" data-cursor-action="MAP">
-                                <i class="fas fa-directions"></i> Get GPS Directions
+                        <!-- Author Strip & Action -->
+                        <div class="spotlight-footer">
+                            <div class="spotlight-author">
+                                <div class="author-avatar"><i class="fas fa-user-tie"></i></div>
+                                <div>
+                                    <h5>Ar. Rajesh Varma</h5>
+                                    <span>Chief Design Strategist</span>
+                                </div>
+                            </div>
+                            <button class="btn-spotlight-read" onclick="openArticleReader('blog-1')" data-cursor-action="READ">
+                                <span>Read Full Whitepaper</span>
+                                <i class="fas fa-arrow-right"></i>
                             </button>
-                            <a href="tel:+919876543210" class="btn-luxury-outline" data-cursor-action="CALL">
-                                <i class="fas fa-phone-alt"></i> Call Office Directly
-                            </a>
                         </div>
-                    </div>
-
-                    <div class="office-visual-panel">
-                        <img id="officeImg" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Office Experience Hub">
                     </div>
                 </div>
             </div>
         </section>
+
+
+
+        <!-- ================= 4. PUBLIC BLOGS GRID CONTAINER ================= -->
+        <section class="blog-grid-section">
+            <div class="blog-grid-wrapper">
+                <!-- Live Dynamic Articles Feed injected from BlogStore -->
+                <div class="blogs-grid-container" id="publicBlogsGrid">
+                    <!-- Populated dynamically via initPublicBlogs() -->
+                </div>
+
+                <!-- Empty Search State Notice -->
+                <div class="blog-empty-state" id="blogEmptyState" style="display: none;">
+                    <div class="empty-icon"><i class="fas fa-search"></i></div>
+                    <h3>No matching architectural stories found</h3>
+                    <p>Try searching for terms like <em>"Vastu"</em>, <em>"Steel"</em>, <em>"Rayachoty"</em>, or reset your category filter.</p>
+                    <button class="btn-luxury-ghost btn-sm" onclick="resetBlogFilters()">Reset Filters</button>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ================= 6. WHITEPAPER DOWNLOAD & INTELLIGENCE DESK ================= -->
+        <section class="blog-whitepaper-section">
+            <div class="whitepaper-container gs-reveal">
+                <div class="whitepaper-card">
+                    <div class="whitepaper-badge">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>EXCLUSIVE COMPLIMENTARY DOWNLOAD</span>
+                    </div>
+                    <h2>2026 Rayalaseema & AP Luxury Real Estate Market Report</h2>
+                    <p>
+                        A 48-page empirical research paper detailing land parcel appreciation matrices, 100% clear RERA verification frameworks, and emerging luxury villa corridors across Andhra Pradesh.
+                    </p>
+                    <form class="whitepaper-form" id="whitepaperForm" onsubmit="handleWhitepaperDownload(event)">
+                        <input type="email" id="whitepaperEmail" placeholder="Enter your business or personal email..." required aria-label="Email address for whitepaper">
+                        <button type="submit" class="btn-luxury" id="btnWhitepaperSubmit">
+                            <span><i class="fas fa-download"></i> Download Report (PDF)</span>
+                        </button>
+                    </form>
+                    <span class="whitepaper-privacy-note"><i class="fas fa-lock"></i> 100% Confidential. Instant direct download link provided.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 7. FULL-SCREEN IMMERSIVE ARTICLE READER MODAL ================= -->
+        <div class="blog-reader-modal" id="blogReaderModal">
+            <!-- Top Progress Bar for Reader -->
+            <div class="reader-progress-track">
+                <div class="reader-progress-fill" id="readerProgressFill"></div>
+            </div>
+
+            <div class="blog-reader-body" id="blogReaderBody">
+                
+                <!-- Floating Reader Toolbar -->
+                <div class="reader-toolbar">
+                    <div class="reader-tool-group">
+                        <span class="tool-label">Text Size:</span>
+                        <button class="reader-tool-btn" onclick="adjustReaderFont(-1)" title="Decrease Font">A-</button>
+                        <button class="reader-tool-btn" onclick="adjustReaderFont(1)" title="Increase Font">A+</button>
+                    </div>
+
+                    <div class="reader-tool-group">
+                        <button class="reader-tool-btn" onclick="toggleReaderTheme()" id="readerThemeBtn" title="Toggle Reading Mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="reader-tool-btn" onclick="shareCurrentArticle()" title="Share Article">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+
+                    <button class="blog-reader-close" onclick="closeArticleReader()" aria-label="Close reader">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Injected Article Content -->
+                <div id="blogReaderContent" class="reader-article-content"></div>
+
+            </div>
+        </div>
 
         <!-- ================= SITE-WIDE FOOTER ================= -->
         <footer class="site-footer">
