@@ -910,7 +910,7 @@ function initZeroSnagVerifier() {
                     <div class="verifier-check-item gs-reveal">
                         <i class="fas ${c.icon}"></i>
                         <div>
-                            <strong style="color: var(--color-forest); font-size: 14px;">${c.title}</strong>
+                            <strong style="color: var(--color-royal); font-size: 14px;">${c.title}</strong>
                             <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.5;">${c.desc}</p>
                         </div>
                     </div>
@@ -1438,7 +1438,7 @@ function initPublicBlogs() {
             blogsGrid.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
                     <i class="fas fa-search" style="font-size: 32px; color: var(--color-gold); margin-bottom: 16px;"></i>
-                    <h3 style="font-family: var(--font-serif); color: var(--color-forest);">No articles found</h3>
+                    <h3 style="font-family: var(--font-serif); color: var(--color-royal);">No articles found</h3>
                     <p style="color: var(--color-text-muted);">Try adjusting your category filter or search keywords.</p>
                 </div>
             `;
@@ -1508,7 +1508,7 @@ window.openArticleReader = function(postId) {
                 ${post.content}
             </div>
             <div style="padding-top: 24px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-                <span style="font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--color-forest);">Share This Article:</span>
+                <span style="font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--color-royal);">Share This Article:</span>
                 <div style="display: flex; gap: 10px;">
                     <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(post.title)}" target="_blank" class="social-icon-link" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://www.linkedin.com" target="_blank" class="social-icon-link" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -1591,7 +1591,7 @@ function initBlogsAdmin() {
             <tr>
                 <td><img src="${post.image}" class="admin-post-thumb" alt="${post.title}"></td>
                 <td>
-                    <strong style="color: var(--color-forest); font-size: 14px;">${post.title}</strong>
+                    <strong style="color: var(--color-royal); font-size: 14px;">${post.title}</strong>
                     <div style="font-size: 11px; color: var(--color-text-muted);">${post.author}</div>
                 </td>
                 <td><span class="badge-role">${post.category}</span></td>
@@ -1922,6 +1922,7 @@ function initBarbaTransitions() {
             }]
         });
     } catch (err) {
+        alert('Barba transition initialization note: ' + err.message);
         console.warn('Barba transition initialization note:', err);
     }
 }
@@ -2130,15 +2131,15 @@ function initHeroAtmosphereSwitcher() {
     const ATMO_PRESETS = [
         {
             img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80',
-            overlay: 'linear-gradient(135deg, rgba(10, 28, 20, 0.7) 0%, rgba(197, 160, 89, 0.4) 100%)'
+            overlay: 'linear-gradient(135deg, rgba(7, 13, 46, 0.7) 0%, rgba(197, 160, 89, 0.4) 100%)'
         },
         {
             img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80',
-            overlay: 'linear-gradient(135deg, rgba(10, 28, 20, 0.6) 0%, rgba(26, 77, 46, 0.6) 100%)'
+            overlay: 'linear-gradient(135deg, rgba(7, 13, 46, 0.6) 0%, rgba(26, 45, 122, 0.6) 100%)'
         },
         {
             img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80',
-            overlay: 'linear-gradient(135deg, rgba(5, 15, 10, 0.85) 0%, rgba(10, 28, 20, 0.95) 100%)'
+            overlay: 'linear-gradient(135deg, rgba(5, 10, 36, 0.85) 0%, rgba(7, 13, 46, 0.95) 100%)'
         }
     ];
 
@@ -2687,7 +2688,7 @@ function initAuditWaterfallCascade() {
                     const targetScore = catPoints[catIdx] || 300;
                     if (targetScore > totalPoints) {
                         totalPoints = targetScore;
-                        animateCounter(counterEl, totalPoints);
+                        // animateCounter(counterEl, totalPoints);
                     }
                     if (hudPills[catIdx]) {
                         hudPills[catIdx].classList.add('active');
@@ -3245,7 +3246,7 @@ function initDynamicProjectDetailPage() {
             <a href="project-detail.html?id=${p.id}" class="project-switcher-card" style="display: block; text-decoration: none; background: rgba(255,255,255,0.03); border: 1px solid rgba(197,160,89,0.25); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.35s ease;" data-cursor-action="VIEW">
                 <div style="height: 160px; overflow: hidden; position: relative;">
                     <img src="${p.heroImg}" alt="${p.name}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;" class="switcher-img">
-                    <span style="position: absolute; top: 12px; left: 12px; background: rgba(10,28,20,0.85); color: var(--color-gold); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-full); border: 1px solid rgba(197,160,89,0.3); text-transform: uppercase;">${p.city}</span>
+                    <span style="position: absolute; top: 12px; left: 12px; background: rgba(7, 13, 46,0.85); color: var(--color-gold); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-full); border: 1px solid rgba(197,160,89,0.3); text-transform: uppercase;">${p.city}</span>
                 </div>
                 <div style="padding: 16px;">
                     <h4 style="font-family: var(--font-serif); color: #FFFFFF; font-size: 17px; margin-bottom: 4px;">${p.name}</h4>
@@ -3354,7 +3355,7 @@ function initSolarSimulator() {
         'dawn': {
             label: '6:30 AM — Morning East Dawn',
             desc: 'Gentle morning sunlight streams into Northeast puja and east verandas. Passive solar warming naturally stimulates circadian bio-rhythms.',
-            shader: 'linear-gradient(135deg, rgba(255, 183, 77, 0.35) 0%, rgba(255, 236, 179, 0.15) 60%, rgba(10, 28, 20, 0.4) 100%)',
+            shader: 'linear-gradient(135deg, rgba(255, 183, 77, 0.35) 0%, rgba(255, 236, 179, 0.15) 60%, rgba(7, 13, 46, 0.4) 100%)',
             glow: 0.2,
             uplights: 0.1
         },
@@ -3368,14 +3369,14 @@ function initSolarSimulator() {
         'golden': {
             label: '5:30 PM — Golden Hour Sunset',
             desc: 'Warm westward golden amber illumination bounces off Italian marble and water feature courtyards. Natural cross-breezes purge daytime air.',
-            shader: 'linear-gradient(225deg, rgba(237, 137, 54, 0.45) 0%, rgba(221, 107, 32, 0.25) 50%, rgba(10, 28, 20, 0.6) 100%)',
+            shader: 'linear-gradient(225deg, rgba(237, 137, 54, 0.45) 0%, rgba(221, 107, 32, 0.25) 50%, rgba(7, 13, 46, 0.6) 100%)',
             glow: 0.6,
             uplights: 0.4
         },
         'night': {
             label: '9:00 PM — Resort Night & Architectural Uplighting',
             desc: 'Warm 2700K concealed perimeter LED lighting illuminates pathways and tree canopies with zero light pollution, creating a serene sanctuary atmosphere.',
-            shader: 'linear-gradient(180deg, rgba(3, 10, 7, 0.75) 0%, rgba(5, 18, 12, 0.88) 100%)',
+            shader: 'linear-gradient(180deg, rgba(3, 7, 32, 0.75) 0%, rgba(5, 10, 36, 0.88) 100%)',
             glow: 1,
             uplights: 1
         }
@@ -3479,8 +3480,8 @@ function initThreeUnitWalkthrough() {
     const height = Math.min(500, window.innerHeight * 0.6);
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x06110D);
-    scene.fog = new THREE.FogExp2(0x06110D, 0.015);
+    scene.background = new THREE.Color(0x050B28);
+    scene.fog = new THREE.FogExp2(0x050B28, 0.015);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
     camera.position.set(18, 14, 22);
@@ -3520,7 +3521,7 @@ function initThreeUnitWalkthrough() {
 
     // Ground Platform
     const groundGeo = new THREE.BoxGeometry(28, 0.6, 24);
-    const groundMat = new THREE.MeshStandardMaterial({ color: 0x0A1C14, roughness: 0.8 });
+    const groundMat = new THREE.MeshStandardMaterial({ color: 0x070D2E, roughness: 0.8 });
     const ground = new THREE.Mesh(groundGeo, groundMat);
     ground.position.y = -0.3;
     ground.receiveShadow = true;
@@ -3618,7 +3619,7 @@ function initThreeUnitWalkthrough() {
                 sunLight.color.setHex(0xffe8d6);
                 sunLight.intensity = 1.2;
                 ambientLight.intensity = 0.7;
-                scene.background.setHex(0x06110D);
+                scene.background.setHex(0x050B28);
             } else if (mode === 'sunset') {
                 sunLight.color.setHex(0xED8936);
                 sunLight.intensity = 1.6;
@@ -3849,7 +3850,7 @@ function initCommuteSimulator() {
         commuteDestList.innerHTML = project.commuteDestinations.map(dest => `
             <div class="commute-dest-item">
                 <div>
-                    <strong style="color: var(--color-forest);"><i class="fas ${dest.icon}" style="color: var(--color-gold); margin-right: 8px;"></i> ${dest.name}</strong>
+                    <strong style="color: var(--color-royal);"><i class="fas ${dest.icon}" style="color: var(--color-gold); margin-right: 8px;"></i> ${dest.name}</strong>
                     <div style="font-size: 12px; color: var(--color-text-muted);">${dest.sub}</div>
                 </div>
                 <span class="commute-time-pill" id="ctime-${dest.key}">${COMMUTE_DATA['car'][dest.key] || '2 Mins'}</span>
@@ -4897,7 +4898,7 @@ function initThreeRegionalMap() {
     scene.add(goldLight);
 
     // 1. Stylized 3D Terrain Wireframe Grid
-    const gridHelper = new THREE.GridHelper(36, 36, 0xC5A059, 0x143626);
+    const gridHelper = new THREE.GridHelper(36, 36, 0xC5A059, 0x0F1B5E);
     gridHelper.position.y = 0;
     scene.add(gridHelper);
 
@@ -5891,7 +5892,7 @@ function initHomeAboutPillars() {
     }
 }
 
-// ================= 21. FEATURED DEVELOPMENTS (GREENSIRI-STYLE CINEMATIC SHOWCASE) =================
+// ================= 21. FEATURED DEVELOPMENTS (cinematic-STYLE CINEMATIC SHOWCASE) =================
 function initKineticFilmstrip() {
     const section = document.getElementById('kineticFilmstripSection');
     if (!section) return;
@@ -6617,7 +6618,7 @@ window.handleWhitepaperDownload = function(e) {
     setTimeout(() => {
         if (btn) {
             btn.innerHTML = '<span><i class="fas fa-check-circle"></i> Whitepaper Dispatched!</span>';
-            btn.style.background = '#38A169';
+            btn.style.background = '#3B82F6';
         }
         alert(`Success! The 2026 Rayalaseema & AP Luxury Real Estate Market Report has been sent to ${email.value}.`);
         email.value = '';
@@ -7195,7 +7196,7 @@ function initAllPageFeatures() {
     safeRun(initJourneyPathScroll, 'initJourneyPathScroll');
     safeRun(initInCardUnitConfigurator, 'initInCardUnitConfigurator');
     safeRun(initRoomSpatialInspector, 'initRoomSpatialInspector');
-    safeRun(initAmenityCampusNavigator, 'initAmenityCampusNavigator');
+    // safeRun(initAmenityCampusNavigator, 'initAmenityCampusNavigator');
     safeRun(initCommuteSimulator, 'initCommuteSimulator');
     safeRun(initSustainabilityProofConsole, 'initSustainabilityProofConsole');
     safeRun(initEcoSavingsCalculator, 'initEcoSavingsCalculator');
@@ -7291,8 +7292,17 @@ function initUniversalModalManager() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    initAllPageFeatures();
-    initBarbaTransitions();
+    try {
+        initAllPageFeatures();
+    } catch (e) {
+        alert("Error in initAllPageFeatures: " + e.stack);
+    }
+    
+    try {
+        initBarbaTransitions();
+    } catch (e) {
+        alert("Error in initBarbaTransitions: " + e.stack);
+    }
 });
 
 
