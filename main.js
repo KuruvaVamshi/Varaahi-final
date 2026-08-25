@@ -2571,11 +2571,11 @@ function initTimeTravelSlider() {
                 end: () => '+=' + (window.innerHeight * (numFrames - 0.5)),
                 pin: true,
                 scrub: 0.6,
-                snap: {
-                    snapTo: 1 / (numFrames - 1),
-                    duration: { min: 0.2, max: 0.45 },
-                    ease: "power1.inOut"
-                },
+                // snap: {
+                //     snapTo: 1 / (numFrames - 1),
+                //     duration: { min: 0.2, max: 0.45 },
+                //     ease: "power1.inOut"
+                // },
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
                 onUpdate: (self) => {
