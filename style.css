@@ -178,7 +178,6 @@ html.lenis body {
 .solar-simulator-section,
 .floorplans-section,
 .amenities-section,
-.careers-culture-section,
 .blog-spotlight-section,
 .blog-grid-section,
 .blog-whitepaper-section,
@@ -200,7 +199,6 @@ section[style*="color:#FFFFFF"],
 .blogs-strip-section .section-header-center h2,
 .testimonials-section .section-header-center h2,
 .home-about-section .section-header-center h2,
-.careers-culture-section .section-header-center h2,
 .blog-spotlight-section .section-header-center h2,
 .blog-grid-section .section-header-center h2,
 .blog-whitepaper-section .section-header-center h2,
@@ -227,7 +225,6 @@ section[style*="color:#FFFFFF"] .section-header-center h2,
 .blogs-strip-section .section-header-center p,
 .testimonials-section .section-header-center p,
 .home-about-section .section-header-center p,
-.careers-culture-section .section-header-center p,
 .blog-spotlight-section .section-header-center p,
 .blog-grid-section .section-header-center p,
 .blog-whitepaper-section .section-header-center p,
@@ -306,6 +303,12 @@ nav.main-nav.scrolled {
     background: rgba(4, 8, 30, 0.96);
     border-color: rgba(197, 160, 89, 0.5);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 20px rgba(197, 160, 89, 0.15);
+}
+
+nav.main-nav.nav-hidden {
+    transform: translate(-50%, -150%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .logo-container {
@@ -927,12 +930,19 @@ nav.main-nav.scrolled {
 }
 
 @media(max-width: 1080px) {
-    .nav-links-wrapper {
+    .nav-glider {
         display: none;
     }
 
     .mobile-toggle {
         display: flex;
+    }
+
+    .nav-cta {
+        padding: 6px 12px;
+        font-size: 10px;
+        letter-spacing: 0.8px;
+        gap: 6px;
     }
 
     .spatial-drawer-grid {
@@ -942,9 +952,7 @@ nav.main-nav.scrolled {
     .spatial-drawer-container {
         padding: 24px 20px;
     }
-}
 
-@media(max-width: 992px) {
     .nav-links {
         position: fixed;
         top: 0;
@@ -2833,6 +2841,17 @@ nav.main-nav.scrolled {
 .btn-floating-whatsapp:hover {
     transform: scale(1.08) translateY(-2px);
     box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+}
+
+@media (max-width: 768px) {
+    .sticky-enquiry-bar {
+        left: 0;
+        right: 0;
+        bottom: 15px;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+    }
 }
 
 /* ================= 5. MERGED WHY VAARAAHI & SUSTAINABILITY ================= */
@@ -9204,10 +9223,13 @@ footer.site-footer {
 
     .giant-line-the {
         font-size: 48px;
+        line-height: 1;
+        margin-bottom: 0;
     }
 
     .giant-line-main {
         font-size: 64px;
+        line-height: 1;
     }
 
     .araku-media-block {
@@ -10251,13 +10273,25 @@ footer.site-footer {
         top: 0;
         left: 0;
         transform: none;
-        margin: 20px 0;
+        margin: 10px 0;
+    }
+
+    .showcase-typo-solid,
+    .showcase-typo-outline {
+        font-size: clamp(60px, 15vw, 120px) !important;
+        line-height: 1;
+    }
+
+    .showcase-project-title {
+        font-size: clamp(32px, 8vw, 48px);
+        line-height: 1.1;
+        margin: 15px 0;
     }
 
     .showcase-content-grid {
         flex-direction: column;
         align-items: flex-start;
-        gap: 24px;
+        gap: 15px;
     }
 
     .advantages-glass-card {

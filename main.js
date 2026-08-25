@@ -5678,13 +5678,32 @@ function initFloatingCapsuleNav() {
         });
     }
 
-    // 3. Scroll Header Class
+    // 3. Scroll Header Class & Smart Hide
+    let lastScroll = 0;
     function handleScroll() {
-        if (window.scrollY > 30) {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScroll > 30) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
+
+        // Smart mobile navbar: hide on scroll down, show on scroll up
+        if (window.innerWidth <= 991) {
+            if (currentScroll > lastScroll && currentScroll > 150) {
+                // Scrolling down past 150px
+                nav.classList.add('nav-hidden');
+            } else {
+                // Scrolling up or at the top
+                nav.classList.remove('nav-hidden');
+            }
+        } else {
+            // Always show on desktop
+            nav.classList.remove('nav-hidden');
+        }
+        
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll;
     }
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
